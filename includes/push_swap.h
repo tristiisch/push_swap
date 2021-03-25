@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:05:23 by tglory            #+#    #+#             */
-/*   Updated: 2021/03/25 16:38:34 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/03/25 17:48:27 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ typedef struct s_stack_master
 
 void	ft_swap(t_stack *stack);
 void	ft_push(t_stack_master *stack, int bool);
+void	ft_rotate(t_stack *stack);
+void	ft_reverse_rotate(t_stack *stack);
 void	ft_print_stack(t_stack *stack);
 void	ft_print_master_stack(t_stack_master *stack_master);
 

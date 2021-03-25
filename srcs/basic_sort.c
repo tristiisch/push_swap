@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:08:51 by tglory            #+#    #+#             */
-/*   Updated: 2021/03/25 16:52:02 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/03/25 17:49:42 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,41 @@ void	ft_push(t_stack_master *stack_master, int bool)
 	(one->array)[one->length - 1] = 0;
 	(one->length)--;
 	(two->length)++;
+}
+
+void	ft_rotate(t_stack *stack)
+{
+	int	swap;
+	int	index;
+
+	if (stack->length <= 1)
+	{
+		printf("WARN > too small length, cancel rotate\n");
+		return ;
+	}
+	index = stack->length - 1;
+	swap = (stack->array)[index];
+	while (--index >= 0)
+		(stack->array)[index + 1] = (stack->array)[index];
+	(stack->array)[index + 1] = swap;
+}
+
+void	ft_reverse_rotate(t_stack *stack)
+{
+	int		swap;
+	size_t	index;
+
+	if (stack->length <= 1)
+	{
+		printf("WARN > too small length, cancel reverse\n");
+		return ;
+	}
+	index = 0;
+	swap = (stack->array)[index];
+	while (index < stack->length)
+	{
+		(stack->array)[index] = (stack->array)[index + 1];
+		index++;
+	}
+	(stack->array)[stack->length - 1] = swap;
 }

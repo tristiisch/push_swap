@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 12:58:02 by tglory            #+#    #+#             */
-/*   Updated: 2021/03/25 14:38:17 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/03/25 16:04:37 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,22 @@ void	print_int_array(int *list, size_t length)
 
 int	main(void)
 {
-	t_stack stack;
+	int	a[]	= {9, 5, 4, 3};
+	int	b[]	= {};
+	t_stack	stack;
 
-	stack.array_a = {9, 5, 4, 3, 2};
-	stack.array_a = { };
-
-	size_t length = sizeof(a) / sizeof(int);
-	print_int_array(a, length);
-	ft_swap(a, length);
-	print_int_array(a, length);
+	stack.array_a = a;
+	stack.array_b = b;
+	stack.length_a = sizeof(a) / sizeof(int);
+	stack.length_b = sizeof(b) / sizeof(int);
+	printf("test 1\n");
+	print_int_array(stack.array_a, stack.length_a);
+	print_int_array(stack.array_b, stack.length_b);
+	//ft_swap(a, length);
+	//ft_push(&stack, 1);
+	//ft_push(&stack, 0);
+	printf("test 2\n");
+	print_int_array(stack.array_a, stack.length_a);
+	print_int_array(stack.array_b, stack.length_b);
 	return (0);
 }

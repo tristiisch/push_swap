@@ -6,56 +6,50 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:08:51 by tglory            #+#    #+#             */
-/*   Updated: 2021/03/25 16:03:48 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/03/25 16:52:02 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_swap(int *array, size_t length)
+void	ft_swap(t_stack *stack)
 {
 	int	swap;
 	int	index;
 
-	if (length < 2)
+	if (stack->length < 2)
 	{
 		printf("WARN > too small length, cancel swap\n");
 		return ;
 	}
-	index = length - 1;
-	swap = array[index];
-	array[index] = array[index - 1];
-	array[index - 1] = swap;
+	index = stack->length - 1;
+	swap = (stack->array)[index];
+	(stack->array)[index] = (stack->array)[index - 1];
+	(stack->array)[index - 1] = swap;
 }
 
-void	ft_push(t_stack *stack, int bool)
+void	ft_push(t_stack_master *stack_master, int bool)
 {
-	int		**array_one;
-	int		**array_two;
-	size_t	*length_one;
-	size_t	*length_two;
+	t_stack	*one;
+	t_stack	*two;
 
 	if (bool == 1)
 	{
-		array_one = &stack->array_a;
-		length_one = &stack->length_a;
-		array_two = &stack->array_b;
-		length_two = &stack->length_b;
+		one = &stack_master->a;
+		two = &stack_master->b;
 	}
 	else
 	{
-		array_one = &stack->array_b;
-		length_one = &stack->length_b;
-		array_two = &stack->array_a;
-		length_two = &stack->length_a;
+		two = &stack_master->a;
+		one = &stack_master->b;
 	}
-	if (*length_one == 0)
+	if (one->length == 0 || (bool != 0 && bool != 1))
 	{
-		printf("WARN > out of limit, cancel push\n");
+		printf("WARN > too small length, cancel push\n");
 		return ;
 	}
-	(*array_two)[*length_two] = (*array_one)[*length_one - 1];
-	(*array_one)[*length_one - 1] = 0;
-	(*length_one)--;
-	(*length_two)++;
+	(two->array)[two->length] = (one->array)[one->length - 1];
+	(one->array)[one->length - 1] = 0;
+	(one->length)--;
+	(two->length)++;
 }

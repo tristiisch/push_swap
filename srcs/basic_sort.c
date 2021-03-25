@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   basic_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:08:51 by tglory            #+#    #+#             */
-/*   Updated: 2021/03/25 14:34:07 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/03/25 15:06:33 by ksam             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ void	ft_push(t_stack stack, int bool)
 	int	swap;
 	int	index;
 
-	if (length < 2)
+	if (stack.length_a < 2)
 		return ;
-	index = length - 1;
-	swap = list[index];
-	list[index] = list[index - 1];
-	list[index - 1] = swap;
+	index = stack.length_a - 1;
+	swap = stack.array_a[index];
+	stack.array_a[index] = stack.array_a[index - 1];
+	stack.array_a[index - 1] = swap;
 }

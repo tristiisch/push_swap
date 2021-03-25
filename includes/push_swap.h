@@ -6,7 +6,7 @@
 /*   By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:05:23 by tglory            #+#    #+#             */
-/*   Updated: 2021/03/25 15:04:21 by ksam             ###   ########lyon.fr   */
+/*   Updated: 2021/03/25 16:08:20 by ksam             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 # include <unistd.h>
 # include <stdio.h>
 
-void	ft_swap(int *array, size_t length);
-
 typedef struct s_stack
 {
 	size_t	length_a;
@@ -24,5 +22,9 @@ typedef struct s_stack
 	int		*array_a;
 	int		*array_b;
 }			t_stack;
+
+void	ft_swap(int *array, size_t length);
+void	ft_push(t_stack *stack, int bool);
+void	print_int_array(int *list, size_t length);
 
 #endif

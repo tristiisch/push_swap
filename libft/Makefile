@@ -6,7 +6,7 @@
 #    By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/26 17:55:35 by tglory            #+#    #+#              #
-#    Updated: 2021/03/09 19:44:43 by tglory           ###   ########lyon.fr    #
+#    Updated: 2021/03/25 18:16:49 by tglory           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,8 @@ SRC = ft_isdigit.c \
 		ft_putnbr_fd.c \
 		ft_strmapi.c \
 		ft_strcmp.c \
-		ft_strichr.c
+		ft_strichr.c \
+		ft_strncmp.c
 
 SRC_BONUS = ft_lstadd_front_bonus.c \
 			ft_lstnew_bonus.c \

@@ -6,7 +6,7 @@
 /*   By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:05:23 by tglory            #+#    #+#             */
-/*   Updated: 2021/03/26 14:03:45 by ksam             ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 14:37:53 by ksam             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,13 @@ void				data_backpusher(t_master *manager, char *val);
 void				data_frontpusher(t_master *manager, char *val);
 void				data_eraser(t_master *manager, t_data *new, int i);
 
+/*
+**_________________________________CHECKER_________________________________
+*/
+
+/*
+** 					CHECKER FUNCTIONS
+*/
+int		*transform_argument_to_array(int argc, char**argv);
 
 #endif

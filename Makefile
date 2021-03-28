@@ -6,7 +6,7 @@
 #    By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/04 12:37:16 by tglory            #+#    #+#              #
-#    Updated: 2021/03/25 16:51:18 by tglory           ###   ########lyon.fr    #
+#    Updated: 2021/03/28 23:49:34 by tglory           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ LIB_PATH	=	libft/libft.a get_next_line/get_next_line.a
 INCLUDES	=	$(wildcard includes/*.h)
 SRCS		=	$(wildcard srcs/*.c)
 OBJS		=	$(SRCS:.c=.o)
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wextra -Werror #-Wall 
 
 all: $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 17:54:56 by tglory            #+#    #+#             */
-/*   Updated: 2021/03/29 00:06:49 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/03/30 01:40:43 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	jump_to_index(t_stack *stack, int index)
 
 	length = stack->length;
 	times = length - (index + 1);
-	while (times > 0)
+	//printf("index %d length %d times %d\n", index, length, times);
+	while (times >= 0)
 	{
 		ft_rotate(stack);// TODO Change to sort(stack_master, "pb");
 		printf("rotate %d ", times);
@@ -28,23 +29,25 @@ void	jump_to_index(t_stack *stack, int index)
 	}
 }
 
-size_t	get_index_of_smallest(t_stack *stack)
+int	get_index_of_smallest(t_stack *stack)
 {
 	int index;
-	size_t saved_index;
+	int saved_index;
 	int i;
 
 	index = stack->length - 1;
+	//printf("test index %d\n", index);
 	i = 0; // TODO remove this to support sorting 0
 	while (index >= 0)
 	{
-		if (i > stack->array[index])
+		if (i == 0 || i > stack->array[index])
 		{
 			i = stack->array[index];
 			saved_index = index;
 		}
 		index--;
 	}
+	printf("small index is %d = %d\n", saved_index, i);
 	return saved_index;
 }
 
@@ -56,21 +59,18 @@ void	test_sort(t_stack_master *stack_master)
 
 	last_index = -1;
 	length = (stack_master->a).length;
-	while (length >= 0)
+	while (length > 0)
 	{
 		index = get_index_of_smallest(&(stack_master->a));
 		if (last_index == index)
 			break;
-		else
-		{
-			jump_to_index(&(stack_master->a), index);
-			sort(stack_master, "pb");
-		}
+		jump_to_index(&(stack_master->a), index);
+		ft_push(stack_master, 1); // TODO change to sort(stack_master, "pb");
 		length--;
 	}
 }
 
-
+/*
 void	check_sort(t_stack_master *stack_master)
 {
 	int index;
@@ -87,7 +87,7 @@ void	check_sort(t_stack_master *stack_master)
 		
 	}
 }
-
+*/
 void	sort(t_stack_master *stack_master, char *operator)
 {
 	if (ft_strncmp(operator, "sa", 2) == 0)

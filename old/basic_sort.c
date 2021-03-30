@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:08:51 by tglory            #+#    #+#             */
-/*   Updated: 2021/03/28 23:49:11 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/03/30 02:32:18 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,17 @@
 
 void	ft_swap(t_stack *stack)
 {
-	int	swap;
-	int	index;
+	t_stack *swap;
 
-	if (stack->length < 2)
+	if (length < 2)
 	{
 		printf("WARN > too small length, cancel swap\n");
 		return ;
 	}
-	index = stack->length - 1;
-	swap = (stack->array)[index];
-	(stack->array)[index] = (stack->array)[index - 1];
-	(stack->array)[index - 1] = swap;
+	swap = stack->next;
+	stack->next = swap->next;
+	swap->next = stack;
+	
 }
 
 void	ft_push(t_stack_master *stack_master, int bool)
@@ -40,16 +39,16 @@ void	ft_push(t_stack_master *stack_master, int bool)
 	}
 	else
 	{
-		two = &stack_master->a;
 		one = &stack_master->b;
+		two = &stack_master->a;
 	}
-	if (one->length == 0 || (bool != 0 && bool != 1))
+	if (stack_master->length_a == 0 || (bool != 0 && bool != 1))
 	{
 		printf("WARN > too small length, cancel push\n");
 		return ;
 	}
 	(two->array)[two->length] = (one->array)[one->length - 1];
-	(one->array)[one->length - 1] = 0;
+	(one->array)[one->length - 1] = -42;
 	(one->length)--;
 	(two->length)++;
 }

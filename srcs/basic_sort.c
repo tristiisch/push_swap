@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:08:51 by tglory            #+#    #+#             */
-/*   Updated: 2021/03/30 05:40:20 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/03/30 06:10:30 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,11 @@ void	ft_push(t_stack_master *stack_master, int bool)
 		return ;
 	}
 	ft_print_stack(two);
-	ft_stack_duplicate_push(two, ft_stack_peek(one));
+	
+	if (bool == 1)
+		two = ft_stack_duplicate_push(two, ft_stack_peek(one));
+	else
+		one = ft_stack_duplicate_push(one, ft_stack_peek(two));
 	ft_print_stack(two);
 	ft_stack_pop(one);
 }

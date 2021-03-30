@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 16:34:47 by tglory            #+#    #+#             */
-/*   Updated: 2021/03/30 05:08:43 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/03/30 06:03:49 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,14 @@ void	ft_print_stack(t_stack *stack)
 		if (ft_stack_is_empty(stack))
 			printf("EMPTY");
 		else
+		{
+			printf("size = %d ", stack->top + 1);
 			while (i <= stack->top)
 			{
 				printf("[%d] = %d, ", i, stack->array[i]);
 				i++;
 			}
+		}
 	}
 	else
 		printf("NULL");

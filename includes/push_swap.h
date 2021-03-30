@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:05:23 by tglory            #+#    #+#             */
-/*   Updated: 2021/03/30 02:34:43 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/03/30 05:32:19 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,24 @@
 # include "../libft/libft.h"
 # include "../get_next_line/get_next_line.h"
 
+#define INT_MAX	2147483647
+#define INT_MIN	(-INT_MAX-1)
+
+
+typedef struct s_stack
+{
+    int		top;
+    int		capacity;
+    int*	array;
+}			t_stack;
+
+/*
 typedef struct s_stack
 {
 	int		i;
 	struct  s_stack	*next;
-}			t_stack;
+}			t_stack;*/
+
 /*
 typedef struct s_stack
 {
@@ -48,5 +61,13 @@ void	ft_init_stack(t_stack *stack);
 void	sort(t_stack_master *stack_master, char *operator);
 void	jump_to_index(t_stack *stack, int index);
 void	test_sort(t_stack_master *stack_master);
+
+int			ft_stack_peek(t_stack* stack);
+int			ft_stack_pop(t_stack* stack);
+void		ft_stack_push(t_stack* stack, int item);
+int			ft_stack_is_empty(t_stack* stack);
+int 		ft_stack_is_full(t_stack* stack);
+t_stack*	ft_stack_create(unsigned capacity);
+t_stack* 	ft_stack_duplicate_push(t_stack* old_stack, int new_item);
 
 #endif

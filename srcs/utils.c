@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 16:34:47 by tglory            #+#    #+#             */
-/*   Updated: 2021/03/30 02:52:14 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/03/30 05:08:43 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,25 @@ void	ft_init_stack_master(t_stack_master *stack_master)
 	stack_master->b = NULL;
 }
 
-void	ft_init_stack(t_stack *stack)
-{
-	stack->i = -42;
-	stack->next = NULL;
-}
-
 void	ft_print_stack(t_stack *stack)
 {
-	t_stack *iterable;
+	int i;
 
-	iterable = stack;
+	i = 0;
 	printf("pile : ");
-	while (iterable != NULL)
+	if (stack != NULL)
 	{
-		printf("%d ", iterable->i);
-		iterable = stack->next;
+		if (ft_stack_is_empty(stack))
+			printf("EMPTY");
+		else
+			while (i <= stack->top)
+			{
+				printf("[%d] = %d, ", i, stack->array[i]);
+				i++;
+			}
 	}
+	else
+		printf("NULL");
 	printf("\n");
 }
 

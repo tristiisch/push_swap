@@ -6,15 +6,20 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:08:51 by tglory            #+#    #+#             */
-/*   Updated: 2021/03/30 06:10:30 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 05:24:38 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
+/**
+ * TODO
+ * add protection like stack != NULL
+ */
 
 #include "../includes/push_swap.h"
 
 void	ft_swap(t_stack *stack)
 {
-	int swap;
+	int	swap;
 
 	if (stack->top < 1)
 	{
@@ -24,37 +29,21 @@ void	ft_swap(t_stack *stack)
 	swap = stack->array[stack->top];
 	stack->array[stack->top] = stack->array[stack->top - 1];
 	stack->array[stack->top - 1] = swap;
-	
 }
 
 void	ft_push(t_stack_master *stack_master, int bool)
 {
-	t_stack	*one;
-	t_stack	*two;
-
-	if (bool == 1)
-	{
-		one = stack_master->a;
-		two = stack_master->b;
-	}
+	if (bool == 1 && !ft_stack_is_empty(stack_master->a))
+		stack_master->b = ft_stack_duplicate_push(stack_master->b,
+				ft_stack_pop(stack_master->a));
+	else if (bool == 0 && !ft_stack_is_empty(stack_master->b))
+		stack_master->a = ft_stack_duplicate_push(stack_master->a,
+				ft_stack_pop(stack_master->b));
 	else
 	{
-		one = stack_master->b;
-		two = stack_master->a;
-	}
-	if (ft_stack_is_empty(one) || (bool != 0 && bool != 1))
-	{
-		printf("WARN > too small length, cancel push\n");
+		printf("WARN > stack empty or bad parameter `bool`. Push cancelled\n");
 		return ;
 	}
-	ft_print_stack(two);
-	
-	if (bool == 1)
-		two = ft_stack_duplicate_push(two, ft_stack_peek(one));
-	else
-		one = ft_stack_duplicate_push(one, ft_stack_peek(two));
-	ft_print_stack(two);
-	ft_stack_pop(one);
 }
 
 void	ft_rotate(t_stack *stack)
@@ -76,8 +65,8 @@ void	ft_rotate(t_stack *stack)
 
 void	ft_reverse_rotate(t_stack *stack)
 {
-	int		swap;
-	int		index;
+	int	swap;
+	int	index;
 
 	if (stack->top <= 0)
 	{

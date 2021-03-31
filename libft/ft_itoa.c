@@ -6,16 +6,16 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 17:52:40 by tglory            #+#    #+#             */
-/*   Updated: 2020/10/26 17:52:40 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 05:05:04 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-static	int		ft_count(long n)
+static	int	ft_count(long	n)
 {
-	long i;
+	long	i;
 
 	i = 0;
 	if (n == 0)
@@ -28,7 +28,7 @@ static	int		ft_count(long n)
 	return (i);
 }
 
-static	char	*ft_cpyword(char *s, long nb, long len)
+static	char	*ft_cpyword(char *s, long	nb, long	len)
 {
 	if (nb == 0)
 	{
@@ -44,7 +44,7 @@ static	char	*ft_cpyword(char *s, long nb, long len)
 	return (s);
 }
 
-char			*ft_itoa(long n)
+char	*ft_itoa(long	n)
 {
 	char	*str;
 	int		neg;
@@ -59,7 +59,8 @@ char			*ft_itoa(long n)
 		haine = -1 * haine;
 	}
 	len = ft_count(haine) + neg;
-	if (!(str = malloc(sizeof(char) * (len + 1))))
+	str = malloc(sizeof(char) * (len + 1));
+	if (!(str))
 		return (0);
 	str[len] = '\0';
 	ft_cpyword(str, haine, (len - 1));

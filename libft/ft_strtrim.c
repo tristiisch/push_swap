@@ -6,14 +6,14 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 17:55:08 by tglory            #+#    #+#             */
-/*   Updated: 2020/10/26 17:55:08 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 05:09:29 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-static int		ft_cmp(char const *s1, char const *set)
+static int	ft_cmp(char const *s1, char const *set)
 {
 	int	i;
 	int	j;
@@ -33,10 +33,10 @@ static int		ft_cmp(char const *s1, char const *set)
 	return (i);
 }
 
-static int		ft_rcmp(char const *s1, char const *set)
+static int	ft_rcmp(char const *s1, char const *set)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = ft_strlen(s1);
 	j = 0;
@@ -53,7 +53,7 @@ static int		ft_rcmp(char const *s1, char const *set)
 	return (i);
 }
 
-char			*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*str;
 	size_t	i;

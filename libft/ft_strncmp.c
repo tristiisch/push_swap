@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 17:54:55 by tglory            #+#    #+#             */
-/*   Updated: 2021/03/25 18:15:42 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 05:08:52 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (i < n && ((s1[i] != '\0') || (s2[i] != '\0')))

@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 17:54:20 by tglory            #+#    #+#             */
-/*   Updated: 2021/02/11 03:00:12 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 05:03:02 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	ft_strcmp(char *s1, char *s2)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	while (s2[i] != '\0')

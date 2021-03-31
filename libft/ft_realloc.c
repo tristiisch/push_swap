@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 17:54:07 by tglory            #+#    #+#             */
-/*   Updated: 2020/10/26 17:54:07 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 05:05:12 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	*ft_realloc(void *ptr, size_t new_size, size_t old_size)
 {
 	char	*newptr;
 
-	if (!(newptr = ft_calloc(new_size, sizeof(unsigned char))))
+	newptr = ft_calloc(new_size, sizeof(unsigned char));
+	if (!(newptr))
 		return (NULL);
 	if (ptr)
 	{

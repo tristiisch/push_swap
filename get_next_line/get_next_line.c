@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tglory <tglory@student.le-101.fr>          +#+  +:+       +#+        */
+/*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 12:15:27 by tglory            #+#    #+#             */
-/*   Updated: 2020/02/17 09:10:47 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 05:00:12 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_substr(char *buffer)
 	buffer[i] = 0;
 }
 
-int		check_file(int fd, char files[][BUFFER_SIZE + 1])
+int	check_file(int fd, char files[][BUFFER_SIZE + 1])
 {
 	long	len;
 	long	nb_read;
@@ -55,7 +55,7 @@ int		check_file(int fd, char files[][BUFFER_SIZE + 1])
 	return (len);
 }
 
-int		copy_and_cut_buffer(int size, int length, char **line, char *buffer)
+int	copy_and_cut_buffer(int size, int length, char **line, char *buffer)
 {
 	long			i;
 	char			cpy[size];
@@ -67,8 +67,8 @@ int		copy_and_cut_buffer(int size, int length, char **line, char *buffer)
 	while (++i + (size - length) < size)
 		cpy[i + (size - length)] = buffer[i];
 	free((*line));
-	if (!((*line) = malloc(sizeof(char) *
-					(size + ((buffer[length] == '\n' || !length) ? 1 : 0)))))
+	(*line) = malloc(sizeof(char) * (size + ((buffer[length] == '\n' || !length) ? 1 : 0)));
+	if (!(line))
 		return (-1);
 	i = -1;
 	while (++i < size)
@@ -84,10 +84,10 @@ int		copy_and_cut_buffer(int size, int length, char **line, char *buffer)
 	return (0);
 }
 
-int		get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
-	int				length;
-	int				size;
+	int		length;
+	int		size;
 	static char		files[10242][BUFFER_SIZE + 1];
 
 	if (!line || BUFFER_SIZE <= 0 || !((*line) = malloc(sizeof(char)))

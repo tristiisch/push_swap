@@ -6,13 +6,14 @@
 #    By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/04 12:37:16 by tglory            #+#    #+#              #
-#    Updated: 2021/03/30 00:07:13 by tglory           ###   ########lyon.fr    #
+#    Updated: 2021/03/31 05:34:21 by tglory           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 CC 			= 	gcc
 NAME    	=	push_swap
 LIB_PATH	=	libft/libft.a get_next_line/get_next_line.a
+NORM_DIRS	=	srcs/ includes/ get_next_line/ libft/
 INCLUDES	=	$(wildcard includes/*.h)
 SRCS		=	$(wildcard srcs/*.c)
 OBJS		=	$(SRCS:.c=.o)
@@ -39,4 +40,12 @@ re:
 	make fclean
 	make all
 
-.PHONY: all clean fclean re
+start:
+	./$(NAME)
+
+norminette:
+	norminette $(NORM_DIRS)
+
+norm: norminette
+
+.PHONY: all clean fclean re norm norminette start

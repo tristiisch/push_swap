@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 17:51:52 by tglory            #+#    #+#             */
-/*   Updated: 2020/10/26 17:51:52 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 04:58:27 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*m;
 
-	if (!(m = malloc(count * size)))
+	m = malloc(count * size);
+	if (!(m))
 		return (NULL);
 	ft_bzero(m, size * count);
 	return (m);

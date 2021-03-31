@@ -6,16 +6,16 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 17:54:11 by tglory            #+#    #+#             */
-/*   Updated: 2020/10/26 17:54:11 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 05:06:55 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-static char		**ft_free(char **str)
+static char	**ft_free(char **str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (*str[i] != '\0')
@@ -27,9 +27,9 @@ static char		**ft_free(char **str)
 	return (NULL);
 }
 
-static char		*ft_cpyword(char *dst, char const *s, char c, int *i)
+static char	*ft_cpyword(char *dst, char const *s, char c, int *i)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	while (s[(*i)] == c)
@@ -44,9 +44,9 @@ static char		*ft_cpyword(char *dst, char const *s, char c, int *i)
 	return (dst);
 }
 
-static int		ft_lenword(char const *s, char c, int *i)
+static int	ft_lenword(char const *s, char c, int *i)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	while (s[(*i)] == c)
@@ -59,10 +59,10 @@ static int		ft_lenword(char const *s, char c, int *i)
 	return (len);
 }
 
-static int		ft_countword(char const *s, char c)
+static int	ft_countword(char const *s, char c)
 {
-	int i;
-	int count;
+	int	i;
+	int	count;
 
 	i = 0;
 	count = 0;
@@ -77,7 +77,7 @@ static int		ft_countword(char const *s, char c)
 	return (count);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	int		len;
 	int		l;

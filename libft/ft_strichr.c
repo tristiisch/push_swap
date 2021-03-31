@@ -6,13 +6,13 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:57:23 by tglory            #+#    #+#             */
-/*   Updated: 2021/03/08 19:57:44 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 05:07:39 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strichr(const char *s, int c)
+int	ft_strichr(const char *s, int c)
 {
 	size_t	i;
 

@@ -6,7 +6,7 @@
 #    By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/26 17:55:35 by tglory            #+#    #+#              #
-#    Updated: 2021/03/25 18:16:49 by tglory           ###   ########lyon.fr    #
+#    Updated: 2021/03/31 05:41:43 by tglory           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,8 @@ SRC = ft_isdigit.c \
 		ft_strmapi.c \
 		ft_strcmp.c \
 		ft_strichr.c \
-		ft_strncmp.c
+		ft_strncmp.c \
+		ft_strcat.c
 
 SRC_BONUS = ft_lstadd_front_bonus.c \
 			ft_lstnew_bonus.c \
@@ -66,14 +67,15 @@ O_FILES =	${SRC:.c=.o}
 
 O_BONUS =	${SRC_BONUS:.c=.o}
 
-CC =		gcc
+CC 		=	gcc
 
-CFLAGS =        -Wall -Wextra -Werror
+CFLAGS	=   -Wall -Wextra -Werror
 
 INCLUDE =	libft.h
 
 $(NAME) :	$(O_FILES) $(INCLUDE)
 			ar rcs $(NAME) $(O_FILES)
+			ranlib $(NAME)
 
 %.o :		%.c
 			$(CC) $(CFLAGS) -c $< -o $@

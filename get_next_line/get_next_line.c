@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 12:15:27 by tglory            #+#    #+#             */
-/*   Updated: 2021/03/31 05:00:12 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 06:16:21 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ int	check_file(int fd, char files[][BUFFER_SIZE + 1])
 		len++;
 	if (len > 0 || files[fd][len] == '\n')
 		return (len);
-	if ((nb_read = read(fd, files[fd], BUFFER_SIZE)) < 0)
+	nb_read = read(fd, files[fd], BUFFER_SIZE);
+	if (nb_read < 0)
 		return (nb_read);
 	len = 0;
 	while (files[fd][len] != '\n' && len < nb_read)
@@ -67,13 +68,15 @@ int	copy_and_cut_buffer(int size, int length, char **line, char *buffer)
 	while (++i + (size - length) < size)
 		cpy[i + (size - length)] = buffer[i];
 	free((*line));
-	(*line) = malloc(sizeof(char) * (size + ((buffer[length] == '\n' || !length) ? 1 : 0)));
+	(*line) = malloc(sizeof(char) * (size
+		+ (buffer[length] == '\n' || !length)));
 	if (!(line))
 		return (-1);
 	i = -1;
 	while (++i < size)
 		(*line)[i] = cpy[i];
-	if (!(i *= 0) && (buffer[length] == '\n' || !length))
+	i *= 0;
+	if (!(i) && (buffer[length] == '\n' || !length))
 	{
 		(*line)[size] = 0;
 		ft_substr(buffer);
@@ -86,8 +89,8 @@ int	copy_and_cut_buffer(int size, int length, char **line, char *buffer)
 
 int	get_next_line(int fd, char **line)
 {
-	int		length;
-	int		size;
+	int				length;
+	int				size;
 	static char		files[10242][BUFFER_SIZE + 1];
 
 	if (!line || BUFFER_SIZE <= 0 || !((*line) = malloc(sizeof(char)))

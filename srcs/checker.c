@@ -12,6 +12,19 @@
 
 #include "../includes/push_swap.h"
 
+int	is_updside_down(t_stack *stack)
+{
+	int	i;
+
+	i = 0;
+	while (i < stack->top)
+	{
+		if (stack->array[i] > stack->array[i + 1])
+			return (0);
+	}
+	return (1);
+}
+
 int	is_bad_index_only(t_stack_master *stack_master)
 {
 	int	start_index;

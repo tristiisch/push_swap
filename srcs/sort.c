@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 17:54:56 by tglory            #+#    #+#             */
-/*   Updated: 2021/03/31 03:58:39 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 07:19:16 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,6 +165,6 @@ void	sort(t_stack_master *stack_master, char *operator)
 		stack_master->instruction++;
 	}
 	printf("%s\n", operator);
-		stack_master->instruction++;
+	stack_master->instruction++;
 	ft_print_master_stack(stack_master);
 }

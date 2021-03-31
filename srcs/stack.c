@@ -12,21 +12,22 @@
 
 #include "../includes/push_swap.h"
 
-t_stack* ft_stack_duplicate_push(t_stack *stack, int new_item)
+t_stack* ft_stack_add(t_stack *stack, int new_item)
 {
 	t_stack* new_stack;
 	int	i;
 
 	if (stack == NULL)
 		new_stack = ft_stack_create(1);
-	else
+	else if (!(ft_stack_has_place(stack, 1)))
 	{
 		new_stack = ft_stack_create(stack->capacity + 1);
 		i = 0;
 		while (i <= stack->top)
 			ft_stack_push(new_stack, stack->array[i++]);
 		ft_stack_free_stack(stack);
-	}
+	} else
+		new_stack = stack;
 	ft_stack_push(new_stack, new_item);
 	return new_stack;
 }
@@ -56,6 +57,11 @@ int ft_stack_is_full(t_stack *stack)
 int ft_stack_is_empty(t_stack *stack)
 {
 	return stack->top == -1;
+}
+
+int ft_stack_has_place(t_stack *stack, int i)
+{
+	return stack->capacity > stack->top + i;
 }
 
 void ft_stack_push(t_stack *stack, int item)

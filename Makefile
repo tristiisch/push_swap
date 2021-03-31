@@ -6,7 +6,7 @@
 #    By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/04 12:37:16 by tglory            #+#    #+#              #
-#    Updated: 2021/03/31 06:34:53 by tglory           ###   ########lyon.fr    #
+#    Updated: 2021/03/31 07:02:07 by tglory           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,8 @@ clean:
 	make $@ -C libft
 	make $@ -C get_next_line
 	rm -f $(OBJS)
+	rm -f $(OBJS_PUSH_SWAP)
+	rm -f $(OBJS_CHECKER)
 
 fclean: clean
 	rm -f $(NAME)
@@ -59,4 +61,4 @@ norminette:
 
 norm: norminette
 
-.PHONY: all clean fclean re norm norminette start
+.PHONY: all clean fclean re norm norminette start core

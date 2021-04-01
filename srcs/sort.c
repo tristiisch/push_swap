@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 17:54:56 by tglory            #+#    #+#             */
-/*   Updated: 2021/04/02 01:30:33 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/04/02 01:39:25 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	get_index_of_biggest(t_stack *stack, int under)
 	return (saved_index);
 }
 
-int	get_index_of_smallest(t_stack *stack)
+int	get_index_of_smallest(t_stack *stack, int upper)
 {
 	int index;
 	int saved_index;
@@ -99,7 +99,8 @@ int	get_index_of_smallest(t_stack *stack)
 	i = 0; // TODO remove this to support sorting 0
 	while (index >= 0)
 	{
-		if (i == 0 || i > stack->array[index])
+		if ((upper == -1 || stack->array[index] > upper)
+			&& (i == 0 || i < stack->array[index]))
 		{
 			i = stack->array[index];
 			saved_index = index;
@@ -120,7 +121,7 @@ void	sort_by_biggest(t_stack_master *stack_master, int upper)
 	top = (stack_master->a)->top;
 	while (top >= 0)
 	{
-		index = get_index_of_smallest(stack_master->a);
+		index = get_index_of_smallest(stack_master->a, upper);
 		if (index == -1)
 		{
 			printf("WARN\nget_index_of_biggest cannot retrive the biggest one. Index = %d\n", index);
@@ -168,35 +169,13 @@ int**	get_perfect_order(t_stack *stack)
 		last_index = index;
 		last_number = stack->array[index];
 		array[i] = malloc(2 * sizeof(int));
+		printf("i = %d, %d-%d\n", i, index, last_number);
 		array[i][0] = index;
 		array[i][1] = last_number;
-		printf("i = %d, %d-%d\n", i, index, last_number);
 		i++;
 		top--;
 	}
-	//int	i;
-	int size = stack->top + 1;
-
-	i = 0;
-	printf("int array : ");
-	if (array != NULL)
-	{
-		if (size == 0)
-			printf("EMPTY");
-		else
-		{
-			printf("size = %d > ", size);
-			while (i < size)
-			{
-				printf("%d-%d ", array[i][0], array[i][1]);
-				i++;
-			}
-		}
-	}
-	else
-		printf("NULL");
-	printf("\n");
-	//ft_print_int_double_array(array, stack->top + 1);
+	ft_print_int_double_array(array, stack->top + 1);
 	return (array);
 }
 

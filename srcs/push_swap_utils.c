@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 16:34:47 by tglory            #+#    #+#             */
-/*   Updated: 2021/03/31 05:31:45 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/04/02 00:10:48 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,53 @@ void	ft_print_stack(t_stack *stack)
 			while (i <= stack->top)
 				printf("%d ", stack->array[i++]);
 				//printf("[%d] = %d, ", i, stack->array[i++]);
+		}
+	}
+	else
+		printf("NULL");
+	printf("\n");
+}
+
+void	ft_print_int_double_array(int **array, int size)
+{
+	int	i;
+
+	i = 0;
+	printf("int array : ");
+	if (array != NULL)
+	{
+		if (size == 0)
+			printf("EMPTY");
+		else
+		{
+			printf("size = %d > ", size);
+			while (i < size)
+			{
+				printf("%d-%d ", array[i][0], array[i][1]);
+				i++;
+			}
+		}
+	}
+	else
+		printf("NULL");
+	printf("\n");
+}
+
+void	ft_print_int_array(int *array, int size)
+{
+	int	i;
+
+	i = 0;
+	printf("int array : ");
+	if (array != NULL)
+	{
+		if (size == 0)
+			printf("EMPTY");
+		else
+		{
+			printf("size = %d > ", size);
+			while (i < size)
+				printf("%d ", array[i++]);
 		}
 	}
 	else

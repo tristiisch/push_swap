@@ -37,7 +37,7 @@ int	is_bad_index_only(t_stack_master *stack_master)
 		return (-1);
 	i = 0;
 	i1 = 0;
-	start_index = get_index_of_bigest(stack_master->a->array);
+	start_index = get_index_of_biggest(stack_master->a, -1);
 	while (i < stack_master->a->top)
 	{
 		if (i + start_index > stack_master->a->top)

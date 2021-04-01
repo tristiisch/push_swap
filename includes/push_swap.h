@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:05:23 by tglory            #+#    #+#             */
-/*   Updated: 2021/03/31 07:18:51 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/04/02 01:27:12 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ void		ft_print_stack(t_stack *stack);
 void		ft_print_master_stack(t_stack_master *stack_master);
 
 void		sort(t_stack_master *stack_master, char *operator);
-void		jump_to_index(t_stack *stack, int index);
+void		jump_to_index(t_stack_master *stack_master, int index, int a_or_b);
 void		test_sort(t_stack_master *stack_master);
-int			get_index_of_bigest(t_stack *stack);
+int			get_index_of_biggest(t_stack *stack, int upper);
 int			get_index_of_smallest(t_stack *stack);
 
 int			ft_stack_peek(t_stack *stack);
@@ -68,5 +68,7 @@ t_stack		*ft_stack_create(unsigned int capacity);
 t_stack		*ft_stack_add(t_stack *old_stack, int new_item);
 int 		ft_stack_has_place(t_stack *stack, int i);
 void		ft_stack_free_stack(t_stack *stack);
+void		ft_print_int_array(int *array, int size);
+void		ft_print_int_double_array(int **array, int size);
 
 #endif

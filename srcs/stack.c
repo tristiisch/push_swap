@@ -25,8 +25,9 @@ t_stack* ft_stack_add(t_stack *stack, int new_item)
 		i = 0;
 		while (i <= stack->top)
 			ft_stack_push(new_stack, stack->array[i++]);
-		ft_stack_free_stack(stack);
-	} else
+		//ft_stack_free_stack(stack);
+	}
+	else
 		new_stack = stack;
 	ft_stack_push(new_stack, new_item);
 	return new_stack;
@@ -45,7 +46,8 @@ t_stack* ft_stack_create(unsigned int capacity)
 
 void ft_stack_free_stack(t_stack *stack)
 {
-	free(stack->array);
+	//if (stack->capacity > 0)
+	//	free(stack->array);
 	free(stack);
 }
 
@@ -67,7 +69,10 @@ int ft_stack_has_place(t_stack *stack, int i)
 void ft_stack_push(t_stack *stack, int item)
 {
 	if (ft_stack_is_full(stack))
-		return;
+	{
+		printf("ERROR stack is full\n");
+		return ;
+	}
 	stack->array[++stack->top] = item;
 	//printf("%d pushed\n", item);
 }
@@ -75,13 +80,19 @@ void ft_stack_push(t_stack *stack, int item)
 int ft_stack_pop(t_stack *stack)
 {
 	if (ft_stack_is_empty(stack))
-		return -42;
+	{
+		printf("ERROR empty stack\n");
+		return (-42);
+	}
 	return stack->array[stack->top--];
 }
 
 int ft_stack_peek(t_stack *stack)
 {
 	if (ft_stack_is_empty(stack))
-		return -42;
+	{
+		printf("ERROR stack is full\n");
+		return (-42);
+	}
 	return stack->array[stack->top];
 }

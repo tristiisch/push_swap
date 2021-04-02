@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 16:34:47 by tglory            #+#    #+#             */
-/*   Updated: 2021/04/02 01:39:39 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/04/02 03:36:02 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_print_int_double_array(int **array, int size)
 	int	i;
 
 	i = 0;
-	printf("int array : ");
+	printf("int 2 array : ");
 	if (array != NULL)
 	{
 		if (size == 0)

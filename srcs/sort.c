@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 17:54:56 by tglory            #+#    #+#             */
-/*   Updated: 2021/04/02 01:39:25 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/04/02 04:27:15 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int	get_index_of_smallest(t_stack *stack, int upper)
 	while (index >= 0)
 	{
 		if ((upper == -1 || stack->array[index] > upper)
-			&& (i == 0 || i < stack->array[index]))
+			&& (i == 0 || i > stack->array[index]))
 		{
 			i = stack->array[index];
 			saved_index = index;
@@ -147,7 +147,7 @@ void	sort_by_biggest(t_stack_master *stack_master, int upper)
 	}
 }
 
-int**	get_perfect_order(t_stack *stack)
+int**	get_perfect_order(t_stack_master *stack_master, int a_or_b)
 {
 	int top;
 	int last_index;
@@ -155,13 +155,26 @@ int**	get_perfect_order(t_stack *stack)
 	int last_number;
 	int i;
 	int **array;
+	t_stack *stack;
 
+	if (a_or_b == 0)
+		stack = stack_master->a;
+	else if (a_or_b == 1)
+		stack = stack_master->b;
+	else
+	{
+		printf("WARN > a_or_b bad parameter `bool`. get_perfect_order cancelled\n");
+		return NULL;
+	}
 	last_index = -1;
 	top = stack->top;
 	last_number = -1;
 	i = 0;
-	array = malloc(top + 1 * 2 * sizeof(int));
-	while (top >= 0)
+	if (top >= 0)
+		array = malloc((top + 1) * sizeof(*array));
+	else
+		array = NULL;
+	while (i <= top)
 	{
 		index = get_index_of_biggest(stack, last_number);
 		if (index == -1 || last_index == index)
@@ -169,52 +182,94 @@ int**	get_perfect_order(t_stack *stack)
 		last_index = index;
 		last_number = stack->array[index];
 		array[i] = malloc(2 * sizeof(int));
-		printf("i = %d, %d-%d\n", i, index, last_number);
+		//printf("i = %d, %d-%d\n", i, index, last_number);
 		array[i][0] = index;
 		array[i][1] = last_number;
 		i++;
-		top--;
 	}
-	ft_print_int_double_array(array, stack->top + 1);
+	//ft_print_int_double_array(array, top + 1);
 	return (array);
 }
 
+int	can_be_revert(t_stack *stack, int **perfect_array)
+{
+	int	i;
+	int	one;
+	int	one_index;
+	int	two;
+	int	two_index;
+
+	if (stack->top <= 0)
+		return (0);
+	i = 0;
+	one = stack->array[stack->top];
+	two = stack->array[stack->top - 1];
+	if (one < two)
+		return (0);
+	one_index = -1;
+	two_index = -1;
+	while (i <= stack->top && (one_index == -1 || two_index == -1))
+	{
+		//printf("DEBUG2 %d/%d - %d'%d \n", perfect_array[i][1], one, perfect_array[i][1], two);
+		if (one_index == -1 && perfect_array[i][1] == one)
+			one_index = i;
+		else if (two_index == -1 && perfect_array[i][1] == two)
+			two_index = i; 
+		i++;
+	}
+	//ft_print_int_double_array(perfect_array, stack->top + 1);
+	//printf("DEBUG %d/%d - %d'%d \n", one_index, two_index, stack->array[stack->top], stack->array[stack->top - 1]);
+	if (one_index == -1 || two_index == -1)
+		return (0);
+	else if (one_index + 1 == two_index)
+		return (1);
+	return (0);
+}
+
+
 void	test_sort(t_stack_master *stack_master)
 {
-	int	**perfect_array;
+	int	**perfect_array_a;
+	int	**perfect_array_b;
+	int	top;
 	int	i;
-	int top;
-	int last_b;
 
-	perfect_array = get_perfect_order(stack_master->a);
-	last_b = perfect_array[0][1];
+	perfect_array_a = get_perfect_order(stack_master, 0);
+	perfect_array_b = get_perfect_order(stack_master, 1);
 	i = 0;
-	top = stack_master->a->top;
-	while (!(is_correct(stack_master)) && i < 50)
+	while (!(is_correct(stack_master)) && i < 25)
 	{
-		printf("DEBUG > %d-%d(%d)\n", stack_master->a->array[stack_master->a->top], last_b, perfect_array[0][1]);
-		if (perfect_array[top][0] + 1 == perfect_array[top - 1][0])
-			sort(stack_master, "sa");
-		else if (stack_master->a->array[stack_master->a->top] == last_b)
+		//if (perfect_array_a != NULL && stack_master->a->top > 0 && perfect_array_a[stack_master->a->top][0] + 1 == perfect_array_a[stack_master->a->top - 1][0]
+		//else if (perfect_array_b != NULL && stack_master->b->top > 0 && perfect_array_b[stack_master->b->top][0] - 1 == perfect_array_b[stack_master->b->top - 1][0])
+		//	sort(stack_master, "sb");
+		if (is_updside_down(stack_master->b) && (ft_stack_is_empty(stack_master->a) || is_correct_order(stack_master->a)))
 		{
-			last_b = stack_master->a->array[stack_master->a->top];
+			top = stack_master->b->top;
+			while (top >= 0)
+			{
+				sort(stack_master, "pa");
+				top--;
+			}
+			break;
+		}
+		else if (get_index_of_smallest(stack_master->a, -1) == stack_master->a->top)
+		{
 			sort(stack_master, "pb");
 		}
+		else if (can_be_revert(stack_master->a, perfect_array_a))
+			sort(stack_master, "sa");
 		else
-			sort(stack_master, "ra");
+		{
+			if (get_index_of_smallest(stack_master->a, -1) > stack_master->a->top / 2)
+				sort(stack_master, "ra");
+			else
+				sort(stack_master, "rra");
+		}
+		perfect_array_a = get_perfect_order(stack_master, 0);
+		perfect_array_b = get_perfect_order(stack_master, 1);
 		i++;
-		perfect_array = get_perfect_order(stack_master->a);
 	}
-	i = 0;
-	while (i < stack_master->b->top)
-	{
-		sort(stack_master, "pa");
-		i++;
-	}
-	i = 0;
-	while (i > 0)
-		free(perfect_array[i--]);
-	free(perfect_array);
+	// TODO free perfect_array_a && perfect_array_b
 }
 
 

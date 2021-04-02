@@ -12,6 +12,21 @@
 
 #include "../includes/push_swap.h"
 
+
+int	is_correct_order(t_stack *stack)
+{
+	int	i;
+
+	i = 0;
+	while (i < stack->top)
+	{
+		if (stack->array[i] < stack->array[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int	is_updside_down(t_stack *stack)
 {
 	int	i;
@@ -21,6 +36,7 @@ int	is_updside_down(t_stack *stack)
 	{
 		if (stack->array[i] > stack->array[i + 1])
 			return (0);
+		i++;
 	}
 	return (1);
 }

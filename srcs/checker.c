@@ -12,8 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-
-int	is_correct_order(t_stack *stack)
+int	ft_is_correct_order(t_stack *stack)
 {
 	int	i;
 
@@ -27,7 +26,7 @@ int	is_correct_order(t_stack *stack)
 	return (1);
 }
 
-int	is_updside_down(t_stack *stack)
+int	ft_is_updside_down(t_stack *stack)
 {
 	int	i;
 
@@ -41,6 +40,26 @@ int	is_updside_down(t_stack *stack)
 	return (1);
 }
 
+int	ft_is_correct(t_stack_master *stack_master)
+{
+	int	i;
+
+	if (ft_stack_is_empty(stack_master->a)
+		|| !ft_stack_is_empty(stack_master->b))
+		return (0);
+	i = 0;
+	while (i < stack_master->a->top)
+	{
+		if (stack_master->a->array[i] < stack_master->a->array[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+/** Too many line on normintte and I didn't think this will be use.
+ *  I'll see it later. (27 lines)
+ */
 int	is_bad_index_only(t_stack_master *stack_master)
 {
 	int	start_index;
@@ -69,21 +88,4 @@ int	is_bad_index_only(t_stack_master *stack_master)
 		i++;
 	}
 	return (i2);
-}
-
-int	is_correct(t_stack_master *stack_master)
-{
-	int	i;
-
-	if (ft_stack_is_empty(stack_master->a)
-		|| !ft_stack_is_empty(stack_master->b))
-		return (0);
-	i = 0;
-	while (i < stack_master->a->top)
-	{
-		if (stack_master->a->array[i] < stack_master->a->array[i + 1])
-			return (0);
-		i++;
-	}
-	return (1);
 }

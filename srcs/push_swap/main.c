@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 12:58:02 by tglory            #+#    #+#             */
-/*   Updated: 2021/04/02 04:22:12 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/04/02 05:25:59 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	test_exemple(void)
 {
 	t_stack_master	*stack_master;
-	
+
 	stack_master = malloc(sizeof(t_stack_master));
 	stack_master->a = ft_stack_create(6);
 	stack_master->b = ft_stack_create(6);
@@ -42,7 +42,7 @@ void	test_exemple(void)
 int	main(int argc, char **argv)
 {
 	t_stack_master	*stack_master;
-	
+
 	if (argc > 1 && !ft_strncmp(argv[1], "-ex", 3))
 	{
 		test_exemple();
@@ -85,7 +85,8 @@ int	main(int argc, char **argv)
 	//ft_print_master_stack(&stack_master);
 	//ft_reverse_rotate(&stack_master.a);
 	//test_sort(&stack_master);
-	//printf("SIZE %ld = %ld\n", sizeof(a) / sizeof(int), sizeof(b) / sizeof(int));
+	//printf("SIZE %ld = %ld\n", sizeof(a) / sizeof(int),
+		//sizeof(b) / sizeof(int));
 	//ft_print_master_stack(&stack_master);
 	return (0);
 }

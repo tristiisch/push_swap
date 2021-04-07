@@ -6,7 +6,7 @@
 #    By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/04 12:37:16 by tglory            #+#    #+#              #
-#    Updated: 2021/04/07 15:13:02 by tglory           ###   ########lyon.fr    #
+#    Updated: 2021/04/07 15:29:45 by tglory           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ all: $(NAME) $(NAME_CHECKER)
 $(NAME_CHECKER): $(OBJS) $(OBJS_CHECKER) $(INCLUDES)
 	make -C libft
 	make -C get_next_line
-	$(CC) ${CFLAGS} $(OBJS) $(OBJS_CHECKER) $(LIB_PATH) -o $(NAME)
+	$(CC) ${CFLAGS} $(OBJS) $(OBJS_CHECKER) $(LIB_PATH) -o $(NAME_CHECKER)
 	
 $(NAME): $(OBJS) $(OBJS_PUSH_SWAP) $(INCLUDES)
 	make -C libft

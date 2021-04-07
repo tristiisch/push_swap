@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:05:23 by tglory            #+#    #+#             */
-/*   Updated: 2021/04/07 15:41:58 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/04/07 23:51:28 by ksam             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,8 @@ void				data_eraser(t_master *manager, t_data *new, int i);
 /*
 ** 					CHECKER FUNCTIONS
 */
-int		*transform_argument_to_array(int argc, char**argv);
+int					*transform_argument_to_array(int argc, char**argv);
+t_stack_master		*fill_astack_with_arg(int *nb, int argc);
+
 
 #endif

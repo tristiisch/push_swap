@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:05:23 by tglory            #+#    #+#             */
-/*   Updated: 2021/04/07 15:16:23 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/04/07 15:26:56 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,26 @@
 # define PUSH_SWAP_H
 #include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "../libft/libft.h"
 #include "../get_next_line/get_next_line.h"
+
+
+typedef struct		s_data
+{
+	char			*val;
+	int				free;
+	struct s_data	*prev;
+	struct s_data	*next;
+}					t_data;
+
+typedef struct		s_master
+{
+	unsigned int	count;
+	t_data			*first;
+	t_data			*last;
+	t_data			*current;
+}					t_master;
 
 typedef struct s_stack
 {
@@ -86,5 +104,26 @@ int				ft_is_correct(t_stack_master *stack_master);
 
 void			ft_free_perfect_stack(t_perfect_stack perfect_stack);
 t_perfect_stack	ft_get_perfect_stack(t_stack_master *stack_master);
+
+/*
+**___________________________DOUBLY LINKED LIST___________________________
+*/
+
+/*
+** 					DOUBLY LINKED LIST FUNCTIONS
+*/
+t_master			*manager_initializor();
+void				data_backpusher(t_master *manager, char *val);
+void				data_frontpusher(t_master *manager, char *val);
+void				data_eraser(t_master *manager, t_data *new, int i);
+
+/*
+**_________________________________CHECKER_________________________________
+*/
+
+/*
+** 					CHECKER FUNCTIONS
+*/
+int		*transform_argument_to_array(int argc, char**argv);
 
 #endif

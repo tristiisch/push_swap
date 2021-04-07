@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 17:54:56 by tglory            #+#    #+#             */
-/*   Updated: 2021/04/07 15:07:34 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/04/07 15:38:34 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -260,6 +260,10 @@ void	sort(t_stack_master *stack_master, char *operator)
 		ft_rotate(stack_master->a);
 		ft_rotate(stack_master->b);
 		stack_master->instruction++;
+	}
+	else
+	{
+		printf("ERROR > Unknown operator '%s'.\n", operator);
 	}
 	printf("%s\n", operator);
 	stack_master->instruction++;

@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:05:23 by tglory            #+#    #+#             */
-/*   Updated: 2021/04/07 15:26:56 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/04/07 15:41:58 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include <stdlib.h>
 #include "../libft/libft.h"
 #include "../get_next_line/get_next_line.h"
-
 
 typedef struct		s_data
 {
@@ -50,20 +49,6 @@ typedef struct s_perfect_stack
 	int		size_b;
 }	t_perfect_stack;
 
-/*
-typedef struct s_stack
-{
-	int		i;
-	struct  s_stack	*next;
-}			t_stack;*/
-
-/*
-typedef struct s_stack
-{
-	int		*array;
-	size_t	length;
-}			t_stack;
-*/
 typedef struct s_stack_master
 {
 	t_stack	*a;

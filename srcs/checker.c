@@ -57,7 +57,7 @@ int	ft_is_correct(t_stack_master *stack_master)
 	return (1);
 }
 
-/** Too many line on normintte and I didn't think this will be use.
+/** Too many lines on normintte and I didn't think this will be use.
  *  I'll see it later. (27 lines)
  */
 int	is_bad_index_only(t_stack_master *stack_master)

@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 17:54:56 by tglory            #+#    #+#             */
-/*   Updated: 2021/04/02 05:27:09 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/04/07 15:07:34 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,7 +181,6 @@ int	can_be_revert(t_stack *stack, int **perfect_array)
 		return (1);
 	return (0);
 }
-
 
 void	test_sort(t_stack_master *stack_master)
 {

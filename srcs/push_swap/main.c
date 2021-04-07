@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 12:58:02 by tglory            #+#    #+#             */
-/*   Updated: 2021/04/02 05:25:59 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/04/07 14:51:34 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,6 @@ void	test_exemple(void)
 	ft_stack_add(stack_master->a, 3);
 	ft_stack_add(stack_master->a, 1);
 	ft_stack_add(stack_master->a, 2);
-	/*sort(stack_master, "sa");
-	sort(stack_master, "pb");
-	sort(stack_master, "pb");
-	sort(stack_master, "pb");
-	sort(stack_master, "rr");
-	sort(stack_master, "rrr");
-	sort(stack_master, "sa");
-	sort(stack_master, "pa");
-	sort(stack_master, "pa");
-	sort(stack_master, "pa");*/
 	test_sort(stack_master);
 	printf("instructions > %d\n", stack_master->instruction);
 }

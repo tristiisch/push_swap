@@ -6,7 +6,7 @@
 #    By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/04 12:37:16 by tglory            #+#    #+#              #
-#    Updated: 2021/03/31 07:02:07 by tglory           ###   ########lyon.fr    #
+#    Updated: 2021/04/07 15:13:02 by tglory           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,4 +61,4 @@ norminette:
 
 norm: norminette
 
-.PHONY: all clean fclean re norm norminette start core
+.PHONY: all clean fclean re norm norminette start

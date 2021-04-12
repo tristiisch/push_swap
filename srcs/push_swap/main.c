@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 12:58:02 by tglory            #+#    #+#             */
-/*   Updated: 2021/04/07 14:51:34 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/04/12 15:52:37 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,51 +32,22 @@ void	test_exemple(void)
 int	main(int argc, char **argv)
 {
 	t_stack_master	*stack_master;
+	int				index;
 
-	if (argc > 1 && !ft_strncmp(argv[1], "-ex", 3))
+	if (argc >= 2 && !ft_strncmp(argv[1], "-ex", 3))
 	{
 		test_exemple();
 		return (0);
 	}
-	// Used for debug Only
 	stack_master = malloc(sizeof(t_stack_master));
-	stack_master->a = ft_stack_create(8);
-	stack_master->b = ft_stack_create(6);
-	// -------------------
-	//ft_print_master_stack(stack_master);
-	ft_stack_add(stack_master->a, 1);
-	ft_stack_add(stack_master->a, 2);
-	ft_stack_add(stack_master->a, 3);
-	ft_stack_add(stack_master->a, 4);
-	ft_stack_add(stack_master->a, 5);
-	ft_stack_add(stack_master->a, 6);
-	//ft_stack_add(stack_b, 42);
+	stack_master->a = ft_stack_create(argc - 1);
+	stack_master->b = ft_stack_create(argc - 1);
+	index = 1;
+	while (argv[index])
+		ft_add(stack_master->a, argv[index++]);
 	stack_master->instruction = 0;
 	ft_print_master_stack(stack_master);
-	//ft_push(&stack_master, 1);
-	//ft_push(&stack_master, 0);
-	//ft_swap(stack_master.b);
-	//ft_reverse_rotate(stack_master.a);
-	//ft_rotate(stack_master.a);
-	//sort_by_biggest(stack_master, -1);
 	test_sort(stack_master);
-	//ft_print_master_stack(stack_master);
 	printf("instructions > %d\n", stack_master->instruction);
-	//ft_print_master_stack(&stack_master);
-	//ft_swap(stack_master.a);
-	//ft_print_master_stack(&stack_master);
-	//ft_print_master_stack(&stack_master);
-	//ft_push(&stack_master, 1);
-	//ft_print_master_stack(&stack_master);
-	//ft_push(&stack_master, 1);
-	//ft_print_master_stack(&stack_master);
-	//ft_print_master_stack(&stack_master);
-	//ft_rotate(stack_master.a);
-	//ft_print_master_stack(&stack_master);
-	//ft_reverse_rotate(&stack_master.a);
-	//test_sort(&stack_master);
-	//printf("SIZE %ld = %ld\n", sizeof(a) / sizeof(int),
-		//sizeof(b) / sizeof(int));
-	//ft_print_master_stack(&stack_master);
 	return (0);
 }

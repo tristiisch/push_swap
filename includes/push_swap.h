@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:05:23 by tglory            #+#    #+#             */
-/*   Updated: 2021/04/07 15:41:58 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/04/12 15:51:45 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ t_stack			*ft_stack_create(unsigned int capacity);
 t_stack			*ft_stack_add(t_stack *old_stack, int new_item);
 int				ft_stack_has_place(t_stack *stack, int i);
 void			ft_stack_free_stack(t_stack *stack);
+t_stack*		ft_add(t_stack *stack, char* s);
 void			ft_print_int_array(int *array, int size);
 void			ft_print_int_double_array(int **array, int size);
 
@@ -89,7 +90,6 @@ int				ft_is_correct(t_stack_master *stack_master);
 
 void			ft_free_perfect_stack(t_perfect_stack perfect_stack);
 t_perfect_stack	ft_get_perfect_stack(t_stack_master *stack_master);
-
 /*
 **___________________________DOUBLY LINKED LIST___________________________
 */

@@ -12,6 +12,32 @@
 
 #include "../includes/push_swap.h"
 
+int ft_stack_has(t_stack *stack, int item)
+{
+	int	index;
+
+	index = 0;
+	while (index <= stack->top)
+	{
+		if (stack->array[index++] == item)
+			return (1);
+	}
+	return (0);
+}
+
+t_stack* ft_add(t_stack *stack, char* s)
+{
+	int	i;
+	
+	i = ft_atoi(s);
+	if (ft_stack_has(stack, i))
+	{
+		printf("Error > %s (%d) is already on stack A.\n", s, i);
+		exit (EXIT_FAILURE);
+	}
+	return ft_stack_add(stack, i);
+}
+
 t_stack* ft_stack_add(t_stack *stack, int new_item)
 {
 	t_stack* new_stack;

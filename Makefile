@@ -6,7 +6,7 @@
 #    By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/04 12:37:16 by tglory            #+#    #+#              #
-#    Updated: 2021/04/07 15:29:45 by tglory           ###   ########lyon.fr    #
+#    Updated: 2021/04/12 15:54:39 by tglory           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,9 +52,6 @@ fclean: clean
 re:
 	make fclean
 	make all
-
-start: $(NAME)
-	./$(NAME)
 
 norminette:
 	norminette $(NORM_DIRS)

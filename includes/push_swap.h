@@ -54,6 +54,8 @@ typedef struct s_stack_master
 	t_stack	*a;
 	t_stack	*b;
 	int		instruction;
+	int		is_verbose;
+	int		is_colored;
 }			t_stack_master;
 
 void			ft_swap(t_stack *stack);

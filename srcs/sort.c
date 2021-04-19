@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 17:54:56 by tglory            #+#    #+#             */
-/*   Updated: 2021/04/12 15:58:10 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/04/19 17:44:07 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,9 +187,11 @@ void	test_sort(t_stack_master *stack_master)
 	t_perfect_stack perfect_stack;
 	int	top;
 	int	i;
+	int	j;
 
 	perfect_stack = ft_get_perfect_stack(stack_master);
 	i = 0;
+	j = 0;
 	while (!(ft_is_correct(stack_master)) && i < 25)
 	{
 		//if (perfect_array_a != NULL && stack_master->a->top > 0 && perfect_array_a[stack_master->a->top][0] + 1 == perfect_array_a[stack_master->a->top - 1][0]
@@ -205,15 +207,13 @@ void	test_sort(t_stack_master *stack_master)
 			}
 			break;
 		}
-		else if (get_index_of_smallest(stack_master->a, -1) == stack_master->a->top)
-		{
+		else if (perfect_stack.size_a > 0 && perfect_stack.perfect_array_a[perfect_stack.size_a - 1][0] == stack_master->a->top)
 			sort(stack_master, "pb");
-		}
 		else if (can_be_revert(stack_master->a, perfect_stack.perfect_array_a))
 			sort(stack_master, "sa");
 		else
 		{
-			if (get_index_of_smallest(stack_master->a, -1) > stack_master->a->top / 2)
+			if (perfect_stack.size_a > 0 && perfect_stack.perfect_array_a[perfect_stack.size_a - 1][0] > stack_master->a->top / 2)
 				sort(stack_master, "ra");
 			else
 				sort(stack_master, "rra");

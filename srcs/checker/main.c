@@ -17,7 +17,7 @@ void	exec_instructions(t_stack_master *t_stack_master, t_master *manager)
 	manager->current = manager->first;
 	while (manager->current)
 	{
-		sort(t_stack_master, manager->current->val);
+		ft_sort(t_stack_master, manager->current->val);
 		manager->current = manager->current->next;
 	}
 }

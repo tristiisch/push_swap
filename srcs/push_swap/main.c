@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 12:58:02 by tglory            #+#    #+#             */
-/*   Updated: 2021/04/12 16:06:38 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/04/19 18:03:16 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	test_exemple(void)
 	ft_stack_add(stack_master->a, 3);
 	ft_stack_add(stack_master->a, 1);
 	ft_stack_add(stack_master->a, 2);
-	test_sort(stack_master);
+	ft_auto_sort(stack_master);
 	printf("instructions > %d\n", stack_master->instruction);
 }
 
@@ -61,8 +61,11 @@ int	main(int argc, char **argv)
 			ft_add(stack_master->a, argv[index]);
 		index++;
 	}
-	ft_print_master_stack(stack_master);
-	test_sort(stack_master);
+	if (stack_master->is_verbose == 1)
+		ft_print_master_stack(stack_master);
+	ft_auto_sort(stack_master);
 	printf("instructions > %d\n", stack_master->instruction);
+	ft_stack_free_stack(stack_master->a);
+	ft_stack_free_stack(stack_master->b);
 	return (0);
 }

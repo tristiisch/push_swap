@@ -66,12 +66,8 @@ void			ft_reverse_rotate(t_stack *stack);
 void			ft_print_stack(t_stack *stack);
 void			ft_print_master_stack(t_stack_master *stack_master);
 
-void			sort(t_stack_master *stack_master, char *operator);
-void			jump_to_index(t_stack_master *stack_master,
-					int index, int a_or_b);
-void			test_sort(t_stack_master *stack_master);
-int				get_index_of_biggest(t_stack *stack, int under);
-int				get_index_of_smallest(t_stack *stack, int upper);
+void			ft_sort(t_stack_master *stack_master, char *operator);
+void			ft_auto_sort(t_stack_master *stack_master);
 
 int				ft_stack_peek(t_stack *stack);
 int				ft_stack_pop(t_stack *stack);

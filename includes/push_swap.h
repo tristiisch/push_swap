@@ -88,6 +88,9 @@ int				ft_is_correct(t_stack_master *stack_master);
 
 void			ft_free_perfect_stack(t_perfect_stack perfect_stack);
 t_perfect_stack	ft_get_perfect_stack(t_stack_master *stack_master);
+
+int*			get_index_of_biggest(t_stack *stack, int *under);
+int				get_index_of_smallest(t_stack *stack, int upper);
 /*
 **___________________________DOUBLY LINKED LIST___________________________
 */

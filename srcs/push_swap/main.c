@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 12:58:02 by tglory            #+#    #+#             */
-/*   Updated: 2021/04/19 18:03:16 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/04/20 06:06:15 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ int	main(int argc, char **argv)
 	stack_master->is_colored = 0;
 	stack_master->a = ft_stack_create(argc - 1);
 	stack_master->b = ft_stack_create(argc - 1);
-	index = 1;
-	while (argv[index])
+	index = argc - 1;
+	while (index)
 	{
 		if (!ft_strncmp(argv[index], "-v", 2))
 			stack_master->is_verbose = 1;
@@ -59,12 +59,13 @@ int	main(int argc, char **argv)
 			stack_master->is_colored = 1;
 		else
 			ft_add(stack_master->a, argv[index]);
-		index++;
+		index--;
 	}
 	if (stack_master->is_verbose == 1)
 		ft_print_master_stack(stack_master);
 	ft_auto_sort(stack_master);
-	printf("instructions > %d\n", stack_master->instruction);
+	if (stack_master->is_verbose == 1)
+		printf("instructions > %d\n", stack_master->instruction);
 	ft_stack_free_stack(stack_master->a);
 	ft_stack_free_stack(stack_master->b);
 	return (0);

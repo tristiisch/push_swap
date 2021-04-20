@@ -6,12 +6,15 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 17:54:56 by tglory            #+#    #+#             */
-/*   Updated: 2021/04/19 17:55:01 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/04/20 06:39:29 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+/** Check if we can revert the 2 first value of stack
+ * @param perfect_array get this with get_perfect_order()
+ */
 int	can_be_revert(t_stack *stack, int **perfect_array)
 {
 	int	i;
@@ -44,6 +47,9 @@ int	can_be_revert(t_stack *stack, int **perfect_array)
 	return (0);
 }
 
+/** Sort automatically stacks
+ * 
+ */
 void	ft_auto_sort(t_stack_master *stack_master)
 {
 	t_perfect_stack perfect_stack;
@@ -54,9 +60,6 @@ void	ft_auto_sort(t_stack_master *stack_master)
 	i = 0;
 	while (!(ft_is_correct(stack_master)) && i < 25)
 	{
-		//if (perfect_array_a != NULL && stack_master->a->top > 0 && perfect_array_a[stack_master->a->top][0] + 1 == perfect_array_a[stack_master->a->top - 1][0]
-		//else if (perfect_array_b != NULL && stack_master->b->top > 0 && perfect_array_b[stack_master->b->top][0] - 1 == perfect_array_b[stack_master->b->top - 1][0])
-		//	sort(stack_master, "sb"); -> usless, on a pas besoin d'inverser la stack B
 		if (ft_is_updside_down(stack_master->b) && (ft_stack_is_empty(stack_master->a) || ft_is_correct_order(stack_master->a)))
 		{
 			top = stack_master->b->top;
@@ -67,10 +70,35 @@ void	ft_auto_sort(t_stack_master *stack_master)
 			}
 			break;
 		}
+		/* Pas fini. Test pour voir si la stack est dans l'ordre mais qu'il faut juste la déplacer avec ra ou rra
+		Usless, c'est le comportement par default --'
+		else if (is_bad_index_only(stack_master))
+		{
+			int test = is_bad_index_only(stack_master);
+			printf("JUMP TO INDEX %d\n", test);
+			jump_to_index(stack_master, test, 0);
+		}*/
 		else if (perfect_stack.size_a > 0 && perfect_stack.perfect_array_a[perfect_stack.size_a - 1][0] == stack_master->a->top)
 			ft_sort(stack_master, "pb");
 		else if (can_be_revert(stack_master->a, perfect_stack.perfect_array_a))
 			ft_sort(stack_master, "sa");
+		/* Essaie d'utiliser sb. Résultat : Pas opti
+		else if (perfect_stack.size_a > 1 && perfect_stack.perfect_array_a[perfect_stack.size_a - 2][0] == stack_master->a->top)
+		{
+			printf("NEW ONE %d\n", stack_master->a->top);
+			ft_sort(stack_master, "pb");
+			//perfect_stack = ft_get_perfect_stack(stack_master);
+			while (perfect_stack.perfect_array_a[perfect_stack.size_a - 1][1] != stack_master->a->array[stack_master->a->top])
+			{
+				if (perfect_stack.perfect_array_a[perfect_stack.size_a - 1][0] > stack_master->a->top / 2)
+					ft_sort(stack_master, "ra");
+				else
+					ft_sort(stack_master, "rra");
+				printf("PERFECT STACK %d - %d\n", perfect_stack.perfect_array_a[perfect_stack.size_a - 1][0], stack_master->a->top);
+			}
+			ft_sort(stack_master, "pb");
+			ft_sort(stack_master, "sb");
+		}*/
 		else
 		{
 			if (perfect_stack.size_a > 0 && perfect_stack.perfect_array_a[perfect_stack.size_a - 1][0] > stack_master->a->top / 2)
@@ -85,6 +113,9 @@ void	ft_auto_sort(t_stack_master *stack_master)
 	ft_free_perfect_stack(perfect_stack);
 }
 
+/** Execute operator one by one for stacks
+ * @param operator rra rrb rrr sa sb ss pa pb ra rb rr
+ */
 void	ft_sort(t_stack_master *stack_master, char *operator)
 {
 	if (ft_strncmp(operator, "rra", 3) == 0)

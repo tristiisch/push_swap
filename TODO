@@ -1,3 +1,4 @@
 - get_next_line qui passe la norminette v3
 - voir si il est possible d'améliorer l'algo
 - free le perfect stack
+- autoriser uniquement les int (modif le atoi)

@@ -12,12 +12,15 @@
 
 #include "../includes/push_swap.h"
 
+/** Get the best order with array of index and value of stack a or b
+ * @param a_or_b a = 0 b = 1
+ */
 int	**get_perfect_order(t_stack_master *stack_master, int a_or_b)
 {
 	int		top;
 	int		last_index;
-	int		index;
-	int		last_number;
+	int		*index;
+	int		*last_number;
 	int		i;
 	int		**array;
 	t_stack	*stack;
@@ -34,7 +37,7 @@ int	**get_perfect_order(t_stack_master *stack_master, int a_or_b)
 	}
 	last_index = -1;
 	top = stack->top;
-	last_number = -1;
+	last_number = NULL;
 	i = 0;
 	if (top >= 0)
 		array = malloc((top + 1) * sizeof(*array));
@@ -43,13 +46,13 @@ int	**get_perfect_order(t_stack_master *stack_master, int a_or_b)
 	while (i <= top)
 	{
 		index = get_index_of_biggest(stack, last_number);
-		if (index == -1 || last_index == index)
+		if (!index || last_index == *index)
 			break ;
-		last_index = index;
-		last_number = stack->array[index];
+		last_index = *index;
+		last_number = &(stack->array[*index]);
 		array[i] = malloc(2 * sizeof(int));
-		array[i][0] = index;
-		array[i][1] = last_number;
+		array[i][0] = *index;
+		array[i][1] = *last_number;
 		i++;
 	}
 	return (array);

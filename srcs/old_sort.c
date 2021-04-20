@@ -102,27 +102,33 @@ void	sort_by_biggest(t_stack_master *stack_master, int upper)
 /**
  * return -1 if the index cannot be retrive with upper.
  */
-int	get_index_of_biggest(t_stack *stack, int under)
+int*	get_index_of_biggest(t_stack *stack, int *under)
 {
 	int index;
-	int saved_index;
-	int i;
+	int *saved_index;
+	int	*saved_int;
+	int swap;
 
 	index = stack->top;
-	//printf("test index %d\n", index);
-	i = 0; // TODO remove this to support sorting 0
-	saved_index = -1;
+	saved_int = NULL;
+	//saved_index = -1;
+	saved_index = NULL;
 	while (index >= 0)
 	{
-		if ((under == -1 || stack->array[index] < under)
-			&& (i == 0 || i < stack->array[index]))
+		if ((!under || stack->array[index] < *under)
+			&& (!saved_int || *saved_int < stack->array[index]))
 		{
-			i = stack->array[index];
-			saved_index = index;
+			saved_int = &(stack->array[index]);
+			swap = index;
+			//saved_index = swap;
+			saved_index = &swap;
 		}
 		index--;
 	}
-	//printf("big index is %d = %d\n", saved_index, i);
+	/*if (saved_index)
+		printf("get_index_of_biggest DEBUG %d\n", *saved_index);
+	else
+		printf("get_index_of_biggest DEBUG NULL\n");*/
 	return (saved_index);
 }
 

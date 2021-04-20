@@ -58,6 +58,34 @@ int	**get_perfect_order(t_stack_master *stack_master, int a_or_b)
 	return (array);
 }
 
+/** Get the index of the biggest number of stack
+ * @param under is the highest non-inclusive number that can be taken. NULL if didn't need
+ * @return NULL if the index cannot be retrive
+ */
+int*	get_index_of_biggest(t_stack *stack, int *under)
+{
+	int index;
+	int *saved_index;
+	int	*saved_int;
+	int swap;
+
+	index = stack->top;
+	saved_int = NULL;
+	saved_index = NULL;
+	while (index >= 0)
+	{
+		if ((!under || stack->array[index] < *under)
+			&& (!saved_int || *saved_int < stack->array[index]))
+		{
+			saved_int = &(stack->array[index]);
+			swap = index;
+			saved_index = &swap;
+		}
+		index--;
+	}
+	return (saved_index);
+}
+
 void	ft_free_perfect_stack(t_perfect_stack perfect_stack)
 {
 	int	i;

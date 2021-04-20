@@ -6,14 +6,14 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 17:54:56 by tglory            #+#    #+#             */
-/*   Updated: 2021/04/20 06:39:29 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/04/20 06:44:53 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 /** Check if we can revert the 2 first value of stack
- * @param perfect_array get this with get_perfect_order()
+ * @param perfect_array get this with ft_get_perfect_stack()
  */
 int	can_be_revert(t_stack *stack, int **perfect_array)
 {

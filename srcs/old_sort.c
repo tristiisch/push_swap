@@ -99,39 +99,6 @@ void	sort_by_biggest(t_stack_master *stack_master, int upper)
 	}
 }
 
-/**
- * return -1 if the index cannot be retrive with upper.
- */
-int*	get_index_of_biggest(t_stack *stack, int *under)
-{
-	int index;
-	int *saved_index;
-	int	*saved_int;
-	int swap;
-
-	index = stack->top;
-	saved_int = NULL;
-	//saved_index = -1;
-	saved_index = NULL;
-	while (index >= 0)
-	{
-		if ((!under || stack->array[index] < *under)
-			&& (!saved_int || *saved_int < stack->array[index]))
-		{
-			saved_int = &(stack->array[index]);
-			swap = index;
-			//saved_index = swap;
-			saved_index = &swap;
-		}
-		index--;
-	}
-	/*if (saved_index)
-		printf("get_index_of_biggest DEBUG %d\n", *saved_index);
-	else
-		printf("get_index_of_biggest DEBUG NULL\n");*/
-	return (saved_index);
-}
-
 int	get_index_of_smallest(t_stack *stack, int upper)
 {
 	int index;

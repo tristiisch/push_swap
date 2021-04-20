@@ -27,15 +27,21 @@ int ft_stack_has(t_stack *stack, int item)
 
 t_stack* ft_add(t_stack *stack, char* s)
 {
-	int	i;
+	int	*i;
 	
-	i = ft_atoi(s);
-	if (ft_stack_has(stack, i))
+	i = ft_atoi_push_swap(s);
+	if (!i)
 	{
-		printf("Error > %s (%d) is already on stack A.\n", s, i);
+		printf("Error > %s is not a correct INT.\n", s);
 		exit (EXIT_FAILURE);
 	}
-	return ft_stack_add(stack, i);
+	else if (ft_stack_has(stack, *i))
+	{
+		printf("Error > %s (%d) is already on stack A.\n", s, *i);
+		exit (EXIT_FAILURE);
+	}
+	printf("LASTDEBUG %d\n", *i);
+	return ft_stack_add(stack, *i);
 }
 
 t_stack* ft_stack_add(t_stack *stack, int new_item)

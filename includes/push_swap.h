@@ -92,6 +92,8 @@ t_perfect_stack	ft_get_perfect_stack(t_stack_master *stack_master);
 
 int*			get_index_of_biggest(t_stack *stack, int *under);
 //int				get_index_of_smallest(t_stack *stack, int upper);
+int*			ft_atoi_push_swap(const char *str);
+
 /*
 **___________________________DOUBLY LINKED LIST___________________________
 */

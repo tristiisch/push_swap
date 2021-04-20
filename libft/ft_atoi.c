@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 17:51:41 by tglory            #+#    #+#             */
-/*   Updated: 2021/03/31 05:04:55 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/04/20 06:54:27 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,13 @@ int	ft_atoi(const char *str)
 	while ((*str == '\t') || (*str == '\v') || (*str == '\n')
 		|| (*str == '\r') || (*str == '\f') || (*str == ' '))
 		str++;
-	if (*str == '-' || *str == '+')
+	if (*str == '-')
 	{
-		if (*str == '-')
-		{
-			neg = -1;
-			str++;
-		}
-		else
-			str++;
+		neg = -1;
+		str++;
 	}
+	else if (*str == '+')
+		str++;
 	while ((*str >= '0' && *str <= '9') && *str != '\0')
 	{
 		res = res * 10 + (*str - 48);

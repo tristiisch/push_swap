@@ -29,7 +29,7 @@ t_stack* ft_add(t_stack *stack, char* s)
 {
 	int	*i;
 	
-	i = ft_atoi_push_swap(s);
+	i = ft_atoi_utimate(s);
 	if (!i)
 	{
 		printf("Error > %s is not a correct INT.\n", s);
@@ -40,7 +40,6 @@ t_stack* ft_add(t_stack *stack, char* s)
 		printf("Error > %s (%d) is already on stack A.\n", s, *i);
 		exit (EXIT_FAILURE);
 	}
-	printf("LASTDEBUG %d\n", *i);
 	return ft_stack_add(stack, *i);
 }
 

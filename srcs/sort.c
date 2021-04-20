@@ -6,46 +6,11 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 17:54:56 by tglory            #+#    #+#             */
-/*   Updated: 2021/04/20 06:44:53 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/04/20 06:47:25 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-/** Check if we can revert the 2 first value of stack
- * @param perfect_array get this with ft_get_perfect_stack()
- */
-int	can_be_revert(t_stack *stack, int **perfect_array)
-{
-	int	i;
-	int	one;
-	int	one_index;
-	int	two;
-	int	two_index;
-
-	if (stack->top <= 0)
-		return (0);
-	i = 0;
-	one = stack->array[stack->top];
-	two = stack->array[stack->top - 1];
-	if (one < two)
-		return (0);
-	one_index = -1;
-	two_index = -1;
-	while (i <= stack->top && (one_index == -1 || two_index == -1))
-	{
-		if (one_index == -1 && perfect_array[i][1] == one)
-			one_index = i;
-		else if (two_index == -1 && perfect_array[i][1] == two)
-			two_index = i; 
-		i++;
-	}
-	if (one_index == -1 || two_index == -1)
-		return (0);
-	else if (one_index + 1 == two_index)
-		return (1);
-	return (0);
-}
 
 /** Sort automatically stacks
  * 
@@ -80,7 +45,7 @@ void	ft_auto_sort(t_stack_master *stack_master)
 		}*/
 		else if (perfect_stack.size_a > 0 && perfect_stack.perfect_array_a[perfect_stack.size_a - 1][0] == stack_master->a->top)
 			ft_sort(stack_master, "pb");
-		else if (can_be_revert(stack_master->a, perfect_stack.perfect_array_a))
+		else if (ft_can_be_revert(stack_master->a, perfect_stack.perfect_array_a))
 			ft_sort(stack_master, "sa");
 		/* Essaie d'utiliser sb. Résultat : Pas opti
 		else if (perfect_stack.size_a > 1 && perfect_stack.perfect_array_a[perfect_stack.size_a - 2][0] == stack_master->a->top)

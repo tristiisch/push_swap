@@ -57,6 +57,41 @@ int	ft_is_correct(t_stack_master *stack_master)
 	return (1);
 }
 
+/** Check if we can revert the 2 first value of stack
+ * @param perfect_array get this with ft_get_perfect_stack()
+ */
+int	ft_can_be_revert(t_stack *stack, int **perfect_array)
+{
+	int	i;
+	int	one;
+	int	one_index;
+	int	two;
+	int	two_index;
+
+	if (stack->top <= 0)
+		return (0);
+	i = 0;
+	one = stack->array[stack->top];
+	two = stack->array[stack->top - 1];
+	if (one < two)
+		return (0);
+	one_index = -1;
+	two_index = -1;
+	while (i <= stack->top && (one_index == -1 || two_index == -1))
+	{
+		if (one_index == -1 && perfect_array[i][1] == one)
+			one_index = i;
+		else if (two_index == -1 && perfect_array[i][1] == two)
+			two_index = i; 
+		i++;
+	}
+	if (one_index == -1 || two_index == -1)
+		return (0);
+	else if (one_index + 1 == two_index)
+		return (1);
+	return (0);
+}
+
 /** Too many lines on normintte and I didn't think this will be use.
  *  I'll see it later. (27 lines)
  */

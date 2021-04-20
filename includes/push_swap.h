@@ -85,12 +85,13 @@ void			ft_print_int_double_array(int **array, int size);
 int				ft_is_correct_order(t_stack *stack);
 int				ft_is_updside_down(t_stack *stack);
 int				ft_is_correct(t_stack_master *stack_master);
+int				ft_can_be_revert(t_stack *stack, int **perfect_array);
 
 void			ft_free_perfect_stack(t_perfect_stack perfect_stack);
 t_perfect_stack	ft_get_perfect_stack(t_stack_master *stack_master);
 
 int*			get_index_of_biggest(t_stack *stack, int *under);
-int				get_index_of_smallest(t_stack *stack, int upper);
+//int				get_index_of_smallest(t_stack *stack, int upper);
 /*
 **___________________________DOUBLY LINKED LIST___________________________
 */

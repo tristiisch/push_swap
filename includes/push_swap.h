@@ -56,6 +56,7 @@ typedef struct s_stack_master
 	int		instruction;
 	int		is_verbose;
 	int		is_colored;
+	int		is_checker;
 }			t_stack_master;
 
 int				ft_swap(t_stack *stack);
@@ -90,6 +91,9 @@ int				ft_can_be_revert(t_stack *stack, int **perfect_array);
 
 void			ft_free_perfect_stack(t_perfect_stack perfect_stack);
 t_perfect_stack	ft_get_perfect_stack(t_stack_master *stack_master);
+
+t_stack_master	*ft_args_to_stack_master(char **argv, int max_stack_size);
+t_stack_master	*ft_initialize_stack_master(int max_stack_size);
 
 int*			get_index_of_biggest(t_stack *stack, int *under);
 //int				get_index_of_smallest(t_stack *stack, int upper);

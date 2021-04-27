@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 17:54:56 by tglory            #+#    #+#             */
-/*   Updated: 2021/04/27 17:11:26 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/04/27 18:56:44 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@ void	ft_auto_sort(t_stack_master *stack_master)
 {
 	t_perfect_stack perfect_stack;
 	int	top;
-	int	i;
+	int	max_instruction; // TODO remove max instruction
 
+	if (stack_master->is_verbose == 1)
+		ft_print_master_stack(stack_master);
 	perfect_stack = ft_get_perfect_stack(stack_master);
-	i = 0;
-	while (!(ft_is_correct(stack_master)) && i < 25)
+	max_instruction = 0;
+	while (!(ft_is_correct(stack_master)) && max_instruction < 25)
 	{
 		if (ft_is_updside_down(stack_master->b) && (ft_stack_is_empty(stack_master->a) || ft_is_correct_order(stack_master->a)))
 		{
@@ -72,10 +74,14 @@ void	ft_auto_sort(t_stack_master *stack_master)
 				ft_sort_and_print(stack_master, "rra");
 		}
 		perfect_stack = ft_get_perfect_stack(stack_master);
-		i++;
+		max_instruction++;
 	}
-	i = 0;
+	max_instruction = 0;
+	if (stack_master->is_verbose == 1)
+		printf("instructions > %d\n", stack_master->instruction);
 	ft_free_perfect_stack(perfect_stack);
+	ft_stack_free_stack(stack_master->a);
+	ft_stack_free_stack(stack_master->b);
 }
 
 /** Execute operator one by one for stacks
@@ -149,8 +155,7 @@ int	ft_sort_and_print(t_stack_master *stack_master, char *operator)
 			printf("ERROR > Unknown operator '%s'.\n", operator);
 	}
 	else {
-		if (stack_master->is_verbose)
-			printf("%s\n", operator);
+		printf("%s\n", operator);
 		if (stack_master->is_verbose)
 			ft_print_master_stack(stack_master);
 	}

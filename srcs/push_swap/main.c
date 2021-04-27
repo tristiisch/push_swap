@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 12:58:02 by tglory            #+#    #+#             */
-/*   Updated: 2021/04/20 06:06:15 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/04/20 21:33:01 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	main(int argc, char **argv)
 	else if (argc >= 2 && !ft_strncmp(argv[1], "-ex", 3))
 	{
 		test_exemple();
-		return (0);
+		return (EXIT_SUCCESS);
 	}
 	stack_master = malloc(sizeof(t_stack_master));
 	stack_master->instruction = 0;
@@ -68,5 +68,5 @@ int	main(int argc, char **argv)
 		printf("instructions > %d\n", stack_master->instruction);
 	ft_stack_free_stack(stack_master->a);
 	ft_stack_free_stack(stack_master->b);
-	return (0);
+	return (EXIT_SUCCESS);
 }

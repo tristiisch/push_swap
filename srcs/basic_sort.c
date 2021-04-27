@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:08:51 by tglory            #+#    #+#             */
-/*   Updated: 2021/04/07 15:27:16 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/04/27 16:59:37 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,24 @@
 
 #include "../includes/push_swap.h"
 
-void	ft_swap(t_stack *stack)
+int	ft_swap(t_stack *stack)
 {
 	int	swap;
 
+	if (stack == NULL)
+		return (-1);
 	if (stack->top < 1)
 	{
 		printf("WARN > too small length, cancel swap\n");
-		return ;
+		return (0);
 	}
 	swap = stack->array[stack->top];
 	stack->array[stack->top] = stack->array[stack->top - 1];
 	stack->array[stack->top - 1] = swap;
+	return (1);
 }
 
-void	ft_push(t_stack_master *stack_master, int bool)
+int	ft_push(t_stack_master *stack_master, int bool)
 {
 	if (bool == 1 && !ft_stack_is_empty(stack_master->a))
 		stack_master->b = ft_stack_add(stack_master->b,
@@ -42,36 +45,42 @@ void	ft_push(t_stack_master *stack_master, int bool)
 	else
 	{
 		printf("WARN > stack empty or bad parameter `bool`. Push cancelled\n");
-		return ;
+		return (0);
 	}
+	return (1);
 }
 
-void	ft_rotate(t_stack *stack)
+int	ft_rotate(t_stack *stack)
 {
 	int	swap;
 	int	index;
 
+	if (stack == NULL)
+		return (-1);
 	if (stack->top <= 0)
 	{
 		printf("WARN > too small length, cancel rotate\n");
-		return ;
+		return (0);
 	}
 	index = stack->top;
 	swap = (stack->array)[index];
 	while (--index >= 0)
 		(stack->array)[index + 1] = (stack->array)[index];
 	(stack->array)[index + 1] = swap;
+	return (1);
 }
 
-void	ft_reverse_rotate(t_stack *stack)
+int	ft_reverse_rotate(t_stack *stack)
 {
 	int	swap;
 	int	index;
 
+	if (stack == NULL)
+		return (-1);
 	if (stack->top <= 0)
 	{
 		printf("WARN > too small length, cancel reverse\n");
-		return ;
+		return (0);
 	}
 	index = 0;
 	swap = (stack->array)[index];
@@ -81,4 +90,5 @@ void	ft_reverse_rotate(t_stack *stack)
 		index++;
 	}
 	(stack->array)[stack->top] = swap;
+	return (1);
 }

@@ -58,15 +58,16 @@ typedef struct s_stack_master
 	int		is_colored;
 }			t_stack_master;
 
-void			ft_swap(t_stack *stack);
-void			ft_push(t_stack_master *stack, int bool);
-void			ft_rotate(t_stack *stack);
-void			ft_reverse_rotate(t_stack *stack);
+int				ft_swap(t_stack *stack);
+int				ft_push(t_stack_master *stack, int bool);
+int				ft_rotate(t_stack *stack);
+int				ft_reverse_rotate(t_stack *stack);
 
 void			ft_print_stack(t_stack *stack);
 void			ft_print_master_stack(t_stack_master *stack_master);
 
-void			ft_sort(t_stack_master *stack_master, char *operator);
+int				ft_sort(t_stack_master *stack_master, char *operator);
+int				ft_sort_and_print(t_stack_master *stack_master, char *operator);
 void			ft_auto_sort(t_stack_master *stack_master);
 
 int				ft_stack_peek(t_stack *stack);

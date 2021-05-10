@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   basic_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:08:51 by tglory            #+#    #+#             */
 /*   Updated: 2021/04/27 17:32:07 by tglory           ###   ########lyon.fr   */

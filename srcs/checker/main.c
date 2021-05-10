@@ -6,7 +6,7 @@
 /*   By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 14:35:39 by ksam              #+#    #+#             */
-/*   Updated: 2021/04/07 23:59:52 by ksam             ###   ########lyon.fr   */
+/*   Updated: 2021/05/07 11:13:08 by ksam             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,22 @@ void	exec_instructions(t_stack_master *t_stack_master, t_master *manager)
 {
 	manager->current = manager->first;
 	while (manager->current)
-	{
+	{ 
 		ft_sort(t_stack_master, manager->current->val);
 		manager->current = manager->current->next;
 	}
+	if (ft_is_correct(t_stack_master) == 1)
+		printf("OK!\n");
+	else
+		printf("KO !\n");
 }
 
 int		main(int argc, char **argv)
 {
 	int			*number_to_order;
 	char		*buffer;
-	char		*instructions[] = {"sa", "sb", "ss", "pa", "pb", "ra", "rb", "rr", "rra", "rrb", "rrr"};
+	char		*instructions[] = {"sa", "sb", "ss", "pa", "pb", "ra", "rb",
+													"rr", "rra", "rrb", "rrr"};
 	t_master	*manager;
 	t_stack_master	*stack_master;
 
@@ -46,7 +51,13 @@ int		main(int argc, char **argv)
 			exec_instructions(stack_master, manager);
 		}
 	}
-	else
-		printf("Error : Need arguments\n");
+	if (stack_master->a)
+		free(stack_master->a);
+	if (stack_master->b)
+		free(stack_master->b);
+	if (stack_master)
+		free(stack_master);
+	if (manager)
+		free(manager);
 	return (0);
 }

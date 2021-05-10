@@ -6,41 +6,18 @@
 /*   By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 15:10:35 by ksam              #+#    #+#             */
-/*   Updated: 2021/04/07 23:52:57 by ksam             ###   ########lyon.fr   */
+/*   Updated: 2021/05/07 11:07:03 by ksam             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int		*transform_argument_to_array(int argc, char**argv)
-{
-	int		index;
-	int		res;
-	int		*array;
-
-	index = 1;
-	array = malloc(sizeof(int) * (argc - 2)); // TODO free
-	while (index < argc)
-	{
-		res = ft_atoi(argv[index]);
-		if (res)
-			array[index - 1] = res;
-		else
-		{
-			printf("Error wrong argument\n");
-			exit (0);
-		}
-		index++;
-	}
-	
-	return (array);
-}
-
 int		compare_instruction(char *buffer, char *instructions)
 {
 	if (buffer)
 	{
-		if ((ft_strcmp(buffer, instructions) != 0) && (ft_strlen(buffer) == ft_strlen(instructions)))
+		if ((ft_strcmp(buffer, instructions) != 0)
+							&& (ft_strlen(buffer) == ft_strlen(instructions)))
 			return (1);
 	}
 	return (0);
@@ -50,18 +27,19 @@ void	check_instructions(t_master *manager, char **instructions)
 {
 	int i;
 
-
 	manager->current = manager->first;
 	while (manager->current)
 	{
 		i = 0;
 		while (i <= 10)
 		{
-			if (compare_instruction(manager->current->val, instructions[i]) == 1)
+			if (compare_instruction(manager->current->val,
+									instructions[i]) == 1)
 				break;
 			if (i == 10)
 			{
-				printf("Error instruction -%s- not found\n", manager->current->val);
+				printf("Error instruction -%s- not found\n",
+									manager->current->val);
 				exit (0);
 			}
 			i++;

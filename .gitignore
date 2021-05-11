@@ -6,6 +6,6 @@ push_swap
 !srcs/push_swap
 checker
 !srcs/checker
+randomize
 !srcs/randomize
 .idea
-randomize

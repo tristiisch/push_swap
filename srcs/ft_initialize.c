@@ -23,7 +23,7 @@ t_stack_master *ft_initialize_stack_master(int max_stack_size)
 	stack_master->is_verbose = 0;
 	stack_master->is_colored = 0;
 	stack_master->is_instruction = 0;
-	stack_master->is_test_algo = 0;
+	stack_master->algo_version = 3;
 	stack_master->is_hiding_default_output = 0;
 	stack_master->a = ft_stack_create(max_stack_size);
 	stack_master->b = ft_stack_create(max_stack_size);
@@ -46,7 +46,7 @@ t_stack_master *ft_args_to_stack_master(char **argv, int max_stack_size)
 		else if (!ft_strncmp(argv[max_stack_size], "-h", 2))
 			stack_master->is_hiding_default_output = 1;
 		else if (!ft_strncmp(argv[max_stack_size - 1], "-a", 2))
-			stack_master->is_test_algo = *ft_atoi_utimate(argv[max_stack_size--]);
+			stack_master->algo_version = *ft_atoi_utimate(argv[max_stack_size--]);
 		else
 			ft_add(stack_master->a, argv[max_stack_size]);
 		max_stack_size--;

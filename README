@@ -9,6 +9,8 @@ Affiche le nombre d'instructions pour ranger la list de $ARG
 time ./push_swap $ARG -h
 Affiche le temps que prends l'algo
 
+ARG=$(./randomize 500); ./push_swap $ARG -h -i
+
 RANDOMIZE >
 
 make randomize

@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 17:54:56 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/11 06:32:19 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/11 18:57:00 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,14 @@ void	ft_auto_sort(t_stack_master *stack_master)
 				top--;
 			}
 			break;
-		} else if (stack_master->is_test_algo >= 3 && (bad_index = is_bad_index_only_b(stack_master)) > -1){
+		} else if (stack_master->algo_version >= 3 && (bad_index = is_bad_index_only_b(stack_master)) > -1){
 			jump_to_index(stack_master, bad_index, 1);
 		}
 		else if (perfect_stack.size_a > 0 && perfect_stack.perfect_array_a[perfect_stack.size_a - 1][0] == stack_master->a->top)
 			ft_sort_and_print(stack_master, "pb");
 		else if (ft_can_be_revert(stack_master->a, perfect_stack.perfect_array_a))
 			ft_sort_and_print(stack_master, "sa");
-		else if (stack_master->is_test_algo >= 3 && perfect_stack.size_a > 1 && perfect_stack.perfect_array_a[0][0] == stack_master->a->top)
+		else if (stack_master->algo_version >= 3 && perfect_stack.size_a > 1 && perfect_stack.perfect_array_a[0][0] == stack_master->a->top)
 		{
 			ft_sort_and_print(stack_master, "pb");
 			if (stack_master->b->top > 0) {
@@ -55,7 +55,7 @@ void	ft_auto_sort(t_stack_master *stack_master)
 			}
 		}
 		/* Essaie d'utiliser sb. Résultat : Pas opti*/
-		else if (stack_master->is_test_algo == 2 && perfect_stack.size_a > 1 && perfect_stack.perfect_array_a[perfect_stack.size_a - 2][0] == stack_master->a->top)
+		else if (stack_master->algo_version == 2 && perfect_stack.size_a > 1 && perfect_stack.perfect_array_a[perfect_stack.size_a - 2][0] == stack_master->a->top)
 		{
 			//printf("NEW ONE %d\n", stack_master->a->top);
 			ft_sort_and_print(stack_master, "pb");
@@ -82,7 +82,7 @@ void	ft_auto_sort(t_stack_master *stack_master)
 	}
 	max_instruction = 0;
 	if (stack_master->is_verbose == 1 || stack_master->is_instruction == 1)
-		printf("instructions algo n°%d > %d\n", stack_master->is_test_algo, stack_master->instruction);
+		printf("instructions algo n°%d > %d\n", stack_master->algo_version, stack_master->instruction);
 	ft_free_perfect_stack(perfect_stack);
 	ft_stack_free_stack(stack_master->a);
 	ft_stack_free_stack(stack_master->b);

@@ -57,7 +57,7 @@ typedef struct s_stack_master
 	int		is_instruction;
 	int		is_verbose;
 	int		is_colored;
-	int		is_test_algo;
+	int		algo_version;
 	int		is_hiding_default_output;
 }			t_stack_master;
 

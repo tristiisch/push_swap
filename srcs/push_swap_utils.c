@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 16:34:47 by tglory            #+#    #+#             */
-/*   Updated: 2021/04/20 08:08:05 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/11 03:52:15 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	ft_print_stack(t_stack *stack)
 		else
 		{
 			printf("size = %d > ", (stack->top + 1));
-			if (stack->top > 100 || stack->top < 0)
+			if (stack->top > 500 || stack->top < 0)
 			{
-				printf("\tError while print, size not conformed\n");
+				printf("\tError while print, size not conformed or > 500\n");
 				return ;
 			}
 			while (i <= stack->top)

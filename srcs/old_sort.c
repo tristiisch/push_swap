@@ -34,9 +34,9 @@ void	jump_to_index(t_stack_master *stack_master, int index, int a_or_b)
 		while (times > 0)
 		{
 			if (a_or_b == 0)
-				ft_sort(stack_master, "ra");
+				ft_sort_and_print(stack_master, "ra");
 			else
-				ft_sort(stack_master, "rb");
+				ft_sort_and_print(stack_master, "rb");
 			times--;
 		}
 	}
@@ -46,9 +46,9 @@ void	jump_to_index(t_stack_master *stack_master, int index, int a_or_b)
 		while (times > 0)
 		{
 			if (a_or_b == 0)
-				ft_sort(stack_master, "rra");
+				ft_sort_and_print(stack_master, "rra");
 			else
-				ft_sort(stack_master, "rrb");
+				ft_sort_and_print(stack_master, "rrb");
 			times--;
 		}
 	}

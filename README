@@ -1,0 +1,18 @@
+PUSH_SWAP >
+
+make
+Compile les programmes push_swap & checker
+
+./push_swap $ARG -h -i
+Affiche le nombre d'instructions pour ranger la list de $ARG
+
+time ./push_swap $ARG -h
+Affiche le temps que prends l'algo
+
+RANDOMIZE >
+
+make randomize
+Compile le programme randomize
+
+ARG=$(./randomize 500)
+Met 500 nombre aléatoire unique dans ARG

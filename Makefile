@@ -13,28 +13,36 @@
 CC 				= 	gcc
 NAME    		=	push_swap
 NAME_CHECKER	=	checker
+NAME_RANDOMIZE	=	randomize
 LIB_PATH		=	libft/libft.a get_next_line/get_next_line.a
 NORM_DIRS		=	srcs/ includes/ get_next_line/ libft/
 INCLUDES		=	$(wildcard includes/*.h)
 SRCS			=	$(wildcard srcs/*.c)
 SRCS_PUSH_SWAP	=	srcs/push_swap/main.c
 SRCS_CHECKER	=	srcs/checker/main.c
+SRCS_RANDOMIZE	=	srcs/randomize/main.c
 OBJS			=	$(SRCS:.c=.o)
 OBJS_PUSH_SWAP	=	$(SRCS_PUSH_SWAP:.c=.o)
 OBJS_CHECKER	=	$(SRCS_CHECKER:.c=.o)
+OBJS_RANDOMIZE	=	$(SRCS_RANDOMIZE:.c=.o)
 CFLAGS			=	-Wextra -Wall #-Werror
 
 all: $(NAME) $(NAME_CHECKER)
+
+$(NAME): $(OBJS) $(OBJS_PUSH_SWAP) $(INCLUDES)
+	make -C libft
+	make -C get_next_line
+	$(CC) ${CFLAGS} $(OBJS) $(OBJS_PUSH_SWAP) $(LIB_PATH) -o $(NAME)
 
 $(NAME_CHECKER): $(OBJS) $(OBJS_CHECKER) $(INCLUDES)
 	make -C libft
 	make -C get_next_line
 	$(CC) ${CFLAGS} $(OBJS) $(OBJS_CHECKER) $(LIB_PATH) -o $(NAME_CHECKER)
-	
-$(NAME): $(OBJS) $(OBJS_PUSH_SWAP) $(INCLUDES)
+
+$(NAME_RANDOMIZE): $(OBJS) $(OBJS_RANDOMIZE) $(INCLUDES)
 	make -C libft
 	make -C get_next_line
-	$(CC) ${CFLAGS} $(OBJS) $(OBJS_PUSH_SWAP) $(LIB_PATH) -o $(NAME)
+	$(CC) ${CFLAGS} $(OBJS) $(OBJS_RANDOMIZE) $(LIB_PATH) -o $(NAME_RANDOMIZE)
 
 .c.o:
 		${CC} ${CFLAGS} -c $< -o $@
@@ -44,10 +52,12 @@ clean:
 	rm -f $(OBJS)
 	rm -f $(OBJS_PUSH_SWAP)
 	rm -f $(OBJS_CHECKER)
+	rm -f $(OBJS_RANDOMIZE)
 
 fclean: clean
 	rm -f $(NAME)
 	rm -f $(NAME_CHECKER)
+	rm -f $(NAME_RANDOMIZE)
 
 re:
 	make fclean

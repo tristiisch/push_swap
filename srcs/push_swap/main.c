@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 12:58:02 by tglory            #+#    #+#             */
-/*   Updated: 2021/04/27 20:10:41 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/11 05:23:07 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	test_exemple(void)
 	ft_stack_add(stack_master->a, 1);
 	ft_stack_add(stack_master->a, 2);
 	ft_auto_sort(stack_master);
+	free(stack_master);
 }
 
 int	main(int argc, char **argv)
@@ -32,10 +33,8 @@ int	main(int argc, char **argv)
 	t_stack_master	*stack_master;
 
 	if (argc <= 1)
-	{
-		printf("You need to add int in argument to sort it.\n-v = verbose, -c last action colored.\n");
-		exit (EXIT_SUCCESS);
-	}
+		ft_error("You need to add int in argument to sort it.\n-v = verbose," \
+		" -c last action colored, -h hide default output, -a <int> algo version");
 	else if (argc >= 2 && !ft_strncmp(argv[1], "-ex", 3))
 	{
 		test_exemple();

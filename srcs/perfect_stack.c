@@ -40,7 +40,7 @@ int	**get_perfect_order(t_stack_master *stack_master, int a_or_b)
 	last_number = NULL;
 	i = 0;
 	if (top >= 0)
-		array = malloc((top + 1) * sizeof(*array));
+		array = malloc((top + 1) * sizeof(int**));
 	else
 		array = NULL;
 	while (i <= top)

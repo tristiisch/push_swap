@@ -54,9 +54,11 @@ typedef struct s_stack_master
 	t_stack	*a;
 	t_stack	*b;
 	int		instruction;
+	int		is_instruction;
 	int		is_verbose;
 	int		is_colored;
-	int		is_checker;
+	int		is_test_algo;
+	int		is_hiding_default_output;
 }			t_stack_master;
 
 int				ft_swap(t_stack *stack);
@@ -96,8 +98,12 @@ t_stack_master	*ft_args_to_stack_master(char **argv, int max_stack_size);
 t_stack_master	*ft_initialize_stack_master(int max_stack_size);
 
 int*			get_index_of_biggest(t_stack *stack, int *under);
-//int				get_index_of_smallest(t_stack *stack, int upper);
+int				get_index_of_smallest(t_stack *stack, int upper);
 int*			ft_atoi_utimate(const char *str);
+
+void    		ft_warn(char *msg);
+void    		ft_error(char *msg);
+void    		ft_error_memomy();
 
 /*
 **___________________________DOUBLY LINKED LIST___________________________

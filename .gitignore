@@ -6,5 +6,6 @@ push_swap
 !srcs/push_swap
 checker
 !srcs/checker
-
+!srcs/randomize
 .idea
+randomize

@@ -53,7 +53,7 @@ typedef struct s_stack_master
 {
 	t_stack	*a;
 	t_stack	*b;
-	int		instruction;
+	int		instructions;
 	int		is_instruction;
 	int		is_verbose;
 	int		is_colored;

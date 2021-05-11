@@ -45,8 +45,7 @@ int	main(int argc, char **argv)
 	{
 		random = -1;
 		while (random == -1 || ft_contain_int(nbs, random, nb) == 1) {
-			random = rand() % nb;
-			printf("DEBUG %d\n", random);
+			random = rand();
 		}
 		nbs[i] = random;
 		i++;

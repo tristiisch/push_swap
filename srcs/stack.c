@@ -98,6 +98,9 @@ int ft_stack_is_empty(t_stack *stack)
 	return stack->top == -1;
 }
 
+/**
+ * if momory is allocated for @param i objects
+ */
 int ft_stack_has_place(t_stack *stack, int i)
 {
 	return stack->capacity > stack->top + i;
@@ -110,6 +113,9 @@ void ft_stack_push(t_stack *stack, int item)
 	stack->array[++stack->top] = item;
 }
 
+/**
+ * get the last (index 0) int of stack
+ */
 int ft_stack_pop(t_stack *stack)
 {
 	if (ft_stack_is_empty(stack))
@@ -117,6 +123,9 @@ int ft_stack_pop(t_stack *stack)
 	return stack->array[stack->top--];
 }
 
+/**
+ * get the last (index 0) int of stack and remove it
+ */
 int ft_stack_peek(t_stack *stack)
 {
 	if (ft_stack_is_empty(stack))

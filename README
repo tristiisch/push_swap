@@ -18,3 +18,9 @@ Compile le programme randomize
 
 ARG=$(./randomize 500)
 Met 500 nombre aléatoire unique dans ARG
+
+
+TESTER >
+ARG=$(./randomize 500); ./push_swap $ARG -h -i
+
+ARG=$(./randomize 100); ./push_swap $ARG | ./checker $ARG

@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 17:54:56 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/11 18:57:00 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/11 20:18:12 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	ft_auto_sort(t_stack_master *stack_master)
 	}
 	max_instruction = 0;
 	if (stack_master->is_verbose == 1 || stack_master->is_instruction == 1)
-		printf("instructions algo n°%d > %d\n", stack_master->algo_version, stack_master->instruction);
+		printf("instructions algo n°%d > %d\n", stack_master->algo_version, stack_master->instructions);
 	ft_free_perfect_stack(perfect_stack);
 	ft_stack_free_stack(stack_master->a);
 	ft_stack_free_stack(stack_master->b);
@@ -96,7 +96,7 @@ int	ft_sort(t_stack_master *stack_master, char *operator)
 {
 	int i;
 
-	stack_master->instruction++;
+	stack_master->instructions++;
 	if (ft_strncmp(operator, "rra", 3) == 0)
 		return (ft_reverse_rotate(stack_master->a));
 	else if (ft_strncmp(operator, "rrb", 3) == 0)
@@ -106,7 +106,7 @@ int	ft_sort(t_stack_master *stack_master, char *operator)
 		i = ft_reverse_rotate(stack_master->a);
 		if (i <= 0)
 			return (i);
-		stack_master->instruction++;
+		stack_master->instructions++;
 		return (ft_reverse_rotate(stack_master->b));
 	}
 	else if (ft_strncmp(operator, "sa", 2) == 0)
@@ -118,7 +118,7 @@ int	ft_sort(t_stack_master *stack_master, char *operator)
 		i = ft_swap(stack_master->a);
 		if (i <= 0)
 			return (i);
-		stack_master->instruction++;
+		stack_master->instructions++;
 		return (ft_swap(stack_master->b));
 	}
 	else if (ft_strncmp(operator, "pa", 2) == 0)
@@ -134,7 +134,7 @@ int	ft_sort(t_stack_master *stack_master, char *operator)
 		i = ft_rotate(stack_master->a);
 		if (i <= 0)
 			return (i);
-		stack_master->instruction++;
+		stack_master->instructions++;
 		return (ft_rotate(stack_master->b));
 	}
 	else

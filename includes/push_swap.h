@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:05:23 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/13 19:47:06 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/13 20:26:44 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,6 +157,8 @@ int					ft_is_correct(t_stack_master *stack_master);
 int					ft_can_be_revert(t_stack *stack, int **perfect_array);
 int					can_be_revert_process(t_stack *stack, int **perfect_array, \
 										int one, int two);
+int					is_bad_index_only_b(t_stack_master *stack_master);
+int					is_bad_index_only(t_stack_master *stack_master);
 
 void	jump_to_index(t_stack_master *stack_master, int index, int a_or_b);
 #endif

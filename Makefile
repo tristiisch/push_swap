@@ -6,7 +6,7 @@
 #    By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/04 12:37:16 by tglory            #+#    #+#              #
-#    Updated: 2021/05/13 19:46:54 by tglory           ###   ########lyon.fr    #
+#    Updated: 2021/05/13 20:29:46 by tglory           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ OBJS			=	$(SRCS:.c=.o)
 OBJS_PUSH_SWAP	=	$(SRCS_PUSH_SWAP:.c=.o)
 OBJS_CHECKER	=	$(SRCS_CHECKER:.c=.o)
 OBJS_RANDOMIZE	=	$(SRCS_RANDOMIZE:.c=.o)
-CFLAGS			=	-Wextra -Wall -g3 -fsanitize=address #-Werror
+CFLAGS			=	-Wextra -Wall #-Werror
+#CFLAGS			=	-Wextra -Wall -g3 -fsanitize=address
 
 all: $(NAME) $(NAME_CHECKER)
 

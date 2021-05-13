@@ -3,18 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   checker_particularity_II.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 16:54:12 by ksam              #+#    #+#             */
-/*   Updated: 2021/05/13 16:54:24 by ksam             ###   ########lyon.fr   */
+/*   Updated: 2021/05/13 20:26:21 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-/** Too many lines on normintte and I didn't think this will be use.
- *  I'll see it later. (27 lines)
- */
 int	is_bad_index_only(t_stack_master *stack_master)
 {
 	int	*start_index;

@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 18:46:49 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/13 19:47:22 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/13 20:32:19 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_stack_master	*ft_initialize_stack_master(void)
 	stack_master->is_instruction = 0;
 	stack_master->instructions = 0;
 	stack_master->is_verbose = 0;
-	stack_master->algo_version = 3;
+	stack_master->algo_version = 0;
 	stack_master->is_hiding_default_output = 0;
 	return (stack_master);
 }

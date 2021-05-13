@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 17:54:56 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/11 20:18:12 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/13 17:54:34 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_auto_sort(t_stack_master *stack_master)
 		ft_print_master_stack(stack_master);
 	perfect_stack = ft_get_perfect_stack(stack_master);
 	max_instruction = 0;
-	while (!(ft_is_correct(stack_master)) /*&& max_instruction < 100*/)
+	while (!(ft_is_correct(stack_master))/* && max_instruction < 100*/)
 	{
 		int bad_index;
 		if ((bad_index = is_bad_index_only(stack_master)) > -1) {
@@ -45,7 +45,7 @@ void	ft_auto_sort(t_stack_master *stack_master)
 		}
 		else if (perfect_stack.size_a > 0 && perfect_stack.perfect_array_a[perfect_stack.size_a - 1][0] == stack_master->a->top)
 			ft_sort_and_print(stack_master, "pb");
-		else if (ft_can_be_revert(stack_master->a, perfect_stack.perfect_array_a))
+		else if (perfect_stack.size_a == 2 && ft_can_be_revert(stack_master->a, perfect_stack.perfect_array_a))
 			ft_sort_and_print(stack_master, "sa");
 		else if (stack_master->algo_version >= 3 && perfect_stack.size_a > 1 && perfect_stack.perfect_array_a[0][0] == stack_master->a->top)
 		{

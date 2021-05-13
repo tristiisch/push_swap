@@ -16,7 +16,8 @@
 
 int	ft_contain_int(int *nbs, int i, int size)
 {
-	while (size >= 0) {
+	while (size >= 0)
+	{
 		if (nbs[--size] == i)
 			return (1);
 	}
@@ -25,16 +26,17 @@ int	ft_contain_int(int *nbs, int i, int size)
 
 int	main(int argc, char **argv)
 {
-	int *nbs;
-	int *nb_atoi;
-	int nb;
-	int random;
-	int i;
+	int	*nbs;
+	int	*nb_atoi;
+	int	nb;
+	int	random;
+	int	i;
 
 	if (argc <= 1)
 		ft_error("arg 1 is not set");
 	nb_atoi = ft_atoi_utimate(argv[1]);
-	if (nb_atoi == NULL) {
+	if (nb_atoi == NULL)
+	{
 		ft_error("arg 1 is not a number");
 	}
 	i = 0;
@@ -44,7 +46,8 @@ int	main(int argc, char **argv)
 	while (i < nb)
 	{
 		random = -1;
-		while (random == -1 || ft_contain_int(nbs, random, nb) == 1) {
+		while (random == -1 || ft_contain_int(nbs, random, nb) == 1)
+		{
 			random = rand();
 		}
 		nbs[i] = random;

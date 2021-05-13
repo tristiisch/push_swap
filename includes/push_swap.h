@@ -6,7 +6,7 @@
 /*   By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:05:23 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/13 17:49:45 by ksam             ###   ########lyon.fr   */
+/*   Updated: 2021/05/13 18:22:18 by ksam             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void			ft_print_master_stack(t_stack_master *stack_master);
 int				ft_sort(t_stack_master *stack_master, char *operator);
 int				ft_sort_and_print(t_stack_master *stack_master, char *operator);
 void			ft_auto_sort(t_stack_master *stack_master);
+void			jump_to_index(t_stack_master *stack_master, int index, int a_or_b);
 
 int				ft_stack_peek(t_stack *stack);
 int				ft_stack_pop(t_stack *stack);
@@ -86,7 +87,8 @@ void			ft_free_perfect_stack(t_perfect_stack perfect_stack);
 t_perfect_stack	ft_get_perfect_stack(t_stack_master *stack_master);
 
 t_stack_master	*ft_args_to_stack_master(char **argv, int max_stack_size);
-t_stack_master	*ft_initialize_stack_master(int max_stack_size);
+t_stack_master	*ft_initialize_stack_master();
+void			ft_create_stack_master(t_stack_master *stack_master, int max_stack_size);
 
 int*			get_index_of_biggest(t_stack *stack, int *under);
 int				get_index_of_smallest(t_stack *stack, int upper);

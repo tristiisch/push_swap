@@ -51,7 +51,7 @@ int	**get_perfect_order(t_stack_master *stack_master, int a_or_b)
 		last_index = *index;
 		last_number = &(stack->array[*index]);
 		array[i] = malloc(2 * sizeof(int));
-		array[i][0] = *index;
+		array[i][0] = last_index;
 		array[i][1] = *last_number;
 		i++;
 	}
@@ -93,11 +93,13 @@ void	ft_free_perfect_stack(t_perfect_stack perfect_stack)
 	i = 0;
 	while (perfect_stack.size_a > i)
 		free(perfect_stack.perfect_array_a[i++]);
-	free(perfect_stack.perfect_array_a);
+	if (perfect_stack.size_a != 0)
+		free(perfect_stack.perfect_array_a);
 	i = 0;
 	while (perfect_stack.size_b > i)
 		free(perfect_stack.perfect_array_b[i++]);
-	free(perfect_stack.perfect_array_b);
+	if (perfect_stack.size_b != 0)
+		free(perfect_stack.perfect_array_b);
 }
 
 t_perfect_stack	ft_get_perfect_stack(t_stack_master *stack_master)
@@ -106,6 +108,7 @@ t_perfect_stack	ft_get_perfect_stack(t_stack_master *stack_master)
 
 	perfect_stack.perfect_array_a = get_perfect_order(stack_master, 0);
 	perfect_stack.size_a = stack_master->a->top + 1;
+	//perfect_stack.size_b = 0;
 	perfect_stack.perfect_array_b = get_perfect_order(stack_master, 1);
 	perfect_stack.size_b = stack_master->b->top + 1;
 	return (perfect_stack);

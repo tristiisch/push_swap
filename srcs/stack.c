@@ -46,19 +46,20 @@ t_stack* ft_add(t_stack *stack, char* s)
 t_stack* ft_stack_add(t_stack *stack, int new_item)
 {
 	t_stack* new_stack;
-	//int	i;
+	int	i;
 
+	new_stack = NULL;
 	if (stack == NULL)
 		new_stack = ft_stack_create(1);
 	else if (!(ft_stack_has_place(stack, 1)))
 	{
-		ft_error("The stack is full, can't push on it.");
-		/*new_stack = ft_stack_create(stack->capacity + 1);
+		//ft_error("The stack is full, can't push on it.");
+		new_stack = ft_stack_create(stack->capacity + 1);
 		i = 0;
 		while (i <= stack->top)
 			ft_stack_push(new_stack, stack->array[i++]);
 		ft_stack_free_stack(stack);
-		ft_warn("The precedant stack was not free");*/
+		ft_warn("The precedant stack was not free");
 	}
 	else
 		new_stack = stack;

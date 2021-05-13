@@ -26,13 +26,25 @@ int	ft_contain_int(int *nbs, int i, int size)
 
 int	*get_num(char **argv)
 {
+<<<<<<< HEAD
 	int	*nb_atoi;
+=======
+	int	*nbs;
+	int	*nb_atoi;
+	int	nb;
+	int	random;
+	int	i;
+>>>>>>> master
 
 	nb_atoi = ft_atoi_utimate(argv[1]);
 	if (nb_atoi == NULL)
 	{
+<<<<<<< HEAD
 		ft_error("arg 1 is not a numbler");
 		exit(0);
+=======
+		ft_error("arg 1 is not a number");
+>>>>>>> master
 	}
 	return (nb_atoi);
 }

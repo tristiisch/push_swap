@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   instructions_initializor.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/27 16:57:53 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/13 17:27:12 by ksam             ###   ########lyon.fr   */
+/*   Created: 2021/05/13 15:38:37 by ksam              #+#    #+#             */
+/*   Updated: 2021/05/13 15:49:31 by ksam             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-void	ft_error(char *msg)
+char	**instructions_initializor(void)
 {
-	printf("\033[0;31mError\n%s.\033[0m\n", msg);
-	exit(EXIT_FAILURE);
-}
+	char	**array;
 
-void	ft_error_memomy(void)
-{
-	ft_error("Unable to allocate memory");
-}
-
-void	ft_warn(char *msg)
-{
-	printf("\x1B[33mWarn\n%s.\033[0m\n", msg);
+	array = malloc(sizeof(char *) * 11);
+	array[0] = "sa";
+	array[1] = "sb";
+	array[2] = "ss";
+	array[3] = "pa";
+	array[4] = "pb";
+	array[5] = "ra";
+	array[6] = "rb";
+	array[7] = "rr";
+	array[8] = "rra";
+	array[9] = "rrb";
+	array[10] = "rrr";
+	return (array);
 }

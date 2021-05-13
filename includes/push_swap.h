@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:05:23 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/07 11:11:41 by ksam             ###   ########lyon.fr   */
+/*   Updated: 2021/05/13 19:47:06 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,6 @@ typedef struct s_stack_master
 	int		is_hiding_default_output;
 }			t_stack_master;
 
-int				ft_swap(t_stack *stack);
-int				ft_push(t_stack_master *stack, int bool);
-int				ft_rotate(t_stack *stack);
-int				ft_reverse_rotate(t_stack *stack);
 
 void			ft_print_stack(t_stack *stack);
 void			ft_print_master_stack(t_stack_master *stack_master);
@@ -72,6 +68,7 @@ void			ft_print_master_stack(t_stack_master *stack_master);
 int				ft_sort(t_stack_master *stack_master, char *operator);
 int				ft_sort_and_print(t_stack_master *stack_master, char *operator);
 void			ft_auto_sort(t_stack_master *stack_master);
+void			jump_to_index(t_stack_master *stack_master, int index, int a_or_b);
 
 int				ft_stack_peek(t_stack *stack);
 int				ft_stack_pop(t_stack *stack);
@@ -86,16 +83,12 @@ t_stack*		ft_add(t_stack *stack, char* s);
 void			ft_print_int_array(int *array, int size);
 void			ft_print_int_double_array(int **array, int size);
 
-int				ft_is_correct_order(t_stack *stack);
-int				ft_is_updside_down(t_stack *stack);
-int				ft_is_correct(t_stack_master *stack_master);
-int				ft_can_be_revert(t_stack *stack, int **perfect_array);
-
 void			ft_free_perfect_stack(t_perfect_stack perfect_stack);
 t_perfect_stack	ft_get_perfect_stack(t_stack_master *stack_master);
 
 t_stack_master	*ft_args_to_stack_master(char **argv, int max_stack_size);
-t_stack_master	*ft_initialize_stack_master(int max_stack_size);
+t_stack_master	*ft_initialize_stack_master();
+void			ft_create_stack_master(t_stack_master *stack_master, int max_stack_size);
 
 int*			get_index_of_biggest(t_stack *stack, int *under);
 int				get_index_of_smallest(t_stack *stack, int upper);
@@ -124,11 +117,46 @@ void				data_eraser(t_master *manager, t_data *new, int i);
 /*
 ** 					CHECKER FUNCTIONS
 */
-int					*transform_argument_to_array(int argc, char**argv);
-t_stack_master		*fill_astack_with_arg(int *nb, int argc);
 void				check_instructions(t_master *manager, char **instructions);
+t_stack_master		*fill_astack_with_arg(int *nb, int argc);
+
+/*
+** 					FREE FUNCTIONS
+*/
+void				free_all(int *number_to_order, t_stack_master *stack_master);
+void				free_manager(t_master *manager);
+
+/*
+** 					INSTRUCTIONS INITIALIZOR
+*/
+char				**instructions_initializor(void);
+
+/*
+** 					TRANSFORM ARGUMENT TO ARRAY
+*/
+int					*transform_argument_to_array(int argc, char**argv);
 int					*reverse_array(int *array, int argc);
 
+/*
+**_________________________________PUSH SWAP_________________________________
+*/
+/*
+** 					BASIC SORT
+*/
+int					ft_swap(t_stack *stack);
+int					ft_push(t_stack_master *stack, int bool);
+int					ft_rotate(t_stack *stack);
+int					ft_reverse_rotate(t_stack *stack);
 
+/*
+** 					CHECKER PARTICULARITY
+*/
+int					ft_is_correct_order(t_stack *stack);
+int					ft_is_upside_down(t_stack *stack);
+int					ft_is_correct(t_stack_master *stack_master);
+int					ft_can_be_revert(t_stack *stack, int **perfect_array);
+int					can_be_revert_process(t_stack *stack, int **perfect_array, \
+										int one, int two);
 
+void	jump_to_index(t_stack_master *stack_master, int index, int a_or_b);
 #endif

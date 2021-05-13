@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 12:58:02 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/11 05:23:07 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/13 16:25:46 by ksam             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 
 	if (argc <= 1)
 		ft_error("You need to add int in argument to sort it.\n-v = verbose," \
-		" -c last action colored, -h hide default output, -a <int> algo version");
+	" -c last action colored, -h hide default output, -a <int> algo version");
 	else if (argc >= 2 && !ft_strncmp(argv[1], "-ex", 3))
 	{
 		test_exemple();

@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   free_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/27 16:57:53 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/13 17:27:12 by ksam             ###   ########lyon.fr   */
+/*   Created: 2021/05/13 16:02:41 by ksam              #+#    #+#             */
+/*   Updated: 2021/05/13 16:24:44 by ksam             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-void	ft_error(char *msg)
+void	free_all(int *number_to_order, t_stack_master *stack_master)
 {
-	printf("\033[0;31mError\n%s.\033[0m\n", msg);
-	exit(EXIT_FAILURE);
+	free(number_to_order);
+	ft_stack_free_stack(stack_master->a);
+	ft_stack_free_stack(stack_master->b);
+	if (stack_master)
+		free(stack_master);
 }
 
-void	ft_error_memomy(void)
+void	free_manager(t_master *manager)
 {
-	ft_error("Unable to allocate memory");
-}
-
-void	ft_warn(char *msg)
-{
-	printf("\x1B[33mWarn\n%s.\033[0m\n", msg);
+	if (manager)
+		free(manager);
 }

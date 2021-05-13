@@ -6,7 +6,7 @@
 /*   By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:08:51 by tglory            #+#    #+#             */
-/*   Updated: 2021/04/27 17:32:07 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/13 17:54:34 by ksam             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	ft_reverse_rotate(t_stack *stack)
 		return (0);
 	index = 0;
 	swap = (stack->array)[index];
-	while (index <= stack->top)
+	while (index < stack->top)
 	{
 		(stack->array)[index] = (stack->array)[index + 1];
 		index++;

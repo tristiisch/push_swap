@@ -16,40 +16,59 @@
 
 int	ft_contain_int(int *nbs, int i, int size)
 {
-	while (size >= 0) {
+	while (size >= 0)
+	{
 		if (nbs[--size] == i)
 			return (1);
 	}
 	return (0);
 }
 
-int	main(int argc, char **argv)
+int	*get_num(char **argv)
 {
-	int *nbs;
-	int *nb_atoi;
-	int nb;
-	int random;
-	int i;
+	int	*nb_atoi;
 
-	if (argc <= 1)
-		ft_error("arg 1 is not set");
 	nb_atoi = ft_atoi_utimate(argv[1]);
-	if (nb_atoi == NULL) {
-		ft_error("arg 1 is not a number");
+	if (nb_atoi == NULL)
+	{
+		ft_error("arg 1 is not a numbler");
+		exit(0);
 	}
+	return (nb_atoi);
+}
+
+int	*ran_number_assignation(int nb)
+{
+	int	i;
+	int	random;
+	int	*nbs;
+
 	i = 0;
-	nb = *nb_atoi;
 	nbs = ft_calloc(nb, sizeof(int));
 	srand(time(NULL));
 	while (i < nb)
 	{
 		random = -1;
-		while (random == -1 || ft_contain_int(nbs, random, nb) == 1) {
+		while (random == -1 || ft_contain_int(nbs, random, nb) == 1)
+		{
 			random = rand();
 		}
 		nbs[i] = random;
 		i++;
 	}
+	return (nbs);
+}
+
+int	main(int argc, char **argv)
+{
+	int	*nbs;
+	int	nb;
+	int	i;
+
+	if (argc <= 1)
+		ft_error("arg 1 is not set");
+	nb = *get_num(argv);
+	nbs = ran_number_assignation(nb);
 	i = nb - 1;
 	while (i >= 0)
 	{

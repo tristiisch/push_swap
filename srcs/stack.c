@@ -83,6 +83,8 @@ t_stack* ft_stack_create(unsigned int capacity)
 
 void ft_stack_free_stack(t_stack *stack)
 {
+	if (stack != NULL)
+		return ;
 	if (stack->capacity > 0)
 		free(stack->array);
 	free(stack);

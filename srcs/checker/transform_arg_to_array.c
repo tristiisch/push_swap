@@ -6,15 +6,15 @@
 /*   By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 01:36:16 by ksam              #+#    #+#             */
-/*   Updated: 2021/05/07 11:06:00 by ksam             ###   ########lyon.fr   */
+/*   Updated: 2021/05/13 17:57:12 by ksam             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-int		arg_verification(int res, int *array, int current)
+int	arg_verification(int res, int *array, int current)
 {
-	int i;
+	int	i;
 
 	if (res >= 0)
 	{
@@ -32,10 +32,9 @@ int		arg_verification(int res, int *array, int current)
 
 void	is_arg_digit(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-
 	while (str[i])
 	{
 		if (ft_isdigit(str[i]))
@@ -48,7 +47,7 @@ void	is_arg_digit(char *str)
 	}
 }
 
-int		*transform_argument_to_array(int argc, char**argv)
+int	*transform_argument_to_array(int argc, char**argv)
 {
 	int		index;
 	int		res;
@@ -72,7 +71,7 @@ int		*transform_argument_to_array(int argc, char**argv)
 	return (reverse_array(array, argc));
 }
 
-int		*reverse_array(int *array, int argc)
+int	*reverse_array(int *array, int argc)
 {
 	int		i;
 	int		size;
@@ -81,7 +80,6 @@ int		*reverse_array(int *array, int argc)
 	i = 0;
 	size = argc - 2;
 	ret = malloc(sizeof(int) * (size + 1));
-	
 	while (size >= 0)
 	{
 		ret[i] = array[size];

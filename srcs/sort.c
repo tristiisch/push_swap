@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 17:54:56 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/11 20:18:12 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/13 17:05:11 by ksam             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_auto_sort(t_stack_master *stack_master)
 		if ((bad_index = is_bad_index_only(stack_master)) > -1) {
 			jump_to_index(stack_master, bad_index, 0);
 		}
-		else if (ft_is_updside_down(stack_master->b) && (ft_stack_is_empty(stack_master->a) || ft_is_correct_order(stack_master->a)))
+		else if (ft_is_upside_down(stack_master->b) && (ft_stack_is_empty(stack_master->a) || ft_is_correct_order(stack_master->a)))
 		{
 			top = stack_master->b->top;
 			while (top >= 0)

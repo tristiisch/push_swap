@@ -6,7 +6,7 @@
 #    By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/04 12:37:16 by tglory            #+#    #+#              #
-#    Updated: 2021/04/30 02:05:27 by ksam             ###   ########lyon.fr    #
+#    Updated: 2021/05/13 17:50:05 by ksam             ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,13 +19,13 @@ NORM_DIRS		=	srcs/ includes/ get_next_line/ libft/
 INCLUDES		=	$(wildcard includes/*.h)
 SRCS			=	$(wildcard srcs/*.c)
 SRCS_PUSH_SWAP	=	srcs/push_swap/main.c
-SRCS_CHECKER	=	srcs/checker/main.c
+SRCS_CHECKER	=	$(wildcard srcs/checker/*.c)
 SRCS_RANDOMIZE	=	srcs/randomize/main.c
 OBJS			=	$(SRCS:.c=.o)
 OBJS_PUSH_SWAP	=	$(SRCS_PUSH_SWAP:.c=.o)
 OBJS_CHECKER	=	$(SRCS_CHECKER:.c=.o)
 OBJS_RANDOMIZE	=	$(SRCS_RANDOMIZE:.c=.o)
-CFLAGS			=	-Wextra -Wall #-Werror
+CFLAGS			=	-Wextra -Wall -g3 -fsanitize=address #-Werror
 
 all: $(NAME) $(NAME_CHECKER)
 

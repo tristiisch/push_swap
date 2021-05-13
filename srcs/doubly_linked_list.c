@@ -6,7 +6,7 @@
 /*   By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 18:01:09 by ksam              #+#    #+#             */
-/*   Updated: 2021/03/25 18:01:39 by ksam             ###   ########lyon.fr   */
+/*   Updated: 2021/05/13 17:25:21 by ksam             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_master	*manager_initializor(void)
 {
-	t_master *manager;
+	t_master	*manager;
 
 	manager = malloc(sizeof(t_master));
 	if (manager == NULL)
@@ -26,7 +26,7 @@ t_master	*manager_initializor(void)
 	return (manager);
 }
 
-void		data_backpusher(t_master *manager, char *val)
+void	data_backpusher(t_master *manager, char *val)
 {
 	t_data	*new;
 
@@ -43,9 +43,9 @@ void		data_backpusher(t_master *manager, char *val)
 	manager->count++;
 }
 
-void		data_frontpusher(t_master *manager, char *val)
+void	data_frontpusher(t_master *manager, char *val)
 {
-	t_data *new;
+	t_data	*new;
 
 	new = ft_calloc(1, sizeof(t_data));
 	if (new == NULL)
@@ -60,7 +60,7 @@ void		data_frontpusher(t_master *manager, char *val)
 		manager->last = new;
 }
 
-void		data_eraser(t_master *manager, t_data *new, int i)
+void	data_eraser(t_master *manager, t_data *new, int i)
 {
 	if (new == manager->first)
 	{

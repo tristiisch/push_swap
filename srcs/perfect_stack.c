@@ -49,7 +49,7 @@ int	**get_perfect_order(t_stack_master *stack_master, int a_or_b)
 		if (!index || last_index == *index)
 			break ;
 		last_index = *index;
-		last_number = &(stack->array[*index]);
+		last_number = &(stack->array[last_index]);
 		array[i] = malloc(2 * sizeof(int));
 		array[i][0] = last_index;
 		array[i][1] = *last_number;

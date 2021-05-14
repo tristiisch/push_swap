@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   jump_to_index.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 17:37:07 by ksam              #+#    #+#             */
-/*   Updated: 2021/05/13 17:49:30 by ksam             ###   ########lyon.fr   */
+/*   Updated: 2021/05/14 05:13:45 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,8 @@ void	ra_or_rb(t_stack_master *stack_master, int times, int a_or_b)
 	}
 }
 
-void	rra_or_rrb(t_stack_master *stack_master, int times, int a_or_b, \
-					int index)
+void	rra_or_rrb(t_stack_master *stack_master, int times, int a_or_b)
 {
-	times = index + 1;
 	while (times > 0)
 	{
 		if (a_or_b == 0)
@@ -36,6 +34,17 @@ void	rra_or_rrb(t_stack_master *stack_master, int times, int a_or_b, \
 			ft_sort_and_print(stack_master, "rrb");
 		times--;
 	}
+}
+
+int	index_to_times(int index, int top)
+{
+	int		times;
+	
+	times = top - index;
+	if (times <= (top + 1) / 2)
+		return (times);
+	else
+		return (index + 1);
 }
 
 void	jump_to_index(t_stack_master *stack_master, int index, int a_or_b)
@@ -58,5 +67,5 @@ void	jump_to_index(t_stack_master *stack_master, int index, int a_or_b)
 	if (times <= (top + 1) / 2)
 		ra_or_rb(stack_master, times, a_or_b);
 	else
-		rra_or_rrb(stack_master, times, a_or_b, index);
+		rra_or_rrb(stack_master, index + 1, a_or_b);
 }

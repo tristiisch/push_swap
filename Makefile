@@ -6,7 +6,7 @@
 #    By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/04 12:37:16 by tglory            #+#    #+#              #
-#    Updated: 2021/05/13 20:29:46 by tglory           ###   ########lyon.fr    #
+#    Updated: 2021/05/14 02:34:43 by tglory           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIB_PATH		=	libft/libft.a get_next_line/get_next_line.a
 NORM_DIRS		=	srcs/ includes/ get_next_line/ libft/
 INCLUDES		=	$(wildcard includes/*.h)
 SRCS			=	$(wildcard srcs/*.c)
-SRCS_PUSH_SWAP	=	srcs/push_swap/main.c
+SRCS_PUSH_SWAP	=	$(wildcard srcs/push_swap/*.c)
 SRCS_CHECKER	=	$(wildcard srcs/checker/*.c)
 SRCS_RANDOMIZE	=	srcs/randomize/main.c
 OBJS			=	$(SRCS:.c=.o)

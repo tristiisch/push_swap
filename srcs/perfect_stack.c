@@ -86,6 +86,30 @@ int*	get_index_of_biggest(t_stack *stack, int *under)
 	return (saved_index);
 }
 
+int*	get_index_of_smallest(t_stack *stack, int *upper)
+{
+	int index;
+	int *saved_index;
+	int	*saved_int;
+	int swap;
+
+	index = stack->top;
+	saved_int = NULL;
+	saved_index = NULL;
+	while (index >= 0)
+	{
+		if ((!upper || stack->array[index] > *upper)
+			&& (!saved_int || *saved_int > stack->array[index]))
+		{
+			saved_int = &(stack->array[index]);
+			swap = index;
+			saved_index = &swap;
+		}
+		index--;
+	}
+	return (saved_index);
+}
+
 void	ft_free_perfect_stack(t_perfect_stack perfect_stack)
 {
 	int	i;

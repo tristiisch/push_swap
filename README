@@ -24,3 +24,9 @@ TESTER >
 ARG=$(./randomize 500); ./push_swap $ARG -h -i
 
 ARG=$(./randomize 100); ./push_swap $ARG | ./checker $ARG
+
+TESTER LES ALGO AVEC BAREME >
+
+ARG=$(./randomize 10); ./push_swap $ARG -t
+ARG=$(./randomize 100); ./push_swap $ARG -t
+ARG=$(./randomize 500); ./push_swap $ARG -t

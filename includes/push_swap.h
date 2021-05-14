@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:05:23 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/13 20:26:44 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/14 03:11:54 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,13 @@ typedef struct s_stack_master
 }			t_stack_master;
 
 
+void			ft_print_int_array(int *array, int size);
+void			ft_print_int_double_array(int **array, int size);
 void			ft_print_stack(t_stack *stack);
 void			ft_print_master_stack(t_stack_master *stack_master);
 
 int				ft_sort(t_stack_master *stack_master, char *operator);
-int				ft_sort_and_print(t_stack_master *stack_master, char *operator);
-void			ft_auto_sort(t_stack_master *stack_master);
-void			jump_to_index(t_stack_master *stack_master, int index, int a_or_b);
+void			ft_stack_master_free(t_stack_master *stack_master);
 
 int				ft_stack_peek(t_stack *stack);
 int				ft_stack_pop(t_stack *stack);
@@ -80,8 +80,6 @@ t_stack			*ft_stack_add(t_stack *old_stack, int new_item);
 int				ft_stack_has_place(t_stack *stack, int i);
 void			ft_stack_free_stack(t_stack *stack);
 t_stack*		ft_add(t_stack *stack, char* s);
-void			ft_print_int_array(int *array, int size);
-void			ft_print_int_double_array(int **array, int size);
 
 void			ft_free_perfect_stack(t_perfect_stack perfect_stack);
 t_perfect_stack	ft_get_perfect_stack(t_stack_master *stack_master);
@@ -90,8 +88,6 @@ t_stack_master	*ft_args_to_stack_master(char **argv, int max_stack_size);
 t_stack_master	*ft_initialize_stack_master();
 void			ft_create_stack_master(t_stack_master *stack_master, int max_stack_size);
 
-int*			get_index_of_biggest(t_stack *stack, int *under);
-int				get_index_of_smallest(t_stack *stack, int upper);
 int*			ft_atoi_utimate(const char *str);
 
 void    		ft_warn(char *msg);
@@ -160,5 +156,27 @@ int					can_be_revert_process(t_stack *stack, int **perfect_array, \
 int					is_bad_index_only_b(t_stack_master *stack_master);
 int					is_bad_index_only(t_stack_master *stack_master);
 
-void	jump_to_index(t_stack_master *stack_master, int index, int a_or_b);
+/*
+** 					UTILS
+*/
+int*				get_index_of_biggest(t_stack *stack, int *under);
+int*				get_index_of_smallest(t_stack *stack, int *upper);
+void				jump_to_index(t_stack_master *stack_master, int index, int a_or_b);
+
+/*
+** 					EXECUTE
+*/
+
+int					ft_sort_and_print(t_stack_master *stack_master, char *operator);
+void				ft_auto_sort(t_stack_master *stack_master);
+void 				ft_auto_sortV4(t_stack_master *stack_master);
+
+/*
+** 					TEST
+*/
+void				test_exemple(void);
+void				test_all_algo(t_stack_master *stack_master, int argc, char **argv);
+
+void				ft_print_instructions(t_stack_master *stack_master);
+
 #endif

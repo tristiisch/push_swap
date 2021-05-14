@@ -3,90 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/25 17:54:56 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/13 18:24:40 by ksam             ###   ########lyon.fr   */
+/*   Created: 2021/05/14 02:18:39 by tglory            #+#    #+#             */
+/*   Updated: 2021/05/14 02:18:39 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-/** Sort automatically stacks
- * 
- */
-void	ft_auto_sort(t_stack_master *stack_master)
-{
-	t_perfect_stack perfect_stack;
-	int	top;
-	int	max_instruction; // TODO remove max instruction
-
-	if (stack_master->is_verbose == 1)
-		ft_print_master_stack(stack_master);
-	perfect_stack = ft_get_perfect_stack(stack_master);
-	max_instruction = 0;
-	while (!(ft_is_correct(stack_master))/* && max_instruction < 100*/)
-	{
-		int bad_index;
-		if ((bad_index = is_bad_index_only(stack_master)) > -1) {
-			jump_to_index(stack_master, bad_index, 0);
-		}
-		else if (ft_is_upside_down(stack_master->b) && (ft_stack_is_empty(stack_master->a) || ft_is_correct_order(stack_master->a)))
-		{
-			top = stack_master->b->top;
-			while (top >= 0)
-			{
-				ft_sort_and_print(stack_master, "pa");
-				top--;
-			}
-			break;
-		} else if (stack_master->algo_version >= 3 && (bad_index = is_bad_index_only_b(stack_master)) > -1){
-			jump_to_index(stack_master, bad_index, 1);
-		}
-		else if (perfect_stack.size_a > 0 && perfect_stack.perfect_array_a[perfect_stack.size_a - 1][0] == stack_master->a->top)
-			ft_sort_and_print(stack_master, "pb");
-		else if (perfect_stack.size_a == 2 && ft_can_be_revert(stack_master->a, perfect_stack.perfect_array_a))
-			ft_sort_and_print(stack_master, "sa");
-		else if (stack_master->algo_version >= 3 && perfect_stack.size_a > 1 && perfect_stack.perfect_array_a[0][0] == stack_master->a->top)
-		{
-			ft_sort_and_print(stack_master, "pb");
-			if (stack_master->b->top > 0) {
-				ft_sort_and_print(stack_master, "rb");
-			}
-		}
-		/* Essaie d'utiliser sb. Résultat : Pas opti*/
-		else if (stack_master->algo_version == 2 && perfect_stack.size_a > 1 && perfect_stack.perfect_array_a[perfect_stack.size_a - 2][0] == stack_master->a->top)
-		{
-			//printf("NEW ONE %d\n", stack_master->a->top);
-			ft_sort_and_print(stack_master, "pb");
-			//perfect_stack = ft_get_perfect_stack(stack_master);
-			while (perfect_stack.perfect_array_a[perfect_stack.size_a - 1][1] != stack_master->a->array[stack_master->a->top])
-			{
-				if (perfect_stack.perfect_array_a[perfect_stack.size_a - 1][0] > stack_master->a->top / 2)
-					ft_sort_and_print(stack_master, "ra");
-				else
-					ft_sort_and_print(stack_master, "rra");
-				//printf("PERFECT STACK %d - %d\n", perfect_stack.perfect_array_a[perfect_stack.size_a - 1][0], stack_master->a->top);
-			}
-			ft_sort_and_print(stack_master, "pb");
-			ft_sort_and_print(stack_master, "sb");
-		}
-		else if (perfect_stack.size_a > 0 && perfect_stack.perfect_array_a[perfect_stack.size_a - 1][0] > stack_master->a->top / 2)
-			ft_sort_and_print(stack_master, "ra");
-		else {
-			ft_sort_and_print(stack_master, "rra");
-		}
-		ft_free_perfect_stack(perfect_stack);
-		perfect_stack = ft_get_perfect_stack(stack_master);
-		max_instruction++;
-	}
-	max_instruction = 0;
-	if (stack_master->is_verbose == 1 || stack_master->is_instruction == 1)
-		printf("instructions algo n°%d > %d\n", stack_master->algo_version, stack_master->instructions);
-	ft_free_perfect_stack(perfect_stack);
-	ft_stack_free_stack(stack_master->a);
-	ft_stack_free_stack(stack_master->b);
-}
 
 /** Execute operator one by one for stacks
  * @param operator rra rrb rrr sa sb ss pa pb ra rb rr

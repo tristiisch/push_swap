@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:05:23 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/14 05:13:59 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/14 10:31:38 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ int*			ft_atoi_utimate(const char *str);
 
 void    		ft_warn(char *msg);
 void    		ft_error(char *msg);
+void			ft_error_master(t_stack_master *stack_master, char *msg);
 void    		ft_error_memomy();
 
 /*
@@ -163,6 +164,9 @@ int*				get_index_of_biggest(t_stack *stack, int *under);
 int*				get_index_of_smallest(t_stack *stack, int *upper);
 void				jump_to_index(t_stack_master *stack_master, int index, int a_or_b);
 int					index_to_times(int index, int top);
+int 				ft_get_cercle(int index, t_stack *stack);
+int 				ft_get_perfect_index_b(int value, int **perfect_stack_array, int perfect_stack_size, t_stack *stackDest);
+
 
 /*
 ** 					EXECUTE

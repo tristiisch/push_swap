@@ -6,11 +6,18 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 16:57:53 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/14 03:17:48 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/14 10:31:20 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void	ft_error_master(t_stack_master *stack_master, char *msg)
+{
+	printf("\033[0;31mError\n%s.\033[0m\n", msg);
+	ft_stack_master_free(stack_master);
+	exit(EXIT_FAILURE);
+}
 
 void	ft_error(char *msg)
 {

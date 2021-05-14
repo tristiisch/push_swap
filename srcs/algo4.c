@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 02:18:08 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/14 09:22:57 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/14 10:14:00 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,6 @@ int ft_get_cercle(int index, t_stack *stack)
 		index = index - stack->top - 1;
 	return (stack->array[index]);
 }
-/*
-int ft_get_perfect_index_a(int value, int **perfect_stack_array, int perfect_stack_size, t_stack *stackDest)
-{
-	int i;
-
-	i = 0;
-	while(i <= stackDest->top)
-	{
-		if ((stackDest->array[i] > value && ft_get_cercle(i + 1, stackDest) < value) 
-			|| ((stackDest->array[i] > value || ft_get_cercle(i + 1, stackDest) < value)
-			&& ft_get_cercle(i + 1, stackDest) == perfect_stack_array[0][1] 
-			&& stackDest->array[i] == perfect_stack_array[perfect_stack_size - 1][1]))
-		{
-			//printf("DEBUG perfect INDEX %d\n", i);
-			return (i);
-		}
-		i++;
-	}
-	return (-1);
-}*/
 
 int ft_perfect_shot(t_stack_master *stack_master, int min_b, int max_b)
 {
@@ -62,8 +42,6 @@ int ft_perfect_shot(t_stack_master *stack_master, int min_b, int max_b)
 		{
 			int value = stack_master->a->array[i_a];
 			if ((stack_value1 < value && value < stack_value2) || ((stack_value1 < value || stack_value2 > value)
-				// && stack_value2 == stack_master->b->array[0]
-				// && stack_value1 == stack_master->b->array[stack_master->b->top]))
 				// && stack_value2 == perfect_stack->perfect_array_b[stack_master->b->top][1]
 				// && stack_value1 == perfect_stack->perfect_array_b[0][1]))
 				&& stack_value2 == min_b
@@ -92,7 +70,6 @@ int ft_perfect_shot(t_stack_master *stack_master, int min_b, int max_b)
 	{
 		ft_error("cannot find");
 		return (0);
-		
 	}
 	// printf("Yess %d A:%d B:%d Index A:%d B:%d Top A:%d B:%d Value A:%d B:%d\n", times_total, times_a, 
 	// times_b, saved_a, saved_b, stack_master->a->top, stack_master->b->top, stack_master->a->array[saved_a], stack_master->b->array[saved_b]);
@@ -151,19 +128,16 @@ int ft_get_perfect_index_b(int value, int **perfect_stack_array, int perfect_sta
 
 void ft_auto_sortV4(t_stack_master *stack_master)
 {
-	t_perfect_stack perfect_stack;
+	// t_perfect_stack perfect_stack;
 	int top;
-	int max_instruction; // TODO remove max instruction
 
-	perfect_stack = ft_get_perfect_stack(stack_master);
-	max_instruction = 0;
+	// perfect_stack = ft_get_perfect_stack(stack_master);
 	while (!(ft_is_correct(stack_master)))
 	{
 		int bad_index;
 		/*if ((bad_index = is_bad_index_only(stack_master)) > -1) {
 			jump_to_index(stack_master, bad_index, 0);
-		}
-		else */
+		} else */
 		if (ft_is_upside_down(stack_master->b) && (ft_stack_is_empty(stack_master->a) /*|| ft_is_correct_order(stack_master->a)*/))
 		{
 			top = stack_master->b->top;
@@ -180,80 +154,22 @@ void ft_auto_sortV4(t_stack_master *stack_master)
 		}
 		else if (stack_master->b->top > 0)
 		{
-			if (ft_perfect_shot(stack_master, perfect_stack.perfect_array_b[stack_master->b->top][1], perfect_stack.perfect_array_b[0][1]) == 0) {
+			if (!ft_perfect_shot(stack_master, stack_master->b->array[*get_index_of_smallest(stack_master->b, NULL)],
+				stack_master->b->array[*get_index_of_biggest(stack_master->b, NULL)])) {
 				ft_warn("Can't sort perfect");
-				// int index_b = ft_get_perfect_index_b(stack_master->a->array[stack_master->a->top], perfect_stack.perfect_array_b, perfect_stack.size_b, stack_master->b);
-				// if (index_b == -1)
-				// 	ft_error("Can't find perfect index on B");
-				// jump_to_index(stack_master, index_b, 1);
-				// ft_sort_and_print(stack_master, "pb");
 			}
 		}
 		else if (stack_master->b->top < 2)
-		{
 			ft_sort_and_print(stack_master, "pb");
-		} else {
+		else {
 			ft_error("Can't sort");
 		}
-		
-		
-		/*else if (perfect_stack.size_a > 0 && perfect_stack.perfect_array_a[perfect_stack.size_a - 1][0] == stack_master->a->top)
-			ft_sort_and_print(stack_master, "pb");
-		else if (perfect_stack.size_a > 1 && perfect_stack.perfect_array_a[0][0] == stack_master->a->top)
-		{
-			ft_sort_and_print(stack_master, "pb");
-			if (stack_master->b->top > 0) {
-				ft_sort_and_print(stack_master, "rb");
-			}
-		}*/
-		/*else if (stack_master->b->top >= 1)
-		{
-			int index_b = ft_get_perfect_index_b(stack_master->a->array[stack_master->a->top], perfect_stack.perfect_array_b, perfect_stack.size_b, stack_master->b);
-			if (index_b == -1)
-				ft_error("Can't find perfect index on B");
-			int times_b = index_to_times(index_b, stack_master->b->top);
-			int index_a = ft_get_perfect_index_a(&perfect_stack, stack_master);
-			// if (index_a != -1)
-				// printf("TIMES B: %d A: %d\n", times_b, index_to_times(index_a, stack_master->a->top));
-			if (index_a != -1 && index_to_times(index_a, stack_master->a->top) < times_b)
-			{
-				// int times_a = index_to_times(index_a, stack_master->a->top);
-				jump_to_index(stack_master, index_a, 0);
-				ft_sort_and_print(stack_master, "pb");
-				// printf("GOOD ft_get_perfect_index_a eco %d times\n", times_b - times_a);
-			} 
-			else
-			{
-				jump_to_index(stack_master, index_b, 1);
-				ft_sort_and_print(stack_master, "pb");
-				//printf("KO A %d: TIME B %d\n", stack_master->a->top, time);
-			}
-			
-			//printf("DEBUG index %d\n", inde);
-			/*int value = stack_master->b->array[inde];
-			while (!((stack_master->b->array[stack_master->b->top] < stack_master->a->array[stack_master->a->top] 
-				&& stack_master->b->array[0] > stack_master->a->array[stack_master->a->top]) 
-				|| (stack_master->b->top != 1 && stack_master->b->array[stack_master->b->top] < stack_master->a->array[stack_master->a->top] 
-				&& stack_master->b->array[0] == perfect_stack.perfect_array_b[perfect_stack.size_b - 1][1] 
-				&& stack_master->b->array[stack_master->b->top] == perfect_stack.perfect_array_b[0][1])))
-			{
-				ft_sort_and_print(stack_master, "rb");
-			}
-			if (value == stack_master->b->array[stack_master->b->top])
-			{
-				printf("DEBUG good\n");
-			} else
-			{
-				printf("DEBUG bad\n");
-			}*/
-		ft_free_perfect_stack(perfect_stack);
-		perfect_stack = ft_get_perfect_stack(stack_master);
-		max_instruction++;
+		// ft_free_perfect_stack(perfect_stack);
+		// perfect_stack = ft_get_perfect_stack(stack_master);
 		if (stack_master->b->top > 1 && is_bad_index_only_b(stack_master) == -1)
 		{
 			ft_error("Stack B is not sorted");
-			// ft_print_master_stack(stack_master);
 		}
 	}
-	ft_free_perfect_stack(perfect_stack);
+	// ft_free_perfect_stack(perfect_stack);
 }

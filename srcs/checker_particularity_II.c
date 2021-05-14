@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 16:54:12 by ksam              #+#    #+#             */
-/*   Updated: 2021/05/14 00:20:00 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/14 10:36:25 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int is_bad_index_only(t_stack_master *stack_master)
 		else
 			i2 = i + *start_index + 1;
 		if (i1 < 0 || i2 < 0 || i1 > stack_master->a->top || i2 > stack_master->a->top)
-			ft_error("Checking bad index only failed, the comparison is outside the range of stack A");
+			ft_error_master(stack_master, "Checking bad index only failed, the comparison is outside the range of stack A");
 		if (stack_master->a->array[i1] < stack_master->a->array[i2])
 			return (-1);
 		i++;
@@ -72,7 +72,7 @@ int is_bad_index_only_b(t_stack_master *stack_master)
 			i2 = i + *start_index + 1;
 		//printf("DEBUG3 %d %d\n", i1, i2);
 		if (i1 < 0 || i2 < 0 || i1 > stack_master->b->top || i2 > stack_master->b->top)
-			ft_error("Checking bad index only failed, the comparison is outside the range of stack B");
+			ft_error_master(stack_master, "Checking bad index only failed, the comparison is outside the range of stack B");
 		if (stack_master->b->array[i1] > stack_master->b->array[i2])
 			return (-1);
 		i++;
@@ -106,7 +106,7 @@ int is_bad_index_only_bOLD(t_stack_master *stack_master)
 			i2 = *start_index - i - 1;
 		//printf("DEBUG3 %d %d\n", i1, i2);
 		if (i1 < 0 || i2 < 0 || i1 > stack_master->b->top || i2 > stack_master->b->top)
-			ft_error("Checking bad index only failed, the comparison is outside the range of stack B");
+			ft_error_master(stack_master, "Checking bad index only failed, the comparison is outside the range of stack B");
 		if (stack_master->b->array[i1] < stack_master->b->array[i2])
 			return (-1);
 		i++;

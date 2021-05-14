@@ -91,5 +91,6 @@ int	ft_sort_and_print(t_stack_master *stack_master, char *operator)
 			ft_print_master_stack(stack_master);
 		return (i);
 	}
+	ft_stack_master_free(stack_master);
 	exit(EXIT_FAILURE);
 }

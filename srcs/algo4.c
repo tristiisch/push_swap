@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 02:18:08 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/14 10:14:00 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/17 07:26:12 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,15 @@ int ft_perfect_shot(t_stack_master *stack_master, int min_b, int max_b)
 	}
 	// printf("Yess %d A:%d B:%d Index A:%d B:%d Top A:%d B:%d Value A:%d B:%d\n", times_total, times_a, 
 	// times_b, saved_a, saved_b, stack_master->a->top, stack_master->b->top, stack_master->a->array[saved_a], stack_master->b->array[saved_b]);
-	if (saved_a != stack_master->a->top)
+	/*if (saved_a != stack_master->a->top)
 		jump_to_index(stack_master, saved_a, 0);
 	if (saved_b != stack_master->b->top)
-		jump_to_index(stack_master, saved_b, 1);
+		jump_to_index(stack_master, saved_b, 1);*/
+	jump_to_index_both(stack_master, saved_a, saved_b);
 	ft_sort_and_print(stack_master, "pb");
 	return (1);
 }
-
+/*
 int ft_get_perfect_index_a(t_perfect_stack *perfect_stack, t_stack_master *stack_master)
 {
 	int i;
@@ -101,8 +102,8 @@ int ft_get_perfect_index_a(t_perfect_stack *perfect_stack, t_stack_master *stack
 		i++;
 	}
 	return (-1);
-}
-
+}*/
+/*
 int ft_get_perfect_index_b(int value, int **perfect_stack_array, int perfect_stack_size, t_stack *stackDest)
 {
 	int i;
@@ -125,7 +126,7 @@ int ft_get_perfect_index_b(int value, int **perfect_stack_array, int perfect_sta
 	}
 	return (-1);
 }
-
+*/
 void ft_auto_sortV4(t_stack_master *stack_master)
 {
 	// t_perfect_stack perfect_stack;

@@ -14,16 +14,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-int	ft_contain_int(int *nbs, int i, int size)
-{
-	while (size >= 0)
-	{
-		if (nbs[--size] == i)
-			return (1);
-	}
-	return (0);
-}
-
 int	*get_num(char *arg)
 {
 	int	*nb_atoi;
@@ -34,31 +24,6 @@ int	*get_num(char *arg)
 		ft_error("one of arg is not a number");
 	}
 	return (nb_atoi);
-}
-
-int	*ran_number_assignation(int nb, int max_nb)
-{
-	int	i;
-	int	random;
-	int	*nbs;
-
-	i = 0;
-	nbs = malloc(nb * sizeof(int));
-	srand(time(NULL));
-	while (i < nb)
-	{
-		random = -1;
-		while (random == -1 || ft_contain_int(nbs, random, nb) == 1)
-		{
-			if (max_nb <= 0)
-				random = rand();
-			else
-				random = rand() % (max_nb + 1);
-		}
-		nbs[i] = random;
-		i++;
-	}
-	return (nbs);
 }
 
 int	main(int argc, char **argv)
@@ -75,7 +40,7 @@ int	main(int argc, char **argv)
 		max_nb = *get_num(argv[2]);
 	else
 		max_nb = nb;
-	nbs = ran_number_assignation(nb, max_nb);
+	nbs = ft_random_integers(nb, max_nb);
 	i = nb - 1;
 	while (i >= 0)
 	{

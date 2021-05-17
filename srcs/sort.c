@@ -30,7 +30,6 @@ int	ft_sort(t_stack_master *stack_master, char *operator)
 		i = ft_reverse_rotate(stack_master->a);
 		if (i <= 0)
 			return (i);
-		stack_master->instructions++;
 		return (ft_reverse_rotate(stack_master->b));
 	}
 	else if (ft_strncmp(operator, "sa", 2) == 0)
@@ -42,7 +41,6 @@ int	ft_sort(t_stack_master *stack_master, char *operator)
 		i = ft_swap(stack_master->a);
 		if (i <= 0)
 			return (i);
-		stack_master->instructions++;
 		return (ft_swap(stack_master->b));
 	}
 	else if (ft_strncmp(operator, "pa", 2) == 0)
@@ -58,7 +56,6 @@ int	ft_sort(t_stack_master *stack_master, char *operator)
 		i = ft_rotate(stack_master->a);
 		if (i <= 0)
 			return (i);
-		stack_master->instructions++;
 		return (ft_rotate(stack_master->b));
 	}
 	else

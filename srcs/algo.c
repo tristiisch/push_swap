@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 02:17:57 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/14 04:04:07 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/16 03:41:01 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ void	ft_auto_sort(t_stack_master *stack_master)
 {
 	if (stack_master->is_verbose == 1)
 		ft_print_master_stack(stack_master);
+	if (stack_master->algo_version == 5)
+		ft_auto_sortV5(stack_master);
 	if (stack_master->algo_version == 4)
 		ft_auto_sortV4(stack_master);
 	else

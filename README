@@ -30,3 +30,9 @@ TESTER LES ALGO AVEC BAREME >
 ARG=$(./randomize 10); ./push_swap $ARG -t
 ARG=$(./randomize 100); ./push_swap $ARG -t
 ARG=$(./randomize 500); ./push_swap $ARG -t
+
+ARG="2 1 0"; ./push_swap $ARG -v -i
+ARG="1 5 2 4 3"; ./push_swap $ARG -v -i
+ARG=$(./randomize 5); ./push_swap $ARG -i -h
+ARG=$(./randomize 100); ./push_swap $ARG -i -h
+ARG=$(./randomize 500); ./push_swap $ARG -i -h

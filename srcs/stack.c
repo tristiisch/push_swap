@@ -74,12 +74,12 @@ t_stack	*ft_stack_create(unsigned int capacity)
 {
 	t_stack* stack;
 
-	stack = (t_stack*)ft_calloc(1, sizeof(t_stack));
+	stack = (t_stack*)malloc(sizeof(t_stack));
 	if (stack == NULL)
 		ft_error_memomy();
 	stack->capacity = capacity;
 	stack->top = -1;
-	stack->array = (int*)ft_calloc(stack->capacity, sizeof(int));
+	stack->array = (int*)malloc(stack->capacity * sizeof(int));
 	if (stack->array == NULL)
 		ft_error_memomy();
 	return (stack);

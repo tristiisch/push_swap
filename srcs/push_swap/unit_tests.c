@@ -26,7 +26,7 @@ void	unit_tests(t_stack_master *stack_master)
 		stack_master2->is_instruction = 1;
 		stack_master2->is_hiding_default_output = 1;
 		stack_master2->algo_version = i;
-		stack_master2->is_verbose = 1;
+		//stack_master2->is_verbose = 1;
 		/*if (stack_master2->a->capacity < 10 &&  i == 5)
 		{
 			stack_master2->is_verbose = 1;

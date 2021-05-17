@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:05:23 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/17 06:09:42 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/17 08:47:01 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,7 +183,7 @@ void				ft_auto_sortV5(t_stack_master *stack_master);
 /*
 ** 					TEST
 */
-void				ft_test_all();
+void				ft_test_all(int is_big_numbers);
 void				ft_test_all_algos(t_stack_master *stack_master, int argc, char **argv);
 void				ft_test_all_algos_random(int nb, int is_big_numbers);
 void				ft_test_all_algos_numbers(int *nbs, int size);

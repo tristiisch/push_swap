@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 12:58:02 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/17 03:21:45 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/17 08:50:35 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_test_args(int argc, char **argv)
 		ft_test_all_algos_random(*i, *is_big_numbers);
 	}
 	else
-		ft_test_all_algos_random(*i, 0);
+		ft_test_all_algos_random(*i, 1);
 }
 
 int	main(int argc, char **argv)

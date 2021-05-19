@@ -6,7 +6,7 @@
 #    By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/04 12:37:16 by tglory            #+#    #+#              #
-#    Updated: 2021/05/14 02:34:43 by tglory           ###   ########lyon.fr    #
+#    Updated: 2021/05/19 10:28:15 by tglory           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ CC 				= 	gcc
 NAME    		=	push_swap
 NAME_CHECKER	=	checker
 NAME_RANDOMIZE	=	randomize
-LIB_PATH		=	libft/libft.a get_next_line/get_next_line.a
-NORM_DIRS		=	srcs/ includes/ get_next_line/ libft/
+LIB_PATH		=	libft/libft.a
+NORM_DIRS		=	srcs/ includes/ libft/
 INCLUDES		=	$(wildcard includes/*.h)
 SRCS			=	$(wildcard srcs/*.c)
 SRCS_PUSH_SWAP	=	$(wildcard srcs/push_swap/*.c)
@@ -32,24 +32,20 @@ all: $(NAME) $(NAME_CHECKER)
 
 $(NAME): $(OBJS) $(OBJS_PUSH_SWAP) $(INCLUDES)
 	make -C libft
-	make -C get_next_line
 	$(CC) ${CFLAGS} $(OBJS) $(OBJS_PUSH_SWAP) $(LIB_PATH) -o $(NAME)
 
 $(NAME_CHECKER): $(OBJS) $(OBJS_CHECKER) $(INCLUDES)
 	make -C libft
-	make -C get_next_line
 	$(CC) ${CFLAGS} $(OBJS) $(OBJS_CHECKER) $(LIB_PATH) -o $(NAME_CHECKER)
 
 $(NAME_RANDOMIZE): $(OBJS) $(OBJS_RANDOMIZE) $(INCLUDES)
 	make -C libft
-	make -C get_next_line
 	$(CC) ${CFLAGS} $(OBJS) $(OBJS_RANDOMIZE) $(LIB_PATH) -o $(NAME_RANDOMIZE)
 
 .c.o:
 		${CC} ${CFLAGS} -c $< -o $@
 clean:
 	make $@ -C libft
-	make $@ -C get_next_line
 	rm -f $(OBJS)
 	rm -f $(OBJS_PUSH_SWAP)
 	rm -f $(OBJS_CHECKER)

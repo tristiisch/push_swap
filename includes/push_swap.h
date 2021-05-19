@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:05:23 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/19 08:33:28 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/19 10:27:10 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include "../libft/libft.h"
-# include "../get_next_line/get_next_line.h"
+# include "../libft/gnl/get_next_line.h"
 
 typedef struct s_data
 {
@@ -61,6 +61,20 @@ typedef struct s_stack_master
 	int		algo_version;
 	int		is_hiding_default_output;
 }			t_stack_master;
+
+typedef struct s_perfect_shot
+{
+	int	i_b;
+	int	saved_a;
+	int	i_a;
+	int	saved_b;
+	int	t_a;
+	int	t_b;
+	int	t_total;
+	int	v1;
+	int	v2;
+	int	value;
+}					t_perfect_shot;
 
 void			ft_print_int_array(int *array, int size);
 void			ft_print_int_double_array(int **array, int size);
@@ -173,6 +187,10 @@ int				ft_get_perfect_index_b(int value, int **perfect_stack_array,
 					int perfect_stack_size, t_stack *stackDest);
 int				*ft_random_integers(int nb, int max_nb);
 int				ft_contain_int(int *nbs, int i, int size);
+int				ft_perfect_shot_a(t_stack_master *stack_master, int min_b,
+					int max_b);
+int				ft_perfect_shot_b(t_stack_master *stack_master, int min_b,
+					int max_b);
 
 /**
  * 					EXECUTE

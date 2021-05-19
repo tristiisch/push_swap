@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 02:18:08 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/19 08:47:13 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/19 09:38:00 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void ft_auto_sortV4(t_stack_master *stack_master)
 		}
 		else if (stack_master->b->top > 0)
 		{
-			if (!ft_perfect_shot(stack_master, stack_master->b->array[*get_index_of_smallest(stack_master->b, NULL)],
+			if (!ft_perfect_shot_b(stack_master, stack_master->b->array[*get_index_of_smallest(stack_master->b, NULL)],
 				stack_master->b->array[*get_index_of_biggest(stack_master->b, NULL)])) {
 				ft_warn("Can't sort perfect");
 			}

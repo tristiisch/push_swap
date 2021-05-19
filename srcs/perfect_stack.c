@@ -40,7 +40,7 @@ int	**get_perfect_order(t_stack_master *stack_master, int a_or_b)
 	last_number = NULL;
 	i = 0;
 	if (top >= 0)
-		array = malloc((top + 1) * sizeof(int**));
+		array = malloc((top + 1) * sizeof(int **));
 	else
 		array = NULL;
 	while (i <= top)
@@ -59,15 +59,16 @@ int	**get_perfect_order(t_stack_master *stack_master, int a_or_b)
 }
 
 /** Get the index of the biggest number of stack
- * @param under is the highest non-inclusive number that can be taken. NULL if didn't need
+ * @param under is the highest non-inclusive number that can be taken.
+ * NULL if didn't need.
  * @return NULL if the index cannot be retrive
  */
-int*	get_index_of_biggest(t_stack *stack, int *under)
+int	*get_index_of_biggest(t_stack *stack, int *under)
 {
-	int index;
-	int *saved_index;
+	int	index;
+	int	*saved_index;
 	int	*saved_int;
-	int swap;
+	int	swap;
 
 	index = stack->top;
 	saved_int = NULL;
@@ -86,12 +87,12 @@ int*	get_index_of_biggest(t_stack *stack, int *under)
 	return (saved_index);
 }
 
-int*	get_index_of_smallest(t_stack *stack, int *upper)
+int	*get_index_of_smallest(t_stack *stack, int *upper)
 {
-	int index;
-	int *saved_index;
+	int	index;
+	int	*saved_index;
 	int	*saved_int;
-	int swap;
+	int	swap;
 
 	index = stack->top;
 	saved_int = NULL;
@@ -132,7 +133,6 @@ t_perfect_stack	ft_get_perfect_stack(t_stack_master *stack_master)
 
 	perfect_stack.perfect_array_a = get_perfect_order(stack_master, 0);
 	perfect_stack.size_a = stack_master->a->top + 1;
-	//perfect_stack.size_b = 0;
 	perfect_stack.perfect_array_b = get_perfect_order(stack_master, 1);
 	perfect_stack.size_b = stack_master->b->top + 1;
 	return (perfect_stack);

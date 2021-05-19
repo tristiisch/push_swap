@@ -12,37 +12,12 @@
 
 #include "../includes/push_swap.h"
 
-/** Execute operator one by one for stacks
- * @param operator rra rrb rrr sa sb ss pa pb ra rb rr
- * @return 0 for usless operator, 1 for succes, -1 for null t_stack, -2 for unknown @param operator
- */	
-int	ft_sort(t_stack_master *stack_master, char *operator)
+int	ft_sort2(t_stack_master *stack_master, char *operator)
 {
-	int i;
+	int	i;
 
-	stack_master->instructions++;
-	if (ft_strncmp(operator, "rra", 3) == 0)
-		return (ft_reverse_rotate(stack_master->a));
-	else if (ft_strncmp(operator, "rrb", 3) == 0)
-		return (ft_reverse_rotate(stack_master->b));
-	else if (ft_strncmp(operator, "rrr", 3) == 0)
-	{
-		i = ft_reverse_rotate(stack_master->a);
-		if (i <= 0)
-			return (i);
-		return (ft_reverse_rotate(stack_master->b));
-	}
-	else if (ft_strncmp(operator, "sa", 2) == 0)
-		return (ft_swap(stack_master->a));
-	else if (ft_strncmp(operator, "sb", 2) == 0)
+	if (ft_strncmp(operator, "sb", 2) == 0)
 		return (ft_swap(stack_master->b));
-	else if (ft_strncmp(operator, "ss", 2) == 0)
-	{
-		i = ft_swap(stack_master->a);
-		if (i <= 0)
-			return (i);
-		return (ft_swap(stack_master->b));
-	}
 	else if (ft_strncmp(operator, "pa", 2) == 0)
 		return (ft_push(stack_master, 0));
 	else if (ft_strncmp(operator, "pb", 2) == 0)
@@ -65,21 +40,55 @@ int	ft_sort(t_stack_master *stack_master, char *operator)
 	}
 }
 
+/** Execute operator one by one for stacks
+ * @param operator rra rrb rrr sa sb ss pa pb ra rb rr
+ * @return 0 for usless operator, 1 for succes, -1 for null t_stack,
+ * -2 for unknown @param operator
+ */	
+int	ft_sort(t_stack_master *stack_master, char *operator)
+{
+	int	i;
+
+	stack_master->instructions++;
+	if (ft_strncmp(operator, "rra", 3) == 0)
+		return (ft_reverse_rotate(stack_master->a));
+	else if (ft_strncmp(operator, "rrb", 3) == 0)
+		return (ft_reverse_rotate(stack_master->b));
+	else if (ft_strncmp(operator, "rrr", 3) == 0)
+	{
+		i = ft_reverse_rotate(stack_master->a);
+		if (i <= 0)
+			return (i);
+		return (ft_reverse_rotate(stack_master->b));
+	}
+	else if (ft_strncmp(operator, "sa", 2) == 0)
+		return (ft_swap(stack_master->a));
+	else if (ft_strncmp(operator, "ss", 2) == 0)
+	{
+		i = ft_swap(stack_master->a);
+		if (i <= 0)
+			return (i);
+		return (ft_swap(stack_master->b));
+	}
+	return (ft_sort2(stack_master, operator));
+}
+
 int	ft_sort_and_print(t_stack_master *stack_master, char *operator)
 {
-	int i;
+	int	i;
 
 	i = ft_sort(stack_master, operator);
-	
 	if (i == 0)
 		printf("ERROR operator %s failed.\n", operator);
-	else if (i < 0) {
+	else if (i < 0)
+	{
 		if (i == -1)
 			printf("ERROR > Stack Empty '%s'.\n", operator);
 		else if (i == -2)
 			printf("ERROR > Unknown operator '%s'.\n", operator);
 	}
-	else {
+	else
+	{
 		if (stack_master->is_colored && ft_is_correct(stack_master))
 			printf("\033[32m%s\033[0m\n", operator);
 		else if (!stack_master->is_hiding_default_output)

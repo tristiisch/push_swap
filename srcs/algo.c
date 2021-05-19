@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 02:17:57 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/16 03:41:01 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/19 08:32:36 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	ft_auto_sortV1(t_stack_master *stack_master)
 			ft_sort_and_print(stack_master, "pb");
 			ft_sort_and_print(stack_master, "sb");
 		}
-		else if (perfect_stack.size_a >= 2 && ft_can_be_revert(stack_master->a, perfect_stack.perfect_array_a))
+		else if (perfect_stack.size_a >= 2 && ft_can_be_revert(stack_master->a))
 			ft_sort_and_print(stack_master, "sa");
 		else if (perfect_stack.size_a > 0 && perfect_stack.perfect_array_a[perfect_stack.size_a - 1][0] > stack_master->a->top / 2)
 			ft_sort_and_print(stack_master, "ra");

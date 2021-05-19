@@ -60,7 +60,7 @@ int	ft_is_correct(t_stack_master *stack_master)
 /** Check if we can revert the 2 first value of stack
  * @param perfect_array get this with ft_get_perfect_stack()
  */
-int	ft_can_be_revert(t_stack *stack, int **perfect_array)
+int	ft_can_be_revert(t_stack *stack)
 {
 	int	one;
 	int	two;
@@ -73,10 +73,10 @@ int	ft_can_be_revert(t_stack *stack, int **perfect_array)
 		return (0);
 	if (stack->top == 1)
 		return (1);
-	return (can_be_revert_process2(stack, perfect_array, one, two));
+	return (can_be_revert_process(stack, one, two));
 }
 
-int	can_be_revert_process2(t_stack *stack, int **perfect_array, int top_int, int top_minus_1_int)
+int	can_be_revert_process(t_stack *stack, int top_int, int top_minus_1_int)
 {
 	int	*i;
 	int	index_0_int;
@@ -88,30 +88,6 @@ int	can_be_revert_process2(t_stack *stack, int **perfect_array, int top_int, int
 		return (1);
 	i = get_index_of_biggest(stack, &top_int);
 	if (i != NULL && *i == top_minus_1_int)
-		return (1);
-	return (0);
-}
-
-int	can_be_revert_process(t_stack *stack, int **perfect_array, int top_int, int top_minus_1_int)
-{
-	int	i;
-	int	one_index;
-	int	two_index;
-
-	i = 0;
-	one_index = -1;
-	two_index = -1;
-	while (i <= stack->top && (one_index == -1 || two_index == -1))
-	{
-		if (one_index == -1 && perfect_array[i][1] == top_int)
-			one_index = i;
-		else if (two_index == -1 && perfect_array[i][1] == top_minus_1_int)
-			two_index = i;
-		i++;
-	}
-	if (one_index == -1 || two_index == -1)
-		return (0);
-	else if (one_index + 1 == two_index)
 		return (1);
 	return (0);
 }

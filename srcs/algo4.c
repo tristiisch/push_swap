@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 02:18:08 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/17 07:26:12 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/19 08:47:13 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,68 +19,6 @@ int ft_get_cercle(int index, t_stack *stack)
 	return (stack->array[index]);
 }
 
-int ft_perfect_shot(t_stack_master *stack_master, int min_b, int max_b)
-{
-	int i_a;
-	int saved_a;
-	int i_b;
-	int saved_b;
-	int times_a;
-	int times_b;
-	int times_total;
-
-	i_b = 0;
-	times_a = -1;
-	times_b = -1;
-	times_total = -1;
-	while(i_b <= stack_master->b->top)
-	{
-		int stack_value1 = ft_get_cercle(i_b, stack_master->b);
-		int stack_value2 = ft_get_cercle(i_b + 1, stack_master->b);
-		i_a = 0;
-		while(i_a <= stack_master->a->top)
-		{
-			int value = stack_master->a->array[i_a];
-			if ((stack_value1 < value && value < stack_value2) || ((stack_value1 < value || stack_value2 > value)
-				// && stack_value2 == perfect_stack->perfect_array_b[stack_master->b->top][1]
-				// && stack_value1 == perfect_stack->perfect_array_b[0][1]))
-				&& stack_value2 == min_b
-				&& stack_value1 == max_b))
-				// && stack_value2 == *get_index_of_smallest(stack_master->b, NULL)
-				// && stack_value1 == *get_index_of_biggest(stack_master->b, NULL)))
-			{
-				// printf("DEBUG stack_value1 %d-%d stack_value2 %d-%d\n", *get_index_of_biggest(stack_master->b, NULL), max_b,
-				// *get_index_of_smallest(stack_master->b, NULL), min_b);
-				int times_a_2 = index_to_times(i_a, stack_master->a->top);
-				int times_b_2 = index_to_times(i_b, stack_master->b->top);
-				if (times_a_2 + times_b_2 == 0 || times_total == -1 || times_a_2 + times_b_2 < times_total)
-				{
-					times_total = times_a_2 + times_b_2;
-					saved_a = i_a;
-					saved_b = i_b;
-					times_a = times_a_2;
-					times_b = times_b_2;
-				}
-			}
-			i_a++;
-		}
-		i_b++;
-	}
-	if (times_total < 0)
-	{
-		ft_error("cannot find");
-		return (0);
-	}
-	// printf("Yess %d A:%d B:%d Index A:%d B:%d Top A:%d B:%d Value A:%d B:%d\n", times_total, times_a, 
-	// times_b, saved_a, saved_b, stack_master->a->top, stack_master->b->top, stack_master->a->array[saved_a], stack_master->b->array[saved_b]);
-	/*if (saved_a != stack_master->a->top)
-		jump_to_index(stack_master, saved_a, 0);
-	if (saved_b != stack_master->b->top)
-		jump_to_index(stack_master, saved_b, 1);*/
-	jump_to_index_both(stack_master, saved_a, saved_b);
-	ft_sort_and_print(stack_master, "pb");
-	return (1);
-}
 /*
 int ft_get_perfect_index_a(t_perfect_stack *perfect_stack, t_stack_master *stack_master)
 {

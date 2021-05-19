@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 16:34:47 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/11 03:52:15 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/19 08:18:59 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	ft_print_stack(t_stack *stack)
 			}
 			while (i <= stack->top)
 				printf("%d ", stack->array[i++]);
-				//printf("[%d] = %d, ", i, stack->array[i++]);
 		}
 	}
 	else

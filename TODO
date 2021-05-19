@@ -1,5 +1,4 @@
 - get_next_line qui passe la norminette v3
 
-
-- ALGOV4 -> à opti remplacer ra & rb par rrr
-enlever les leaks de test_all_algo
+- suppriumer ./push_swap -r & ./push_swap <int> <int>
+- norminette

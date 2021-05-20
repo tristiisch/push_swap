@@ -83,7 +83,6 @@ void	ft_print_instructions(t_stack_master *stack_master)
 	{
 		printf("\e[101mKO ");
 	}
-	printf("Algo V%d > %d instructions pour %d chiffres\033[0m\n",
-		stack_master->algo_version, stack_master->instructions,
-		stack_master->a->capacity);
+	printf("%d instructions pour %d chiffres\033[0m\n",
+		stack_master->instructions, stack_master->a->capacity);
 }

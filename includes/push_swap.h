@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:05:23 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/19 10:27:10 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/19 11:31:08 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ typedef struct s_stack_master
 	int		is_instruction;
 	int		is_verbose;
 	int		is_colored;
-	int		algo_version;
 	int		is_hiding_default_output;
 }			t_stack_master;
 
@@ -204,11 +203,11 @@ void			ft_auto_sortV5(t_stack_master *stack_master);
 /**
  * 					TEST
  */
-void			ft_test_all(int is_big_numbers);
+void			ft_test_all(void);
 void			ft_test_all_algos(t_stack_master *stack_master, int argc,
 					char **argv);
 void			ft_test_all_algos_random(int nb, int is_big_numbers);
-void			ft_test_all_algos_numbers(int *nbs, int size);
+void			ft_test_numbers(int *nbs, int size);
 void			ft_test_args(int argc, char **argv);
 void			ft_print_instructions(t_stack_master *stack_master);
 

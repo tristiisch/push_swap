@@ -5,92 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/14 02:17:57 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/19 08:32:36 by tglory           ###   ########lyon.fr   */
+/*   Created: 2021/05/14 02:18:08 by tglory            #+#    #+#             */
+/*   Updated: 2021/05/19 10:41:47 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_auto_sortV1(t_stack_master *stack_master)
+int ft_get_cercle(int index, t_stack *stack)
 {
-	t_perfect_stack perfect_stack;
-	int	top;
-	int	max_instruction; // TODO remove max instruction
-
-	perfect_stack = ft_get_perfect_stack(stack_master);
-	max_instruction = 0;
-	while (!(ft_is_correct(stack_master)))
-	{
-		int bad_index;
-		if (ft_stack_is_empty(stack_master->b) && (bad_index = is_bad_index_only(stack_master)) > -1) {
-			jump_to_index(stack_master, bad_index, 0);
-		}
-		else if (ft_is_upside_down(stack_master->b) && (ft_stack_is_empty(stack_master->a) || ft_is_correct_order(stack_master->a)))
-		{
-			top = stack_master->b->top;
-			while (top >= 0)
-			{
-				ft_sort_and_print(stack_master, "pa");
-				top--;
-			}
-		} else if (stack_master->algo_version == 3 && ft_stack_is_empty(stack_master->a) && (bad_index = is_bad_index_only_b(stack_master)) > -1){
-			jump_to_index(stack_master, bad_index, 1);
-		}
-		else if (perfect_stack.size_a > 0 && perfect_stack.perfect_array_a[perfect_stack.size_a - 1][0] == stack_master->a->top)
-			ft_sort_and_print(stack_master, "pb");
-		else if (stack_master->algo_version == 3 && perfect_stack.size_a > 1 && perfect_stack.perfect_array_a[0][0] == stack_master->a->top)
-		{
-			ft_sort_and_print(stack_master, "pb");
-			if (stack_master->b->top > 0) {
-				ft_sort_and_print(stack_master, "rb");
-			}
-		}
-		/* Essaie d'utiliser sb. Résultat : Pas opti*/
-		else if (stack_master->algo_version == 2 && perfect_stack.size_a > 1 && perfect_stack.perfect_array_a[perfect_stack.size_a - 2][0] == stack_master->a->top)
-		{
-			//printf("NEW ONE %d\n", stack_master->a->top);
-			ft_sort_and_print(stack_master, "pb");
-			//perfect_stack = ft_get_perfect_stack(stack_master);
-			while (perfect_stack.perfect_array_a[perfect_stack.size_a - 1][1] != stack_master->a->array[stack_master->a->top])
-			{
-				if (perfect_stack.perfect_array_a[perfect_stack.size_a - 1][0] > stack_master->a->top / 2)
-					ft_sort_and_print(stack_master, "ra");
-				else
-					ft_sort_and_print(stack_master, "rra");
-				//printf("PERFECT STACK %d - %d\n", perfect_stack.perfect_array_a[perfect_stack.size_a - 1][0], stack_master->a->top);
-			}
-			ft_sort_and_print(stack_master, "pb");
-			ft_sort_and_print(stack_master, "sb");
-		}
-		else if (perfect_stack.size_a >= 2 && ft_can_be_revert(stack_master->a))
-			ft_sort_and_print(stack_master, "sa");
-		else if (perfect_stack.size_a > 0 && perfect_stack.perfect_array_a[perfect_stack.size_a - 1][0] > stack_master->a->top / 2)
-			ft_sort_and_print(stack_master, "ra");
-		else {
-			ft_sort_and_print(stack_master, "rra");
-		}
-		ft_free_perfect_stack(perfect_stack);
-		perfect_stack = ft_get_perfect_stack(stack_master);
-		max_instruction++;
-	}
-	max_instruction = 0;
-	ft_free_perfect_stack(perfect_stack);
+	if (index > stack->top)
+		index = index - stack->top - 1;
+	return (stack->array[index]);
 }
 
-/** 
+/**
  * Sort automatically stacks with specific algo
  */
 void	ft_auto_sort(t_stack_master *stack_master)
 {
 	if (stack_master->is_verbose == 1)
 		ft_print_master_stack(stack_master);
-	if (stack_master->algo_version == 5)
-		ft_auto_sortV5(stack_master);
-	if (stack_master->algo_version == 4)
-		ft_auto_sortV4(stack_master);
-	else
-		ft_auto_sortV1(stack_master);
+	ft_auto_sortV5(stack_master);
 	if (!ft_is_correct(stack_master))
 	{
 		ft_warn("Stack_master is not sorted");
@@ -101,5 +37,62 @@ void	ft_auto_sort(t_stack_master *stack_master)
 	if (stack_master->is_verbose == 1 || stack_master->is_instruction == 1)
 	{
 		ft_print_instructions(stack_master);
+	}
+}
+
+void	ft_auto_sortV5_2(t_stack_master *stack_master, int bad_index_a)
+{
+	int	bad_index_b;
+
+	bad_index_b = is_bad_index_only_b(stack_master);
+	if (ft_stack_is_empty(stack_master->a) && bad_index_b > -1)
+		jump_to_index(stack_master, bad_index_b, 1);
+	else if (bad_index_a > -1)
+	{
+		ft_perfect_shot_a(stack_master,
+			stack_master->a->array[*get_index_of_smallest(
+				stack_master->a, NULL)],
+			stack_master->a->array[*get_index_of_biggest(
+				stack_master->a, NULL)]);
+	}
+	else if (stack_master->b->top > 0)
+	{
+		ft_perfect_shot_b(stack_master,
+			stack_master->b->array[*get_index_of_smallest(
+				stack_master->b, NULL)],
+			stack_master->b->array[*get_index_of_biggest(
+				stack_master->b, NULL)]);
+	}
+	else if (stack_master->b->top < 2)
+		ft_sort_and_print(stack_master, "pb");
+	else
+		ft_error("Can't sort with algoV5");
+}
+
+void	ft_auto_sortV5(t_stack_master *stack_master)
+{
+	int	top;
+	int	bad_index_a;
+
+	while (!(ft_is_correct(stack_master)))
+	{
+		bad_index_a = is_bad_index_only(stack_master);
+		if (ft_stack_is_empty(stack_master->b) && bad_index_a > -1)
+			jump_to_index(stack_master, bad_index_a, 0);
+		else if (ft_stack_is_empty(stack_master->b)
+			&& ft_can_be_revert(stack_master->a))
+			ft_sort_and_print(stack_master, "sa");
+		else if (ft_stack_is_empty(stack_master->a)
+			&& ft_is_upside_down(stack_master->b))
+		{
+			top = stack_master->b->top;
+			while (top-- >= 0)
+				ft_sort_and_print(stack_master, "pa");
+			break ;
+		}
+		else
+			ft_auto_sortV5_2(stack_master, bad_index_a);
+		if (stack_master->b->top > 1 && is_bad_index_only_b(stack_master) == -1)
+			ft_error("Stack B is not sorted");
 	}
 }

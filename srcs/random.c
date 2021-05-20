@@ -15,9 +15,12 @@
 
 int	ft_contain_int(int *nbs, int i, int size)
 {
-	while (size >= 0)
+	int	i2;
+
+	i2 = 0;
+	while (i2 < size)
 	{
-		if (nbs[--size] == i)
+		if (nbs[i2++] == i)
 			return (1);
 	}
 	return (0);
@@ -29,8 +32,13 @@ int	*ft_random_integers(int nb, int max_nb)
 	int	random;
 	int	*nbs;
 
+	if (max_nb < nb)
+		ft_error("Unable to generate random numbers, "
+			"max_nb < nb");
 	i = 0;
 	nbs = malloc(nb * sizeof(int));
+	if (nbs == NULL)
+		ft_error_memomy();
 	srand(time(NULL));
 	while (i < nb)
 	{

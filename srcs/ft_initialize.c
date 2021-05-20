@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 18:46:49 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/19 08:27:09 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/19 11:30:53 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ t_stack_master	*ft_initialize_stack_master(void)
 	stack_master->is_instruction = 0;
 	stack_master->instructions = 0;
 	stack_master->is_verbose = 0;
-	stack_master->algo_version = 5;
 	stack_master->is_hiding_default_output = 0;
 	return (stack_master);
 }
@@ -75,13 +74,6 @@ t_stack_master	*ft_args_to_stack_master(char **argv, int max_stack_size)
 			stack_master->is_instruction = 1;
 		else if (!ft_strncmp(argv[i], "-h", 3))
 			stack_master->is_hiding_default_output = 1;
-		else if (!ft_strncmp(argv[i - 1], "-a", 3))
-		{
-			stack_master->algo_version = *ft_atoi_utimate(argv[i--]);
-			max_stack_size--;
-		}
-		else if (!ft_strncmp(argv[i], "-t", 3))
-			stack_master->algo_version = 0;
 		else
 			break ;
 		max_stack_size--;

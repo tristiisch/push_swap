@@ -3,13 +3,14 @@ PUSH_SWAP >
 make
 Compile les programmes push_swap & checker
 
+make randomize
+Compile le programme randomize
+
 ./push_swap $ARG -h -i
 Affiche le nombre d'instructions pour ranger la list de $ARG
 
-time ./push_swap $ARG -h
+ARG=$(./randomize 500); time ./push_swap $ARG -h
 Affiche le temps que prends l'algo
-
-ARG=$(./randomize 500); ./push_swap $ARG -h -i
 
 RANDOMIZE >
 
@@ -17,22 +18,27 @@ make randomize
 Compile le programme randomize
 
 ARG=$(./randomize 500)
-Met 500 nombre aléatoire unique dans ARG
+Met 500 chiffres (de 1 a 500) dans l'ordre aléatoire dans ARG
 
+ARG=$(./randomize 500 0)
+Met 500 chiffres (de -2147483648 a 2147483647) dans l'ordre aléatoire dans ARG
 
 TESTER >
 ARG=$(./randomize 500); ./push_swap $ARG -h -i
 
 ARG=$(./randomize 100); ./push_swap $ARG | ./checker $ARG
 
-TESTER LES ALGO AVEC BAREME >
+TESTER AVEC BAREME >
 
-ARG=$(./randomize 10); ./push_swap $ARG -t
-ARG=$(./randomize 100); ./push_swap $ARG -t
-ARG=$(./randomize 500); ./push_swap $ARG -t
+./push_swap -r
+
+OU
 
 ARG="2 1 0"; ./push_swap $ARG -v -i
 ARG="1 5 2 4 3"; ./push_swap $ARG -v -i
 ARG=$(./randomize 5); ./push_swap $ARG -i -h
 ARG=$(./randomize 100); ./push_swap $ARG -i -h
 ARG=$(./randomize 500); ./push_swap $ARG -i -h
+
+TESTER AVEC UNE TAILLE >
+./push_swap -r <nombre d'ints random>

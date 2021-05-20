@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 00:24:59 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/17 00:24:59 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/20 17:38:09 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	*ft_random_integers(int nb, int max_nb)
 	int	random;
 	int	*nbs;
 
-	if (max_nb < nb)
+	if (max_nb > 0 && max_nb < nb)
 		ft_error("Unable to generate random numbers, "
 			"max_nb < nb");
 	i = 0;

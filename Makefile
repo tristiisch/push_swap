@@ -6,7 +6,7 @@
 #    By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/04 12:37:16 by tglory            #+#    #+#              #
-#    Updated: 2021/05/20 16:44:47 by tglory           ###   ########lyon.fr    #
+#    Updated: 2021/05/20 17:35:09 by tglory           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ OBJS			=	$(SRCS:.c=.o)
 OBJS_PUSH_SWAP	=	$(SRCS_PUSH_SWAP:.c=.o)
 OBJS_CHECKER	=	$(SRCS_CHECKER:.c=.o)
 OBJS_RANDOMIZE	=	$(SRCS_RANDOMIZE:.c=.o)
-CFLAGS			=	-Wextra -Wall #-Werror
+CFLAGS			=	-Wextra -Wall -Werror
 #CFLAGS			=	-Wextra -Wall -g3 -fsanitize=address
 
 all: $(NAME) $(NAME_CHECKER)
@@ -60,9 +60,6 @@ re:
 	make fclean
 	make all
 
-norminette:
-	norminette $(NORM_DIRS)
+random: $(NAME_RANDOMIZE)
 
-norm: norminette
-
-.PHONY: all clean fclean re norm norminette start
+.PHONY: all clean fclean re random

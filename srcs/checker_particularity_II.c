@@ -6,13 +6,25 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 16:54:12 by ksam              #+#    #+#             */
-/*   Updated: 2021/05/19 08:29:49 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/20 15:11:59 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	is_bad_index_only(t_stack_master *stack_master)
+void	get_next_index(t_stack *stack, int index, int *i1, int *i2)
+{
+	if (index > stack->top)
+		*i1 = index - stack->top - 1;
+	else
+		*i1 = index;
+	if (index + 1 > stack->top)
+		*i2 = index - stack->top;
+	else
+		*i2 = index + 1;
+}
+
+int	is_bad_index_only_a(t_stack_master *stack_master)
 {
 	int	*start_index;
 	int	i;
@@ -26,14 +38,7 @@ int	is_bad_index_only(t_stack_master *stack_master)
 	start_index = get_index_of_biggest(stack_master->a, NULL);
 	while (i < stack_master->a->top)
 	{
-		if (i + *start_index > stack_master->a->top)
-			i1 = i + *start_index - stack_master->a->top - 1;
-		else
-			i1 = i + *start_index;
-		if (i + *start_index + 1 > stack_master->a->top)
-			i2 = i + *start_index - stack_master->a->top;
-		else
-			i2 = i + *start_index + 1;
+		get_next_index(stack_master->a, i + *start_index, &i1, &i2);
 		if (i1 < 0 || i2 < 0 || i1 > stack_master->a->top
 			|| i2 > stack_master->a->top)
 			ft_error_master(stack_master, "Checking bad index only "
@@ -59,14 +64,7 @@ int	is_bad_index_only_b(t_stack_master *stack_master)
 	start_index = get_index_of_smallest(stack_master->b, NULL);
 	while (i < stack_master->b->top)
 	{
-		if (i + *start_index > stack_master->b->top)
-			i1 = i + *start_index - stack_master->b->top - 1;
-		else
-			i1 = i + *start_index;
-		if (i + *start_index + 1 > stack_master->b->top)
-			i2 = i + *start_index - stack_master->b->top;
-		else
-			i2 = i + *start_index + 1;
+		get_next_index(stack_master->b, i + *start_index, &i1, &i2);
 		if (i1 < 0 || i2 < 0 || i1 > stack_master->b->top
 			|| i2 > stack_master->b->top)
 			ft_error_master(stack_master, "Checking bad index only failed, "

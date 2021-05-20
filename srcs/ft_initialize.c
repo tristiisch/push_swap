@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 18:46:49 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/19 11:30:53 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/20 14:47:41 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,34 +55,4 @@ void	ft_create_stack_master(t_stack_master *stack_master, int max_stack_size)
 {
 	stack_master->a = ft_stack_create(max_stack_size);
 	stack_master->b = ft_stack_create(max_stack_size);
-}
-
-t_stack_master	*ft_args_to_stack_master(char **argv, int max_stack_size)
-{
-	t_stack_master	*stack_master;
-	int				i;
-
-	stack_master = ft_initialize_stack_master();
-	i = max_stack_size;
-	while (i)
-	{
-		if (!ft_strncmp(argv[i], "-c", 3))
-			stack_master->is_colored = 1;
-		else if (!ft_strncmp(argv[i], "-v", 3))
-			stack_master->is_verbose = 1;
-		else if (!ft_strncmp(argv[i], "-i", 3))
-			stack_master->is_instruction = 1;
-		else if (!ft_strncmp(argv[i], "-h", 3))
-			stack_master->is_hiding_default_output = 1;
-		else
-			break ;
-		max_stack_size--;
-		i--;
-	}
-	if (max_stack_size == 0)
-		ft_error_master(stack_master, "You need to add integer in arguments");
-	ft_create_stack_master(stack_master, max_stack_size);
-	while (max_stack_size)
-		ft_add(stack_master->a, argv[max_stack_size--]);
-	return (stack_master);
 }

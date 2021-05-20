@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:05:23 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/19 11:31:08 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/20 15:13:57 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,6 @@ typedef struct s_stack
 	int		capacity;
 	int		*array;
 }	t_stack;
-
-typedef struct s_perfect_stack
-{
-	int		**perfect_array_a;
-	int		size_a;
-	int		**perfect_array_b;
-	int		size_b;
-}	t_perfect_stack;
 
 typedef struct s_stack_master
 {
@@ -94,8 +86,6 @@ int				ft_stack_has_place(t_stack *stack, int i);
 void			ft_stack_free_stack(t_stack *stack);
 t_stack			*ft_add(t_stack *stack, char *s);
 
-void			ft_free_perfect_stack(t_perfect_stack perfect_stack);
-t_perfect_stack	ft_get_perfect_stack(t_stack_master *stack_master);
 t_stack_master	*ft_duplicate_stack_master(t_stack_master *stack_master);
 
 t_stack_master	*ft_args_to_stack_master(char **argv, int max_stack_size);
@@ -169,7 +159,7 @@ int				ft_is_correct(t_stack_master *stack_master);
 int				ft_can_be_revert(t_stack *stack);
 int				can_be_revert_process(t_stack *stack, int one, int two);
 int				is_bad_index_only_b(t_stack_master *stack_master);
-int				is_bad_index_only(t_stack_master *stack_master);
+int				is_bad_index_only_a(t_stack_master *stack_master);
 
 /**
  * 					UTILS
@@ -190,7 +180,10 @@ int				ft_perfect_shot_a(t_stack_master *stack_master, int min_b,
 					int max_b);
 int				ft_perfect_shot_b(t_stack_master *stack_master, int min_b,
 					int max_b);
-
+void			ra_or_rb(t_stack_master *stack_master, int times, int a_or_b);
+void			rra_or_rrb(t_stack_master *stack_master, int times, int a_or_b);
+void			rr_or_rrr(t_stack_master *stack_master, int times,
+					int rr_or_rrr);
 /**
  * 					EXECUTE
  */

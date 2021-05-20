@@ -6,13 +6,13 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 02:18:08 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/19 10:41:47 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/20 15:12:28 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int ft_get_cercle(int index, t_stack *stack)
+int	ft_get_cercle(int index, t_stack *stack)
 {
 	if (index > stack->top)
 		index = index - stack->top - 1;
@@ -76,7 +76,7 @@ void	ft_auto_sortV5(t_stack_master *stack_master)
 
 	while (!(ft_is_correct(stack_master)))
 	{
-		bad_index_a = is_bad_index_only(stack_master);
+		bad_index_a = is_bad_index_only_a(stack_master);
 		if (ft_stack_is_empty(stack_master->b) && bad_index_a > -1)
 			jump_to_index(stack_master, bad_index_a, 0);
 		else if (ft_stack_is_empty(stack_master->b)

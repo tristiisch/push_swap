@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_swap.c                                     :+:      :+:    :+:   */
+/*   instructions_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 03:00:06 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/14 03:00:06 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/20 14:53:09 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,15 @@ int	colored_instructions2(t_stack_master *stack_master)
 {
 	int	pt;
 
-	if (stack_master->a->capacity == 500)
+	pt = -1;
+	if (stack_master->a->capacity == 3)
+	{
+		if (stack_master->instructions <= 3)
+			pt = 5;
+		else
+			pt = 0;
+	}
+	else if (stack_master->a->capacity == 500)
 	{
 		if (stack_master->instructions <= 5500)
 			pt = 5;
@@ -28,10 +36,6 @@ int	colored_instructions2(t_stack_master *stack_master)
 			pt = 2;
 		else if (stack_master->instructions <= 11500)
 			pt = 1;
-	}
-	else
-	{
-		pt = -1;
 	}
 	return (pt);
 }

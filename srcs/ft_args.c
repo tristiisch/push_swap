@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:48:20 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/20 14:48:52 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/20 16:19:30 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,6 @@ t_stack_master	*ft_args_to_stack_master(char **argv, int max_stack_size)
 		ft_error_master(stack_master, "You need to add integer in arguments");
 	ft_create_stack_master(stack_master, max_stack_size);
 	while (max_stack_size)
-		ft_add(stack_master->a, argv[max_stack_size--]);
+		ft_add(stack_master, stack_master->a, argv[max_stack_size--]);
 	return (stack_master);
 }

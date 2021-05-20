@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:05:23 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/20 15:13:57 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/20 17:20:51 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ t_stack			*ft_stack_create(unsigned int capacity);
 t_stack			*ft_stack_add(t_stack *old_stack, int new_item);
 int				ft_stack_has_place(t_stack *stack, int i);
 void			ft_stack_free_stack(t_stack *stack);
-t_stack			*ft_add(t_stack *stack, char *s);
+t_stack			*ft_add(t_stack_master *stack_master, t_stack *stack, char *s);
 
 t_stack_master	*ft_duplicate_stack_master(t_stack_master *stack_master);
 
@@ -190,16 +190,12 @@ void			rr_or_rrr(t_stack_master *stack_master, int times,
 
 int				ft_sort_and_print(t_stack_master *stack_master, char *operator);
 void			ft_auto_sort(t_stack_master *stack_master);
-void			ft_auto_sortV4(t_stack_master *stack_master);
 void			ft_auto_sortV5(t_stack_master *stack_master);
 
 /**
  * 					TEST
  */
 void			ft_test_all(void);
-void			ft_test_all_algos(t_stack_master *stack_master, int argc,
-					char **argv);
-void			ft_test_all_algos_random(int nb, int is_big_numbers);
 void			ft_test_numbers(int *nbs, int size);
 void			ft_test_args(int argc, char **argv);
 void			ft_print_instructions(t_stack_master *stack_master);

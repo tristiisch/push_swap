@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 01:36:16 by ksam              #+#    #+#             */
-/*   Updated: 2021/05/13 19:47:51 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/20 17:19:25 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,55 +16,38 @@ int	arg_verification(int res, int *array, int current)
 {
 	int	i;
 
-	if (res >= 0)
-	{
-		i = 0;
-		while (i <= current - 2)
-		{
-			if (array[i] == res)
-				return (0);
-			i++;
-		}
-		return (1);
-	}
-	return (0);
-}
-
-void	is_arg_digit(char *str)
-{
-	int	i;
-
 	i = 0;
-	while (str[i])
+	while (i <= current - 2)
 	{
-		if (ft_isdigit(str[i]))
-			i++;
-		else
-		{
-			printf("Error \n");
-			exit (0);
-		}
+		if (array[i] == res)
+			return (0);
+		i++;
 	}
+	return (1);
 }
 
 int	*transform_argument_to_array(int argc, char**argv)
 {
 	int		index;
-	int		res;
+	int		*res;
 	int		*array;
 
 	index = 1;
 	array = malloc(sizeof(int) * (argc - 1));
 	while (index < argc)
 	{
-		is_arg_digit(argv[index]);
-		res = ft_atoi(argv[index]);
-		if (arg_verification(res, array, index) == 1)
-			array[index - 1] = res;
+		res = ft_atoi_utimate(argv[index]);
+		if (res == NULL)
+		{
+			free(array);
+			ft_error("Int not in range detected");
+		}
+		if (arg_verification(*res, array, index) == 1)
+			array[index - 1] = *res;
 		else
 		{
-			printf("Error \n");
-			exit (0);
+			free(array);
+			ft_error("Duplicate int in stack");
 		}
 		index++;
 	}

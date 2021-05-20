@@ -25,18 +25,20 @@ int	ft_stack_has(t_stack *stack, int item)
 	return (0);
 }
 
-t_stack	*ft_add(t_stack *stack, char *s)
+t_stack	*ft_add(t_stack_master *stack_master, t_stack *stack, char *s)
 {
 	int	*i;
 
 	i = ft_atoi_utimate(s);
 	if (!i)
 	{
+		ft_stack_master_free(stack_master);
 		printf("\033[0;31mError\n'%s' is not a correct INT.\033[0m\n", s);
 		exit (EXIT_FAILURE);
 	}
 	else if (ft_stack_has(stack, *i))
 	{
+		ft_stack_master_free(stack_master);
 		printf("\033[0;31mError\n%d is already on stack A.\033[0m\n", *i);
 		exit (EXIT_FAILURE);
 	}

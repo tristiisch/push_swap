@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 09:32:36 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/19 09:32:36 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/21 12:25:22 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int	ft_perfect_shot_b(t_stack_master *stack_master, int min_b, int max_b)
 	if (ps->t_total < 0)
 		ft_error("Cannot find perfect shot B");
 	jump_to_index_both(stack_master, ps->saved_a, ps->saved_b);
+	free(ps);
 	ft_sort_and_print(stack_master, "pb");
 	return (1);
 }
@@ -107,6 +108,7 @@ int	ft_perfect_shot_a(t_stack_master *stack_master, int min_a, int max_a)
 	if (ps->t_total < 0)
 		ft_error("Cannot find perfect shot A");
 	jump_to_index_both(stack_master, ps->saved_a, ps->saved_b);
+	free(ps);
 	ft_sort_and_print(stack_master, "pa");
 	return (1);
 }

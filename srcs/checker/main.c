@@ -46,7 +46,7 @@ int	main(int argc, char **argv)
 			check_instructions(manager, instructions);
 			stack_master = fill_astack_with_arg(number_to_order, argc - 1);
 			exec_instructions(stack_master, manager);
-			free_all(number_to_order, stack_master);
+			free_all(number_to_order, stack_master, instructions);
 		}
 	}
 	free_manager(manager);

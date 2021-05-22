@@ -9,3 +9,4 @@ checker
 randomize
 !srcs/randomize
 .idea
+checker_linux

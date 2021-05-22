@@ -35,7 +35,7 @@ int	ft_sort2(t_stack_master *stack_master, char *operator)
 	}
 	else
 	{
-		printf("ERROR > Unknown operator '%s'.\n", operator);
+		dprintf(2, "ERROR > Unknown operator '%s'.\n", operator);
 		return (-2);
 	}
 }
@@ -79,13 +79,13 @@ int	ft_sort_and_print(t_stack_master *stack_master, char *operator)
 
 	i = ft_sort(stack_master, operator);
 	if (i == 0)
-		printf("ERROR operator %s failed.\n", operator);
+		dprintf(2, "ERROR operator %s failed.\n", operator);
 	else if (i < 0)
 	{
 		if (i == -1)
-			printf("ERROR > Stack Empty '%s'.\n", operator);
+			dprintf(2, "ERROR > Stack Empty '%s'.\n", operator);
 		else if (i == -2)
-			printf("ERROR > Unknown operator '%s'.\n", operator);
+			dprintf(2, "ERROR > Unknown operator '%s'.\n", operator);
 	}
 	else
 	{

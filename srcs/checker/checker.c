@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 15:10:35 by ksam              #+#    #+#             */
-/*   Updated: 2021/05/20 16:22:33 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/22 22:23:05 by ksam             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ void	check_instructions(t_master *manager, char **instructions)
 				break ;
 			if (i == 10)
 			{
-				printf("Error instruction -%s- not found\n", \
+				dprintf(STDERR_FILENO, "Error instruction -%s- not found\n", \
 									manager->current->val);
-				exit (0);
+				exit (1);
 			}
 			i++;
 		}

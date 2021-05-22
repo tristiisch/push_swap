@@ -43,6 +43,7 @@ int	main(int argc, char **argv)
 		{
 			while (get_next_line(0, &buffer) > 0)
 				data_backpusher(manager, buffer);
+			free(buffer);
 			check_instructions(manager, instructions);
 			stack_master = fill_astack_with_arg(number_to_order, argc - 1);
 			exec_instructions(stack_master, manager);

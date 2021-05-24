@@ -6,7 +6,7 @@
 /*   By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:05:23 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/22 19:38:00 by ksam             ###   ########lyon.fr   */
+/*   Updated: 2021/05/24 17:20:22 by ksam             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,8 +125,8 @@ t_stack_master	*fill_astack_with_arg(int *nb, int argc);
 /**
  * 					FREE FUNCTIONS
  */
-void			free_all(int *number_to_order, t_stack_master *stack_master, char **instructions);
-void			free_manager(t_master *manager);
+void			free_all(int *number_to_order, t_stack_master *stack_master);
+void			free_manager(t_master *manager, char **instructions);
 
 /**
  * 					INSTRUCTIONS INITIALIZOR

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+         #
+#    By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/04 12:37:16 by ksam              #+#    #+#              #
-#    Updated: 2021/05/22 20:10:55 by ksam             ###   ########lyon.fr    #
+#    Updated: 2021/05/25 13:04:11 by tglory           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,6 +82,7 @@ fclean: clean
 	rm -f $(NAME)
 	rm -f $(NAME_CHECKER)
 	rm -f $(NAME_RANDOMIZE)
+	rm -f $(LIB_PATH)
 
 re:
 	make fclean

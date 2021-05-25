@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 02:34:45 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/21 12:28:18 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/24 19:02:18 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,9 @@ void	ft_test_args(int argc, char **argv)
 	{
 		i = ft_atoi_utimate(argv[2]);
 		if (i == NULL)
-			i = 0;
-		ft_test_random(*i);
+			ft_error("Argument n°3 need to be an int");
+		else
+			ft_test_random(*i);
 	}
 	else
 		ft_test_all();

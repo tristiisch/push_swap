@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 02:18:08 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/20 15:12:28 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/24 18:12:42 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_get_cercle(int index, t_stack *stack)
 }
 
 /**
- * Sort automatically stacks with specific algo
+ * Sort automatically stacks
  */
 void	ft_auto_sort(t_stack_master *stack_master)
 {

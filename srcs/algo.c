@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/14 02:18:08 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/24 18:12:42 by tglory           ###   ########lyon.fr   */
+/*   Created: 2021/05/14 02:18:08 by ksam              #+#    #+#             */
+/*   Updated: 2021/05/24 16:33:52 by ksam             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_get_cercle(int index, t_stack *stack)
 }
 
 /**
- * Sort automatically stacks
+ * Sort automatically stacks with specific algo
  */
 void	ft_auto_sort(t_stack_master *stack_master)
 {

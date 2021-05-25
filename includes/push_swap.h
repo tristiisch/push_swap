@@ -6,7 +6,7 @@
 /*   By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:05:23 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/24 17:20:22 by ksam             ###   ########lyon.fr   */
+/*   Updated: 2021/05/25 14:06:10 by ksam             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,7 @@ void			data_eraser(t_master *manager, t_data *new, int i);
  */
 void			check_instructions(t_master *manager, char **instructions);
 t_stack_master	*fill_astack_with_arg(int *nb, int argc);
+int				compare_instruction(char *buffer, char *instructions);
 
 /**
  * 					FREE FUNCTIONS

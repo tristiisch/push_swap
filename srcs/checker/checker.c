@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/25 15:10:35 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/25 12:28:10 by tglory           ###   ########lyon.fr   */
+/*   Created: 2021/03/25 15:10:35 by ksam              #+#    #+#             */
+/*   Updated: 2021/05/25 14:17:38 by ksam             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ int	compare_instruction(char *buffer, char *instructions)
 {
 	if (buffer)
 	{
-		if ((ft_strcmp(buffer, instructions) != 0) \
-			&& (ft_strlen(buffer) == ft_strlen(instructions)))
+		if (!(ft_strncmp(buffer, instructions, ft_strlen(instructions) + 1)))
 			return (1);
 	}
 	return (0);
@@ -38,8 +37,7 @@ void	check_instructions(t_master *manager, char **instructions)
 				break ;
 			if (i == 10)
 			{
-				dprintf(STDERR_FILENO, "Error instruction -%s- not found\n", \
-									manager->current->val);
+				ft_error("Instruction not found");
 				exit (1);
 			}
 			i++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/30 04:46:08 by tglory            #+#    #+#             */
-/*   Updated: 2021/03/30 04:16:07 by tglory           ###   ########lyon.fr   */
+/*   Created: 2021/03/30 04:46:08 by ksam              #+#    #+#             */
+/*   Updated: 2021/05/24 16:38:26 by ksam             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_stack	*ft_add(t_stack_master *stack_master, t_stack *stack, char *s)
 	else if (ft_stack_has(stack, *i))
 	{
 		ft_stack_master_free(stack_master);
-		dprintf(2, "\033[0;31mError\n%d is already on stack A.\033[0m\n", *i);
+		dprintf(2, "\033[0;31mError\nDuplicate int in stack A.\033[0m\n");
 		exit (EXIT_FAILURE);
 	}
 	return (ft_stack_add(stack, *i));

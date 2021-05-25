@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 16:57:53 by tglory            #+#    #+#             */
-/*   Updated: 2021/05/17 00:09:43 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/05/22 22:23:05 by ksam             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	ft_error_master(t_stack_master *stack_master, char *msg)
 {
-	printf("\033[0;31mError\n%s.\033[0m\n", msg);
+	dprintf(2, "\033[0;31mError\n%s.\033[0m\n", msg);
 	ft_stack_master_free(stack_master);
 	exit(EXIT_FAILURE);
 }
 
 void	ft_error(char *msg)
 {
-	printf("\033[0;31mError\n%s.\033[0m\n", msg);
+	dprintf(2, "\033[0;31mError\n%s.\033[0m\n", msg);
 	exit(EXIT_FAILURE);
 }
 

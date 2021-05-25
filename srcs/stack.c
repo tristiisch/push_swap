@@ -33,14 +33,13 @@ t_stack	*ft_add(t_stack_master *stack_master, t_stack *stack, char *s)
 	if (!i)
 	{
 		ft_stack_master_free(stack_master);
-		printf("\033[0;31mError\n'%s' is not a correct INT.\033[0m\n", s);
+		dprintf(2, "\033[0;31mError\n'%s' is not a correct INT.\033[0m\n", s);
 		exit (EXIT_FAILURE);
 	}
 	else if (ft_stack_has(stack, *i))
 	{
 		ft_stack_master_free(stack_master);
-		// Check for 811762880 is already on stack A.
-		printf("\033[0;31mError\n%d is already on stack A.\033[0m\n", *i);
+		dprintf(2, "\033[0;31mError\n%d is already on stack A.\033[0m\n", *i);
 		exit (EXIT_FAILURE);
 	}
 	return (ft_stack_add(stack, *i));

@@ -6,7 +6,7 @@
 #    By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/26 17:55:35 by tglory            #+#    #+#              #
-#    Updated: 2021/12/02 14:00:25 by tglory           ###   ########lyon.fr    #
+#    Updated: 2021/12/02 14:02:12 by tglory           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,7 +72,7 @@ O_BONUS =	${SRC_BONUS:.c=.o}
 
 CC 		=	gcc
 
-CFLAGS	=   -Wall -Wextra -Werror
+CFLAGS	=   -Wall -Wextra #-Werror
 
 INCLUDE =	libft.h
 

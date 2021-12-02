@@ -6,7 +6,7 @@
 #    By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/04 12:37:16 by ksam              #+#    #+#              #
-#    Updated: 2021/05/25 13:04:11 by tglory           ###   ########lyon.fr    #
+#    Updated: 2021/12/02 14:00:28 by tglory           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,19 +57,19 @@ CFLAGS			=	-Wextra -Wall -g3 -fsanitize=address
 
 all: $(NAME) $(NAME_CHECKER)
 
-$(NAME): $(OBJS) $(OBJS_PUSH_SWAP) $(INCLUDES)
+$(NAME): $(OBJS) $(OBJS_PUSH_SWAP)
 	make -C libft
 	$(CC) ${CFLAGS} $(OBJS) $(OBJS_PUSH_SWAP) $(LIB_PATH) -o $(NAME)
 
-$(NAME_CHECKER): $(OBJS) $(OBJS_CHECKER) $(INCLUDES)
+$(NAME_CHECKER): $(OBJS) $(OBJS_CHECKER)
 	make -C libft
 	$(CC) ${CFLAGS} $(OBJS) $(OBJS_CHECKER) $(LIB_PATH) -o $(NAME_CHECKER)
 
-$(NAME_RANDOMIZE): $(OBJS) $(OBJS_RANDOMIZE) $(INCLUDES)
+$(NAME_RANDOMIZE): $(OBJS) $(OBJS_RANDOMIZE)
 	make -C libft
 	$(CC) ${CFLAGS} $(OBJS) $(OBJS_RANDOMIZE) $(LIB_PATH) -o $(NAME_RANDOMIZE)
 
-.c.o:
+%.o:	%.c $(INCLUDES)
 		${CC} ${CFLAGS} -c $< -o $@
 clean:
 	make $@ -C libft

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ksam <ksam@student.42lyon.fr>              +#+  +:+       +#+         #
+#    By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/26 17:55:35 by tglory            #+#    #+#              #
-#    Updated: 2021/05/22 19:14:40 by ksam             ###   ########lyon.fr    #
+#    Updated: 2021/12/02 14:00:25 by tglory           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,11 +76,11 @@ CFLAGS	=   -Wall -Wextra -Werror
 
 INCLUDE =	libft.h
 
-$(NAME) :	$(O_FILES) $(INCLUDE)
+$(NAME) :	$(O_FILES)
 			ar rcs $(NAME) $(O_FILES)
 			ranlib $(NAME)
 
-%.o :		%.c
+%.o:	%.c $(INCLUDES)
 			$(CC) $(CFLAGS) -c $< -o $@
 
 all:		$(NAME)

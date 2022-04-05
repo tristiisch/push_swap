@@ -45,5 +45,5 @@ TESTER AVEC UNE TAILLE >
 
 
 ### Score :
-[[tglory's 42 push_swap Score](https://badge42.vercel.app/api/v2/cl1lnya4f000609mhs5b44u13/project/2170987)]
+![tglory's 42 push_swap Score](https://badge42.vercel.app/api/v2/cl1lnya4f000609mhs5b44u13/project/2170987)
 

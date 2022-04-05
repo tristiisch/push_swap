@@ -1,4 +1,4 @@
-PUSH_SWAP >
+# PUSH_SWAP
 
 make
 Compile les programmes push_swap & checker
@@ -42,3 +42,8 @@ ARG=$(./randomize 500); ./push_swap $ARG -i -h
 
 TESTER AVEC UNE TAILLE >
 ./push_swap -r <nombre d'ints random>
+
+
+### Score :
+[[tglory's 42 push_swap Score](https://badge42.vercel.app/api/v2/cl1lnya4f000609mhs5b44u13/project/2170987)]
+
